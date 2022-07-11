@@ -60,3 +60,7 @@ h1 {
 .btn:hover{
     background: #563434;
 }
+
+.container{
+    margin:auto;
+}
