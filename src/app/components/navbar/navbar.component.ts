@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AutenticacionServicio } from '../../servicios/autenticacion.servicio';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,16 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  logueado = false;
+  rol:string | null ="";
+  usuario:any;
+
+  constructor(private autenticacionServicio: AutenticacionServicio) { }
 
   ngOnInit(): void {
+    this.getCurrentUser();
 
   }
   onLogout() {
-   // this.authService.logoutUser();
+   this.autenticacionServicio.logoutUser();
     console.log('salir');
   }
-  
+
+  getCurrentUser() {
+    if(localStorage.getItem('usuario')){
+      this.logueado=true;
+      this.rol = localStorage.getItem('rol')
+    }else{
+      this.logueado = false;
+    }
+
+  }
+
+
   }
 
 

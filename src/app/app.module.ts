@@ -8,6 +8,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { CatalogoComponent } from './pages/catalogo/catalogo.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    CatalogoComponent
+    CatalogoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

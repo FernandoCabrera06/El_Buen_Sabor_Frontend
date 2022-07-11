@@ -1,0 +1,24 @@
+<h3>Login</h3>
+
+
+<hr>
+
+<div class="row animated fadeIn fast">
+    <div class="col-md-12">
+        <form (ngSubmit)="onLogin()" #forma="ngForm">
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input id="usuario" [(ngModel)]="user.usuario" name="usuario" class="form-control" required minlength="4" placeholder="usuario">
+            </div>
+            <div class="form-group">
+                <label for="precio">Clave</label>
+                <input id="inputClave" [(ngModel)]="user.clave" name="clave" class="form-control" required minlength="4" placeholder="Clave">
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-outline-success" (click)="onLogin()">login</button>
+                <span style="text-align: right; width: 500; color: blue; font-weight: bold">&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </form>
+    </div>
+</div>
