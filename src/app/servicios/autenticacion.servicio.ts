@@ -20,7 +20,9 @@ export class AutenticacionServicio{
             localStorage.setItem('usuario',usuarioEncontrado.usuario);
             localStorage.setItem('rol',usuarioEncontrado.rol);
             console.log(localStorage.getItem('usuario'));
-            console.log(localStorage.getItem('rol'))
+            console.log(localStorage.getItem('rol'));
+            window. location. reload();
+            this.router.navigate(['/home']);
         });
 
 
