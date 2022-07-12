@@ -1,4 +1,4 @@
-<h3>Login</h3>
+<!--<h3>Login</h3>
 
 
 <hr>
@@ -8,7 +8,7 @@
         <form (ngSubmit)="onLogin()" #forma="ngForm">
             <div class="form-group">
                 <label for="usuario">Usuario</label>
-                <input id="usuario" [(ngModel)]="user.usuario" name="usuario" class="form-control" required minlength="4" placeholder="usuario">
+                <input id="usuario" [(ngModel)]="user.usuario" name="usuario" class="form-control" required minlength="4" placeholder="Usuario">
             </div>
             <div class="form-group">
                 <label for="precio">Clave</label>
@@ -20,5 +20,40 @@
                 <span style="text-align: right; width: 500; color: blue; font-weight: bold">&nbsp;&nbsp;&nbsp;</span>
             </div>
         </form>
+    </div>
+</div>-->
+
+<div id="login" class="mb-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+                <div class="card_login">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <form (ngSubmit)="onLogin()" #forma="ngForm">
+                                <div class="form-group">
+                                    <h1 class="h3 mb-3 font-weight-normal">Inicia Sesión</h1>
+
+                                    <button class="btn-social btn-google btn btn-block" (click)="onLoginGoogle()">
+                                      <span ></span>Inicia con GOOGLE</button>
+                                </div>
+                                <p>o inicia con tu usuario</p>
+                                <div class="form-group">
+                                    <input id="usuario" [(ngModel)]="user.usuario" name="usuario" class="form-control" required minlength="4" placeholder="Usuario">
+                                </div>
+                                <div class="form-group">
+                                    <input id="inputClave" [(ngModel)]="user.clave" name="clave" class="form-control" required minlength="4" placeholder="Clave">
+                                </div>
+                                <button type="button" class="btn btn-outline-success" (click)="onLogin()">Login</button>
+
+                                <div class="form-group">
+                                    <a routerLink="/usuario/registro" class="form-control login-user">¿ No tienes cuenta ?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

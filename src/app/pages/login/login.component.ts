@@ -4,7 +4,6 @@ import { AutenticacionServicio } from '../../servicios/autenticacion.servicio';
 import { NgForm } from '@angular/forms';
 import { Usuario } from '../../entidades/Usuario';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -46,6 +45,17 @@ export class LoginComponent  implements OnInit{
     localStorage.setItem('logueado', 'false');
   }
 
+  onLoginGoogle() {
+    this.serv.loginGoogle().then((res: any) => {
+      this.redireccionGoogle();
+      window. location. reload();
+      this.router.navigate(['/home']);
+    }).catch(err => {
+      console.log('err ', err.message);
+
+    });
+  }
+
   addNew(formu: NgForm) {
     this.router.navigate(['/', 'nuevo']);
     formu.reset({
@@ -61,27 +71,16 @@ export class LoginComponent  implements OnInit{
     });
   }
 
-  /*redireccion(){
+  redireccionGoogle(){
     this.serv.isAuth().subscribe((user: any) => {
       if (user) {
         console.log("El user es : ", user);
-        localStorage.setItem('email', user.email);
-        this.clienServ.getUser(user.email).subscribe( (data: any) => {
-          console.log(data);
-           localStorage.setItem('rol', data.rol.descripcion);
-           this.setActivo();
-           if (user.emailVerified) {
-            this.router.navigate(['/home']);
-          } else {
-            this.router.navigate(['/user/verificacion']);
-          }
-
-        }, () =>{
-        });
+        localStorage.setItem('usuario', user.email);
+        localStorage.setItem('rol','cliente')
 
       }
     });
 
-  }*/
+  }
 
 }
