@@ -19,6 +19,7 @@ export class CatalogoComponent implements OnInit {
     imagenArticuloManu: '',
     precioTotal: 0,
     stock: 0,
+    idRubroGeneral: 0,
   };
   articulos: ArticuloManufacturado[] = [];
 

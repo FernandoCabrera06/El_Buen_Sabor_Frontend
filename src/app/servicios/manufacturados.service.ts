@@ -48,10 +48,10 @@ export class ManufacturadosService {
   }
 
   //baja logica de un articulo manufacturado
-  async deleteArticuloManufacturadoFetch(idArticulo: string) {
+  async deleteArticuloManufacturadoFetch(idArticulo: number) {
     let urlServer =
       'http://localhost:808/articuloManufacturado/borrarArticuloManufacturado/' +
-      idArticulo;
+      Number(idArticulo);
     console.log(urlServer);
     let result = await fetch(urlServer, {
       method: 'PUT',
@@ -65,6 +65,9 @@ export class ManufacturadosService {
 
   //guardar o actualizar un articulo Manufacturado
   async guardarPOST(articuloManufacturado: ArticuloManufacturado) {
+    articuloManufacturado.idRubroGeneral = Number(
+      articuloManufacturado.idRubroGeneral
+    );
     let urlServer =
       'http://localhost:8080/articuloManufacturado/articuloManufacturado';
     let method = 'POST';

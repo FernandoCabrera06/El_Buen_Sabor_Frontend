@@ -1,0 +1,52 @@
+<p>form-manufacturados works!</p>
+
+<h3>Articulo Manufacturado <small>{{ articulo.idArticuloManufacturado }}</small></h3>
+<button class="btn btn-outline-danger" [routerLink]="['/admin/manufacturados']">Volver</button>
+<button class="btn btn-outline-success" (click)="addNew(forma)">Limpiar campos</button>
+<hr>
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-12">
+    <form #forma="ngForm">
+      <div class="form-group">
+        <label for="nombre">Denominacion</label>
+        <input id="nombre" [(ngModel)]="articulo.denominacionArticuloManu" name="nombre" class="form-control" required minlength="4">
+      </div>
+      <div class="form-group">
+          <label for="precio">Tiempo estimado de cocina</label>
+          <input id="precio" type="number" [(ngModel)]="articulo.tiempoEstimadoCocina" name="precio" class="form-control" required minlength="4">
+      </div>
+      <div class="form-group">
+        <label for="rubro">Precio total</label>
+        <input id="rubro" [(ngModel)]="articulo.precioTotal" name="rubro" class="form-control" required minlength="4">
+      </div>
+      <div class="form-group">
+        <label for="rubro">Stock actual</label>
+        <input id="rubro" [(ngModel)]="articulo.stock" name="modelo" class="form-control" required minlength="4">
+      </div>
+
+      <div class="form-group">
+        <label for="rubro">Imagen</label>
+        <input id="rubro" [(ngModel)]="articulo.imagenArticuloManu" name="modelo" class="form-control" required minlength="4">
+      </div>
+
+      <div class="form-group">
+        <label for="rubro">Rubro general</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected="1">Hamburguesas</option>
+            <option value="2">Pizzas</option>
+            <option value="3">Empanadas</option>
+            <option value="4">Sandwiches</option>
+            <option value="5">Panchos</option>
+            <option value="6">Pastas</option>
+            <option value="7">Frituras</option>
+          </select>
+    </div>
+      
+      <div class="form-group">
+        <button type="button" class="btn btn-outline-success" (click)="guardarPOST()">Guardar</button>
+        <span style="text-align: right; width: 500; color: blue; font-weight: bold">&nbsp;&nbsp;&nbsp; {{ resultado }}</span>
+      </div>
+    </form>
+  </div>
+</div>

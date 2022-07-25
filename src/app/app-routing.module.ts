@@ -8,6 +8,7 @@ import { GananciasComponent } from './pages/reportes/gananacias/gananacias.compo
 import { PedidosPorUsuarioComponent } from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component';
 import { PedidosPorPeriodoComponent } from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component';
 import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.component';
+import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,10 @@ const routes: Routes = [
   { path: 'admin/pcliente', component: PedidosPorUsuarioComponent },
   { path: 'admin/maspedidas', component: PedidosPorPeriodoComponent },
   { path: 'admin/manufacturados', component: ManufacturadosComponent },
+  {
+    path: 'manufacturado/:idArticuloManufacturado',
+    component: FormManufacturadosComponent,
+  },
 ];
 
 @NgModule({

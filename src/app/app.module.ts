@@ -19,6 +19,7 @@ import { GananciasComponent } from './pages/reportes/gananacias/gananacias.compo
 import { PedidosPorUsuarioComponent } from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component';
 import { PedidosPorPeriodoComponent } from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component';
 import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.component';
+import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.c
     PedidosPorUsuarioComponent,
     PedidosPorPeriodoComponent,
     ManufacturadosComponent,
+    FormManufacturadosComponent,
   ],
   imports: [
     BrowserModule,

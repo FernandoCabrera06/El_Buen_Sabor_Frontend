@@ -1,16 +1,15 @@
-<p>manufacturados works!</p>
-
 <h1>Gestión de Artículos Manufacturados</h1>
 <hr>
 
 <div class="row">
   <div class="col-md-12 text-right">
     <button
-        type="button" class="btn btn-outline-primary" type="button" name="button">
+        type="button" [routerLink]="['/manufacturado', '0']" class="btn btn-outline-primary" type="button" name="button">
       Nuevo articulo manufacturado
     </button>
   </div>
 </div>
+<br>
 
 <div class="row animated fadeIn">
   <div class="col-md-12">
@@ -40,10 +39,10 @@
                   <i class="fas fa-edit"></i> Detalle
                   </button>&nbsp;&nbsp;
                   <button type="button" 
-                    class="btn btn-outline-success" type="button" name="button">
+                    class="btn btn-outline-success" [routerLink]="['/manufacturado', articulo.idArticuloManufacturado]" type="button" name="button">
                     <i class="fas fa-edit"></i> Editar
                   </button>&nbsp;&nbsp;
-                  <button type="button" class="btn btn-outline-danger" type="button" name="button">
+                  <button type="button" (click)="delete(articulo.idArticuloManufacturado)" class="btn btn-outline-danger" type="button" name="button">
                     <i class="fas fa-trash-alt"></i> Eliminar
                   </button>
               </td>

@@ -31,4 +31,14 @@ export class ManufacturadosComponent implements OnInit {
         this.loading = false;
       });
   }
+
+  delete(idArticuloManu: number) {
+    var opcion = confirm(
+      'Esta seguro que desea eliminar el articulo manufacturado?'
+    );
+    if (opcion == true) {
+      this.servicioManu.deleteArticuloManufacturadoFetch(idArticuloManu);
+      location.reload();
+    }
+  }
 }
