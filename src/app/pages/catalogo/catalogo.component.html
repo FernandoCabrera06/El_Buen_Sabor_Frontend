@@ -129,7 +129,7 @@
         <!-- ----------------------------Fin Promos------------------------------------------- -->
 
         <!-- -----------------------------Productos------------------------------------------ -->
-        <h2>Productos</h2>
+        <h2>Comidas</h2>
         <div class="row-catalogo">
             <div class="col-4" *ngFor="let articulo of articulos; let i=index">
                 <img src="../../../assets/images/{{articulo.imagenArticuloManu}}">
@@ -142,6 +142,15 @@
         <!-- --------------------------------Fin Productos--------------------------------------- -->
 
         <!-- -----------------------------Bebidas------------------------------------------ -->
+        <h2>Bebidas</h2>
+        <div class="row-catalogo">
+            <div class="col-4" *ngFor="let bebida of bebidas; let i=index">
+                <img src="../../../assets/images/{{bebida.imagenBebida}}">
+                <h5 title="{{bebida.nombreBebida}}">{{bebida.nombreBebida}}</h5>
+                <p>$ {{bebida.precioTotal}}</p>
 
+            </div>
+
+        </div>
     </div>
 </div>

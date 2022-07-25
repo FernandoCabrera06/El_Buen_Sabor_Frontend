@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import {Reporte} from 'src/app/entidades/dto/Reporte';
 import { ProductosServicio } from 'src/app/servicios/productos.servicio';
 import { ArticuloManufacturado } from 'src/app/entidades/ArticuloManufacturado';
+import {Bebida} from 'src/app/entidades/dto/BebidaDto';
 
 @Component({
   selector: 'app-catalogo',
@@ -20,8 +21,18 @@ export class CatalogoComponent implements OnInit {
     precioTotal: 0,
     stock: 0
   }
-
   articulos: ArticuloManufacturado[] = [];
+
+  bebida: Bebida ={
+    idBebida: 0,
+    nombreBebida: "",
+    imagenBebida: "",
+    precioTotal: 0,
+    stock: 0
+  }
+  bebidas: Bebida[] = [];
+
+
   loading = true;
   constructor(private router: Router,private activeRoute:ActivatedRoute,private serv:ProductosServicio) { }
 
@@ -35,6 +46,17 @@ export class CatalogoComponent implements OnInit {
       }
       this.loading = false;
     });
+
+    this.serv.getBebidasFromDataBase()
+    .subscribe(dato=>{
+      console.log(dato);
+      for(let bebidaDb in dato){
+        console.log(dato[bebidaDb]);
+        this.bebidas.push(dato[bebidaDb]);
+      }
+      this.loading = false;
+    });
+
 
   }
 
