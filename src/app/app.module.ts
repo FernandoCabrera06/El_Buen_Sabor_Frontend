@@ -13,11 +13,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
-import {AutenticacionServicio} from './servicios/autenticacion.servicio';
+import { AutenticacionServicio } from './servicios/autenticacion.servicio';
 import { IngresosComponent } from './pages/reportes/ingresos/ingresos.component';
 import { GananciasComponent } from './pages/reportes/gananacias/gananacias.component';
-import {PedidosPorUsuarioComponent} from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component'
-import {PedidosPorPeriodoComponent} from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component'
+import { PedidosPorUsuarioComponent } from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component';
+import { PedidosPorPeriodoComponent } from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component';
+import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import {PedidosPorPeriodoComponent} from './pages/reportes/pedidosPorPeriodo/ped
     IngresosComponent,
     GananciasComponent,
     PedidosPorUsuarioComponent,
-    PedidosPorPeriodoComponent
+    PedidosPorPeriodoComponent,
+    ManufacturadosComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +41,9 @@ import {PedidosPorPeriodoComponent} from './pages/reportes/pedidosPorPeriodo/ped
     FormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [AutenticacionServicio],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
