@@ -132,10 +132,10 @@
         <h2>Comidas</h2>
         <div class="row-catalogo">
             <div class="col-4" *ngFor="let articulo of articulos; let i=index">
-                <img src="../../../assets/images/{{articulo.imagenArticuloManu}}">
+                <img src="../../../assets/images/{{articulo.imagenArticuloManu}}" (click)="detalleProducto(i)">
                 <h5 title="{{articulo.denominacionArticuloManu}}">{{articulo.denominacionArticuloManu}}</h5>
                 <p>$ {{articulo.precioTotal}}</p>
-
+                <button type="button" class="btn btn-outline-success" (click)="agregar(i)">Agregar al carrito</button>
             </div>
 
         </div>
@@ -145,10 +145,10 @@
         <h2>Bebidas</h2>
         <div class="row-catalogo">
             <div class="col-4" *ngFor="let bebida of bebidas; let i=index">
-                <img src="../../../assets/images/{{bebida.imagenBebida}}">
+                <img src="../../../assets/images/{{bebida.imagenBebida}}" (click)="detalleBebida(i)">
                 <h5 title="{{bebida.nombreBebida}}">{{bebida.nombreBebida}}</h5>
                 <p>$ {{bebida.precioTotal}}</p>
-
+                <button type="button" class="btn btn-outline-success" (click)="agregar(i)">Agregar al carrito</button>
             </div>
 
         </div>

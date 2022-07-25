@@ -1,0 +1,20 @@
+<div class="row-catalogo" *ngIf="articulo.idArticuloManufacturado > 0 && articulo.idArticuloManufacturado <= 9 ">
+    <div class="col-4">
+        <img src="../../../assets/images/{{articulo.imagenArticuloManu}}">
+        <h5 title="{{articulo.denominacionArticuloManu}}">{{articulo.denominacionArticuloManu}}</h5>
+        <p>$ {{articulo.precioTotal}}</p>
+        <button type="button" class="btn btn-outline-success" (click)="agregar()">Agregar al carrito</button>
+    </div>
+    <button type="button" class="btn btn-outline-danger" (click)="volverCatalogoProducto()">Vovler al Catálogo</button>
+</div>
+
+
+<div class="row-catalogo" *ngIf="bebida.idBebida>9 || bebida.nombreBebida == 'Coca Cola 2.5 L'">
+    <div class="col-4">
+        <img src="../../../assets/images/{{bebida.imagenBebida}}">
+        <h5 title="{{bebida.nombreBebida}}">{{bebida.nombreBebida}}</h5>
+        <p>$ {{bebida.precioTotal}}</p>
+        <button type="button" class="btn btn-outline-success" (click)="agregar()">Agregar al carrito</button>
+    </div>
+    <button type="button" class="btn btn-outline-danger" (click)="volverCatalogoBebida()">Vovler al Catálogo</button>
+</div>

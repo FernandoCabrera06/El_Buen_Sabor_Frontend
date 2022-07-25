@@ -7,6 +7,7 @@ import { IngresosComponent } from './pages/reportes/ingresos/ingresos.component'
 import { GananciasComponent} from './pages/reportes/gananacias/gananacias.component';
 import { PedidosPorUsuarioComponent } from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component';
 import { PedidosPorPeriodoComponent} from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component';
+import { DetalleProductoComponent } from './pages/detalleProducto/detalleProducto.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path : 'admin/ingresos', component: IngresosComponent},
   {path : 'admin/ganancias', component: GananciasComponent},
   {path: 'admin/pcliente', component : PedidosPorUsuarioComponent},
-  {path: 'admin/maspedidas', component: PedidosPorPeriodoComponent}
+  {path: 'admin/maspedidas', component: PedidosPorPeriodoComponent},
+  {path: 'detalle', component: DetalleProductoComponent}
 
 ];
 
