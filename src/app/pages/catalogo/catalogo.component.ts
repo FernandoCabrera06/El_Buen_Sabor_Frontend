@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import {Reporte} from 'src/app/entidades/dto/Reporte';
+import { ProductosServicio } from 'src/app/servicios/productos.servicio';
+import { ArticuloManufacturado } from 'src/app/entidades/ArticuloManufacturado';
 
 @Component({
   selector: 'app-catalogo',
@@ -7,10 +12,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogoComponent implements OnInit {
 
-  constructor() { }
+  articulo: ArticuloManufacturado ={
+    idArticuloManufacturado: 0,
+    tiempoEstimadoCocina: 0,
+    denominacionArticuloManu: "",
+    imagenArticuloManu: "",
+    precioTotal: 0,
+    stock: 0
+  }
+
+  articulos: ArticuloManufacturado[] = [];
+  loading = true;
+  constructor(private router: Router,private activeRoute:ActivatedRoute,private serv:ProductosServicio) { }
 
   ngOnInit(): void {
-    console.log("asdasdasda");
+    this.serv.getArticulosManufacturadosFromDataBase()
+    .subscribe(data=>{
+      console.log(data);
+      for(let articuloDB in data){
+        console.log(data[articuloDB]);
+        this.articulos.push(data[articuloDB]);
+      }
+      this.loading = false;
+    });
+
   }
 
 }
