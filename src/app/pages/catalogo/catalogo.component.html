@@ -135,7 +135,7 @@
                 <img src="../../../assets/images/{{articulo.imagenArticuloManu}}" (click)="detalleProducto(i)">
                 <h5 title="{{articulo.denominacionArticuloManu}}">{{articulo.denominacionArticuloManu}}</h5>
                 <p>$ {{articulo.precioTotal}}</p>
-                <button type="button" class="btn btn-outline-success" (click)="agregar(i)">Agregar al carrito</button>
+                <button type="button" class="btn btn-outline-success" (click)="agregar(i)" [disabled]="rol != 'Cliente' && rol != 'Admin'">Agregar al carrito</button>
             </div>
 
         </div>
@@ -148,7 +148,7 @@
                 <img src="../../../assets/images/{{bebida.imagenBebida}}" (click)="detalleBebida(i)">
                 <h5 title="{{bebida.nombreBebida}}">{{bebida.nombreBebida}}</h5>
                 <p>$ {{bebida.precioTotal}}</p>
-                <button type="button" class="btn btn-outline-success" (click)="agregar(i)">Agregar al carrito</button>
+                <button type="button" class="btn btn-outline-success" (click)="agregarBebida(i)" [disabled]="rol != 'Cliente' && rol != 'Admin'">Agregar al carrito</button>
             </div>
 
         </div>

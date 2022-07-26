@@ -19,6 +19,7 @@ import { GananciasComponent } from './pages/reportes/gananacias/gananacias.compo
 import {PedidosPorUsuarioComponent} from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component'
 import {PedidosPorPeriodoComponent} from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component'
 import {DetalleProductoComponent} from './pages/detalleProducto/detalleProducto.component'
+import { CarritoComponent } from './pages/carrito/carrito.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import {DetalleProductoComponent} from './pages/detalleProducto/detalleProducto.
     GananciasComponent,
     PedidosPorUsuarioComponent,
     PedidosPorPeriodoComponent,
-    DetalleProductoComponent
+    DetalleProductoComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

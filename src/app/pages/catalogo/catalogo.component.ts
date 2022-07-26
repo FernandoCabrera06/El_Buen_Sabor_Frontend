@@ -7,6 +7,7 @@ import { ArticuloManufacturado } from 'src/app/entidades/ArticuloManufacturado';
 import {Bebida} from 'src/app/entidades/dto/BebidaDto';
 import { DetalleProductoComponent } from '../detalleProducto/detalleProducto.component';
 import {detalleProductoManufactuardoServicio} from 'src/app/servicios/detalleProductoManufacturado.servicio';
+import{Carrito} from 'src/app/entidades/dto/CarritoDto';
 
 @Component({
   selector: 'app-catalogo',
@@ -34,11 +35,16 @@ export class CatalogoComponent implements OnInit {
   }
   bebidas: Bebida[] = [];
 
-  carrito:any;
-
+  carrito: Carrito ={
+    nombreProducto: "",
+    cantidad: 0,
+    precioProducto: 0
+  }
+  carritos : Carrito[]=[];
+  rol:string|null="";
   loading = true;
   constructor(private router: Router,private activeRoute:ActivatedRoute,private serv:ProductosServicio, private serArtManu:detalleProductoManufactuardoServicio ) {
-    localStorage.setItem("carro", JSON.stringify(this.carrito));
+    this.rol = localStorage.getItem('rol');
   }
 
   ngOnInit(): void {
@@ -76,38 +82,37 @@ export class CatalogoComponent implements OnInit {
 
   agregar(i:number){
     if (this.hayStock(i)) {
-      //this.carrito = JSON.parse(localStorage.getItem("carro"));
-      if (this.carrito == null) {
-        this.carrito = [{
-          articuloManufacturado: null,
-          articuloReventa: null
-        }];
-        this.carrito[0].articuloManufacturado = this.articulos[i];
-        this.carrito[0].cantidad = 1;
-
-      } else {
-        if (this.existe(this.articulos[i].idArticuloManufacturado) == false) {
-
-          let nuevo = {
-            articuloManufacturado: null,
-            articuloReventa: null,
-            cantidad: 0
-          };
-          //nuevo.articuloManufacturado = this.articulos[i];
-          nuevo.cantidad = 1;
-          this.carrito.push(nuevo);
-
-        }
+      const dato = localStorage.getItem('carro');
+      alert("Producto agregado al carrito");
+      if(dato) this.carritos = JSON.parse(dato);
+      let nuevo ={
+        nombreProducto:'',
+        cantidad:0,
+        precioProducto:0
       }
-      localStorage.setItem("carro", JSON.stringify(this.carrito));
-      console.log('El objeto agregado es : ', this.articulos[i]);
-      console.log('El carrito actual es : ', this.carrito);
-
-      alert('Se agrego al carrito');
-    } else {
-      alert("No hay stock");
+       nuevo.nombreProducto = this.articulos[i].denominacionArticuloManu;
+       nuevo.cantidad = 1;
+       nuevo.precioProducto = this.articulos[i].precioTotal;
+       this.carritos.push(nuevo);
+       localStorage.setItem('carro',JSON.stringify(this.carritos));
     }
-
+  }
+  agregarBebida(i:number){
+    if (this.hayStock(i)) {
+      const dato = localStorage.getItem('carro');
+      alert("Bebida agregada al carrito");
+      if(dato) this.carritos = JSON.parse(dato);
+      let nuevo ={
+        nombreProducto:'',
+        cantidad:0,
+        precioProducto:0
+      }
+       nuevo.nombreProducto = this.bebidas[i].nombreBebida;
+       nuevo.cantidad = 1;
+       nuevo.precioProducto = this.bebidas[i].precioTotal;
+       this.carritos.push(nuevo);
+       localStorage.setItem('carro',JSON.stringify(this.carritos));
+    }
   }
 
   hayStock(i:number){
@@ -119,17 +124,5 @@ export class CatalogoComponent implements OnInit {
     }
   }
 
-  existe(id:any) {
-    for (let c of this.carrito) {
-      if (c.articuloManufacturado != null) {
-        if (c.articuloManufacturado.id == id) {
-          c.cantidad++;
-          return true;
-        }
-      }
-
-    }
-    return false;
-  }
 
 }

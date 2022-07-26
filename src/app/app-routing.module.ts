@@ -8,6 +8,7 @@ import { GananciasComponent} from './pages/reportes/gananacias/gananacias.compon
 import { PedidosPorUsuarioComponent } from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component';
 import { PedidosPorPeriodoComponent} from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component';
 import { DetalleProductoComponent } from './pages/detalleProducto/detalleProducto.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path : 'admin/ganancias', component: GananciasComponent},
   {path: 'admin/pcliente', component : PedidosPorUsuarioComponent},
   {path: 'admin/maspedidas', component: PedidosPorPeriodoComponent},
-  {path: 'detalle', component: DetalleProductoComponent}
+  {path: 'detalle', component: DetalleProductoComponent},
+  {path: 'carrito', component: CarritoComponent}
 
 ];
 
