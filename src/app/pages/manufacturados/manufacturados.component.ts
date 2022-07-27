@@ -41,4 +41,9 @@ export class ManufacturadosComponent implements OnInit {
       location.reload();
     }
   }
+
+  verDetalle(idx: number) {
+    console.log('ID ARTICULO MANUFACTURADO ' + idx);
+    this.router.navigate(['/detalleManufacturado', idx]);
+  }
 }

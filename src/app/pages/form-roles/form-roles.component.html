@@ -1,0 +1,21 @@
+<h3> Rol <small>{{ rol.idRol }}</small></h3>
+
+<button class="btn btn-outline-danger" [routerLink]="['/admin/roles']">Volver</button>
+<button class="btn btn-outline-success" (click)="addNew(forma)">Limpiar campos</button>
+<hr>
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-12">
+    <form #forma="ngForm">
+      <div class="form-group">
+        <label for="nombre">Denominacion</label>
+        <input id="descripcion" [(ngModel)]="rol.descripcion" name="descripcion" class="form-control" required minlength="4">
+      </div>
+      
+      <div class="form-group">
+        <button type="button" class="btn btn-outline-success" (click)="guardarPOST()">Guardar</button>
+        <span style="text-align: right; width: 500; color: blue; font-weight: bold">&nbsp;&nbsp;&nbsp; {{ resultado }}</span>
+      </div>
+    </form>
+  </div>
+</div>
