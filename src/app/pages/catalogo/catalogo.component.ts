@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import {Reporte} from 'src/app/entidades/dto/Reporte';
+import { Reporte } from 'src/app/entidades/dto/Reporte';
 import { ProductosServicio } from 'src/app/servicios/productos.servicio';
 import { ArticuloManufacturado } from 'src/app/entidades/ArticuloManufacturado';
 import {Bebida} from 'src/app/entidades/dto/BebidaDto';
@@ -9,31 +9,37 @@ import { DetalleProductoComponent } from '../detalleProducto/detalleProducto.com
 import {detalleProductoManufactuardoServicio} from 'src/app/servicios/detalleProductoManufacturado.servicio';
 import{Carrito} from 'src/app/entidades/dto/CarritoDto';
 
+
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
-  styleUrls: ['./catalogo.component.css']
+  styleUrls: ['./catalogo.component.css'],
 })
 export class CatalogoComponent implements OnInit {
-
-  articulo: ArticuloManufacturado ={
+  articulo: ArticuloManufacturado = {
     idArticuloManufacturado: 0,
     tiempoEstimadoCocina: 0,
-    denominacionArticuloManu: "",
-    imagenArticuloManu: "",
+    denominacionArticuloManu: '',
+    imagenArticuloManu: '',
     precioTotal: 0,
     stock: 0,
-    insumos:[]
+    insumos:[],
+    idRubroGeneral:0
+
   }
+
+  idRubroGeneral:number= 0;
+
+
   articulos: ArticuloManufacturado[] = [];
 
-  bebida: Bebida ={
+  bebida: Bebida = {
     idBebida: 0,
-    nombreBebida: "",
-    imagenBebida: "",
+    nombreBebida: '',
+    imagenBebida: '',
     precioTotal: 0,
-    stock: 0
-  }
+    stock: 0,
+  };
   bebidas: Bebida[] = [];
 
   carrito: Carrito ={
@@ -51,25 +57,24 @@ export class CatalogoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.serv.getArticulosManufacturadosFromDataBase()
-    .subscribe(data=>{
+    this.serv.getArticulosManufacturadosFromDataBase().subscribe((data) => {
       console.log(data);
-      for(let articuloDB in data){
+      for (let articuloDB in data) {
         console.log(data[articuloDB]);
         this.articulos.push(data[articuloDB]);
       }
       this.loading = false;
     });
 
-    this.serv.getBebidasFromDataBase()
-    .subscribe(dato=>{
+    this.serv.getBebidasFromDataBase().subscribe((dato) => {
       console.log(dato);
-      for(let bebidaDb in dato){
+      for (let bebidaDb in dato) {
         console.log(dato[bebidaDb]);
         this.bebidas.push(dato[bebidaDb]);
       }
       this.loading = false;
     });
+
 
   }
 
@@ -136,4 +141,5 @@ export class CatalogoComponent implements OnInit {
   }
 
 
-}
+
+  }

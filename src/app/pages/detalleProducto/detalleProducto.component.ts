@@ -22,7 +22,9 @@ export class DetalleProductoComponent implements OnInit {
     imagenArticuloManu: "",
     precioTotal: 0,
     stock: 0,
-    insumos:[]
+    insumos:[],
+    idRubroGeneral: 0
+
   }
   articulos: ArticuloManufacturado[] = [];
   bebida: Bebida ={
