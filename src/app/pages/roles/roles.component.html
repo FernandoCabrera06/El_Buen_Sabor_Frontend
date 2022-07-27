@@ -28,7 +28,7 @@
               <td>{{ rol.descripcion }}</td>
               
               <td class="text-right w120">
-                  <button type="button" 
+                  <button type="button" [routerLink]="['/rol', rol.idRol]"
                     class="btn btn-outline-success" type="button" name="button">
                     <i class="fas fa-edit"></i> Editar
                   </button>&nbsp;&nbsp;

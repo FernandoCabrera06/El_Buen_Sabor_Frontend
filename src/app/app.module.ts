@@ -24,6 +24,7 @@ import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.c
 import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
 import { DetalleManufacturadoComponent } from './pages/detalle-manufacturado/detalle-manufacturado.component';
 import { RolesComponent } from './pages/roles/roles.component';
+import { FormRolesComponent } from './pages/form-roles/form-roles.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { RolesComponent } from './pages/roles/roles.component';
     FormManufacturadosComponent,
     DetalleManufacturadoComponent,
     RolesComponent,
+    FormRolesComponent,
 
   ],
   imports: [

@@ -33,7 +33,7 @@ export class RolesService {
   }
 
   //busca un rol por el id
-  getRolEnBaseDatosXId(idx: string) {
+  getRolEnBaseDatosXId(idx: number) {
     return this.http
       .get('http://localhost:8080/articuloManufacturado/listarRolXId/' + idx)
       .pipe(map((rolEncontrado) => rolEncontrado));

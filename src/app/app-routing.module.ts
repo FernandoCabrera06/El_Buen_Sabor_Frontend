@@ -12,6 +12,7 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.component';
 import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
 import { RolesComponent } from './pages/roles/roles.component';
+import { FormRolesComponent } from './pages/form-roles/form-roles.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'admin/roles',
     component: RolesComponent,
+  },
+  {
+    path: 'rol/:idRol',
+    component: FormRolesComponent,
   },
 ];
 
