@@ -19,12 +19,15 @@ export class CarritoComponent implements OnInit {
 
 
   carrito: Carrito ={
+    id:0,
     nombreProducto: "",
     cantidad: 0,
-    precioProducto: 0
+    precioProducto: 0,
+    subTotal:0
   }
   carritos : Carrito[]=[];
   totalCompra:number=0;
+  subtotal: number=0;
   constructor(private router: Router,private activeRoute:ActivatedRoute ) {
 
   }
@@ -32,7 +35,7 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     const dato = localStorage.getItem('carro');
       if(dato) this.carritos = JSON.parse(dato);
-      this.totalCompra = this.carritos.reduce((a,b)=> a+=b.precioProducto,0);
+      this.totalCompra = this.carritos.reduce((a,b,c)=> a+=b.subTotal,0);
   }
   eliminar(i:number){
      this.carritos.splice(i,1);

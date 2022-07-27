@@ -22,7 +22,8 @@ export class CatalogoComponent implements OnInit {
     denominacionArticuloManu: "",
     imagenArticuloManu: "",
     precioTotal: 0,
-    stock: 0
+    stock: 0,
+    insumos:[]
   }
   articulos: ArticuloManufacturado[] = [];
 
@@ -36,9 +37,11 @@ export class CatalogoComponent implements OnInit {
   bebidas: Bebida[] = [];
 
   carrito: Carrito ={
+    id:0,
     nombreProducto: "",
     cantidad: 0,
-    precioProducto: 0
+    precioProducto: 0,
+    subTotal:0
   }
   carritos : Carrito[]=[];
   rol:string|null="";
@@ -86,13 +89,17 @@ export class CatalogoComponent implements OnInit {
       alert("Producto agregado al carrito");
       if(dato) this.carritos = JSON.parse(dato);
       let nuevo ={
+        id:0,
         nombreProducto:'',
         cantidad:0,
-        precioProducto:0
+        precioProducto:0,
+        subTotal:0
       }
+       nuevo.id= this.articulos[i].idArticuloManufacturado;
        nuevo.nombreProducto = this.articulos[i].denominacionArticuloManu;
        nuevo.cantidad = 1;
        nuevo.precioProducto = this.articulos[i].precioTotal;
+       nuevo.subTotal = this.articulos[i].precioTotal;
        this.carritos.push(nuevo);
        localStorage.setItem('carro',JSON.stringify(this.carritos));
     }
@@ -103,13 +110,17 @@ export class CatalogoComponent implements OnInit {
       alert("Bebida agregada al carrito");
       if(dato) this.carritos = JSON.parse(dato);
       let nuevo ={
+        id:0,
         nombreProducto:'',
         cantidad:0,
-        precioProducto:0
+        precioProducto:0,
+        subTotal:0
       }
+       nuevo.id = this.bebidas[i].idBebida;
        nuevo.nombreProducto = this.bebidas[i].nombreBebida;
        nuevo.cantidad = 1;
        nuevo.precioProducto = this.bebidas[i].precioTotal;
+       nuevo.subTotal = this.bebidas[i].precioTotal;
        this.carritos.push(nuevo);
        localStorage.setItem('carro',JSON.stringify(this.carritos));
     }

@@ -4,11 +4,12 @@
         <p>Nombre del producto: {{articulo.nombreProducto}} <button type="button" class="btn btn-outline-danger" (click)="eliminar(i)">Eliminar Producto</button></p>
         <p>Precio producto: $ {{articulo.precioProducto}}</p>
         <p>Cantidad pedida: {{articulo.cantidad}}</p>
-        <p>Subtotal: {{articulo.precioProducto}}</p>
+        <p>Subtotal: {{articulo.subTotal}}</p>
 
     </div>
     <h5>Total compra: {{totalCompra}}</h5>
 
     <button type="button" class="btn btn-outline-success">Confirmar</button><br>
+    <br><br><br>
     <button type="button" class="btn btn-outline-danger" routerLink="/catalogo">Seguir comprando</button>
 </div>

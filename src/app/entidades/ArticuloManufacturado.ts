@@ -5,4 +5,5 @@ export class ArticuloManufacturado {
   imagenArticuloManu: string= "";
   precioTotal: number= 0;
   stock: number= 0;
+  insumos:string[]=[];
 }
