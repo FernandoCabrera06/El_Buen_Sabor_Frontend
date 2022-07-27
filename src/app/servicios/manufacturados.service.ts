@@ -87,4 +87,14 @@ export class ManufacturadosService {
       },
     });
   }
+
+  //lee el detalle de un articulos Manufacturado
+  getDetalleArticuloManufacturadoEnBaseDatosXId(idx: string) {
+    return this.http
+      .get(
+        'http://localhost:8080/articuloManufacturado/listarArticuloManuDetalleXId/' +
+          idx
+      )
+      .pipe(map((articuloEncontrado) => articuloEncontrado));
+  }
 }

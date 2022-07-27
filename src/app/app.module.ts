@@ -22,6 +22,8 @@ import {DetalleProductoComponent} from './pages/detalleProducto/detalleProducto.
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.component';
 import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
+import { DetalleManufacturadoComponent } from './pages/detalle-manufacturado/detalle-manufacturado.component';
+import { RolesComponent } from './pages/roles/roles.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { FormManufacturadosComponent } from './pages/form-manufacturados/form-ma
     CarritoComponent,
     ManufacturadosComponent,
     FormManufacturadosComponent,
+    DetalleManufacturadoComponent,
+    RolesComponent,
 
   ],
   imports: [
