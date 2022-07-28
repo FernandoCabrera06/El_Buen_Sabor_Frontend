@@ -9,15 +9,17 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class CarritoServicio{
   carrito: Carrito ={
+    id:0,
     nombreProducto: "",
     cantidad: 0,
-    precioProducto: 0
+    precioProducto: 0,
+    subTotal:0
   }
   carritos : Carrito[]=[];
-
+  nuevoCarritos: Carrito[]=[];
   private carros: BehaviorSubject<Carrito[]> = new BehaviorSubject<Carrito[]>(this.carritos);
 
-  constructor(){}
+  constructor(private http: HttpClient){}
 
   public carro$: Observable<Carrito[]> = this.carros.asObservable();
 
@@ -25,7 +27,23 @@ export class CarritoServicio{
     this.carros.next(carros);
   }
   public resetCarrito(): void{
-    this.carros.next(this.carritos);
+    localStorage.setItem('carro',JSON.stringify(this.nuevoCarritos));
+
+  }
+
+  async descontarStock() {
+    let urlServer = 'http://localhost:8080/articuloManufacturado/descontarStock';
+     let method = "PUT";
+      await fetch(urlServer, {
+      "method": method,
+      "body": localStorage.getItem('carro'),
+      "headers": {
+      "Content-Type": 'application/json'
+      }
+    });
+    alert("en descontarStockPost")
+
+
   }
 
 }

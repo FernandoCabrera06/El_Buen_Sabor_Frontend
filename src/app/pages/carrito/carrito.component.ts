@@ -7,6 +7,7 @@ import {Bebida} from 'src/app/entidades/dto/BebidaDto';
 import { DetalleProductoComponent } from '../detalleProducto/detalleProducto.component';
 import {detalleProductoManufactuardoServicio} from 'src/app/servicios/detalleProductoManufacturado.servicio';
 import{Carrito} from 'src/app/entidades/dto/CarritoDto';
+import{CarritoServicio} from 'src/app/servicios/carrito.servicio'
 
 
 @Component({
@@ -28,7 +29,7 @@ export class CarritoComponent implements OnInit {
   carritos : Carrito[]=[];
   totalCompra:number=0;
   subtotal: number=0;
-  constructor(private router: Router,private activeRoute:ActivatedRoute ) {
+  constructor(private router: Router,private activeRoute:ActivatedRoute, private ser: CarritoServicio ) {
 
   }
 
@@ -41,6 +42,13 @@ export class CarritoComponent implements OnInit {
      this.carritos.splice(i,1);
      localStorage.setItem('carro',JSON.stringify(this.carritos));
      window.location.reload();
+  }
+
+  confirmar(){
+    localStorage.setItem('carro',JSON.stringify(this.carritos));
+    this.ser.descontarStock();
+    this.ser.resetCarrito();
+    window.location.reload();
   }
 
 }
