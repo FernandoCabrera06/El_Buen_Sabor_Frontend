@@ -23,6 +23,7 @@ export class ManufacturadosService {
   public getArticuloManufacturadoXId(idx: number): any {
     for (let articulo of this.articulosData) {
       if (articulo.idArticuloManufacturado == idx) {
+        //console.log('ID QUE PEDI: ', idx);
         return articulo;
       }
     }
@@ -38,23 +39,23 @@ export class ManufacturadosService {
   }
 
   //busca un articulo Manufacturado por el id
-  getArticuloManufacturadoEnBaseDatosXId(idx: string) {
-    return this.http
-      .get(
-        'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadoXId/' +
-          idx
-      )
-      .pipe(map((articuloEncontrado) => articuloEncontrado));
+  getArticuloManufacturadoEnBaseDatosXId(idx: number) {
+    console.log('ID QUE PEDI: ', idx);
+    return this.http.get(
+      'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadoXId/' +
+        idx
+    );
+    // .pipe(map((articuloEncontrado) => articuloEncontrado));
   }
 
   //baja logica de un articulo manufacturado
   async deleteArticuloManufacturadoFetch(idArticulo: number) {
     let urlServer =
-      'http://localhost:808/articuloManufacturado/borrarArticuloManufacturado/' +
+      'http://localhost:8080/articuloManufacturado/borrarArticuloManufacturado/' +
       Number(idArticulo);
     console.log(urlServer);
     let result = await fetch(urlServer, {
-      method: 'PUT',
+      method: 'DELETE',
       headers: {
         'Content-type': 'application/json',
         'Access-Control-Allow-Origin': '*',
@@ -98,3 +99,5 @@ export class ManufacturadosService {
       .pipe(map((articuloEncontrado) => articuloEncontrado));
   }
 }
+
+//listarArticuloManufacturadoXId  revisar esto en el endpoint!

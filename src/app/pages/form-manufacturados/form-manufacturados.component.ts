@@ -17,7 +17,7 @@ export class FormManufacturadosComponent implements OnInit {
     imagenArticuloManu: '',
     precioTotal: 0,
     stock: 0,
-    insumos:[]=[],
+    insumos: ([] = []),
     idRubroGeneral: 0,
   };
   new = false;
@@ -34,13 +34,11 @@ export class FormManufacturadosComponent implements OnInit {
 
       if (this.idArticuloManufacturado != 0) {
         servicioManu
-          .getArticuloManufacturadoXId(this.idArticuloManufacturado)
-
+          .getArticuloManufacturadoEnBaseDatosXId(this.idArticuloManufacturado)
           .subscribe(
             (articuloEncontrado: any) =>
               (this.articulo = articuloEncontrado as ArticuloManufacturado)
           );
-        //console.log('EL ID es: ', this.idArticuloManufacturado);
       } else {
         console.log('ES NUEVO');
       }
