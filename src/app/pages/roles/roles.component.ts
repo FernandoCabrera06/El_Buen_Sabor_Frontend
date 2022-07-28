@@ -32,7 +32,7 @@ export class RolesComponent implements OnInit {
 
   delete(idRol: number) {
     var opcion = confirm('Esta seguro que desea eliminar el rol?');
-    if (opcion == true) {
+    if (opcion === true) {
       this.servicioRol.deleteRolFetch(idRol);
       location.reload();
     }

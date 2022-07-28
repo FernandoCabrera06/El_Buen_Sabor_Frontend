@@ -24,7 +24,7 @@ export class FormRolesComponent implements OnInit {
     private activeRoute: ActivatedRoute
   ) {
     this.activeRoute.params.subscribe((parametros) => {
-      this.idRol = parametros['idArticuloManufacturado'];
+      this.idRol = parametros['idRol'];
 
       if (this.idRol != 0) {
         servicioRol
