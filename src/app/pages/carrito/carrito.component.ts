@@ -7,7 +7,9 @@ import {Bebida} from 'src/app/entidades/dto/BebidaDto';
 import { DetalleProductoComponent } from '../detalleProducto/detalleProducto.component';
 import {detalleProductoManufactuardoServicio} from 'src/app/servicios/detalleProductoManufacturado.servicio';
 import{Carrito} from 'src/app/entidades/dto/CarritoDto';
-import{CarritoServicio} from 'src/app/servicios/carrito.servicio'
+import{CarritoServicio} from 'src/app/servicios/carrito.servicio';
+import{Pedido} from 'src/app/entidades/Pedido';
+import {PedidoServicio} from 'src/app/servicios/pedidos.servicio';
 
 
 @Component({
@@ -24,12 +26,25 @@ export class CarritoComponent implements OnInit {
     nombreProducto: "",
     cantidad: 0,
     precioProducto: 0,
-    subTotal:0
+    subTotal:0,
+    horasCocina:0
   }
   carritos : Carrito[]=[];
   totalCompra:number=0;
   subtotal: number=0;
-  constructor(private router: Router,private activeRoute:ActivatedRoute, private ser: CarritoServicio ) {
+  totalHoraCocina:number =0;
+
+    pedido: Pedido= {
+    idPedido:0,
+    fechaPedido: "",
+    numeroPedido: 0,
+    estadoPedido: 0,
+    horaEstimadaFinPedido: 0,
+    tipoEnvio: 0,
+    totalPedido:0,
+    nombreUsuario:"",
+  }
+  constructor(private router: Router,private activeRoute:ActivatedRoute, private ser: CarritoServicio, private servPedido: PedidoServicio ) {
 
   }
 
@@ -46,7 +61,14 @@ export class CarritoComponent implements OnInit {
 
   confirmar(){
     localStorage.setItem('carro',JSON.stringify(this.carritos));
+    this.pedido.horaEstimadaFinPedido = this.carritos.reduce((a,b)=> a+b.horasCocina,0);
+    this.pedido.totalPedido = this.totalCompra;
+    const dato = localStorage.getItem('usuario');
+    if(dato) this.pedido.nombreUsuario = dato;
+    this.servPedido.guardarPOST(this.pedido);
+
     this.ser.descontarStock();
+
     this.ser.resetCarrito();
     window.location.reload();
   }

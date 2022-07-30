@@ -47,7 +47,8 @@ export class CatalogoComponent implements OnInit {
     nombreProducto: "",
     cantidad: 0,
     precioProducto: 0,
-    subTotal:0
+    subTotal:0,
+    horasCocina:0
   }
   carritos : Carrito[]=[];
   rol:string|null="";
@@ -98,13 +99,15 @@ export class CatalogoComponent implements OnInit {
         nombreProducto:'',
         cantidad:0,
         precioProducto:0,
-        subTotal:0
+        subTotal:0,
+        horasCocina:0
       }
        nuevo.id= this.articulos[i].idArticuloManufacturado;
        nuevo.nombreProducto = this.articulos[i].denominacionArticuloManu;
        nuevo.cantidad = 1;
        nuevo.precioProducto = this.articulos[i].precioTotal;
        nuevo.subTotal = this.articulos[i].precioTotal;
+       nuevo.horasCocina = this.articulos[i].tiempoEstimadoCocina;
        this.carritos.push(nuevo);
        localStorage.setItem('carro',JSON.stringify(this.carritos));
     }
@@ -119,7 +122,8 @@ export class CatalogoComponent implements OnInit {
         nombreProducto:'',
         cantidad:0,
         precioProducto:0,
-        subTotal:0
+        subTotal:0,
+        horasCocina:0
       }
        nuevo.id = this.bebidas[i].idBebida;
        nuevo.nombreProducto = this.bebidas[i].nombreBebida;

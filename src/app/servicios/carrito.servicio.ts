@@ -13,7 +13,8 @@ export class CarritoServicio{
     nombreProducto: "",
     cantidad: 0,
     precioProducto: 0,
-    subTotal:0
+    subTotal:0,
+    horasCocina:0
   }
   carritos : Carrito[]=[];
   nuevoCarritos: Carrito[]=[];
@@ -41,7 +42,7 @@ export class CarritoServicio{
       "Content-Type": 'application/json'
       }
     });
-    alert("en descontarStockPost")
+
 
 
   }

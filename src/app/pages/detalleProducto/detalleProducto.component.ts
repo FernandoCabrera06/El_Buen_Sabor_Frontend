@@ -40,7 +40,8 @@ export class DetalleProductoComponent implements OnInit {
     nombreProducto: "",
     cantidad: 0,
     precioProducto: 0,
-    subTotal:0
+    subTotal:0,
+    horasCocina:0
   }
   carritos : Carrito[]=[];
   rol:string|null="";
@@ -83,13 +84,15 @@ agregar(){
       nombreProducto:'',
       cantidad:0,
       precioProducto:0,
-      subTotal:0
+      subTotal:0,
+      horasCocina:0
     }
      nuevo.id= this.articulo.idArticuloManufacturado;
      nuevo.nombreProducto = this.articulo.denominacionArticuloManu;
      nuevo.cantidad = this.cantidadProducto;
      nuevo.precioProducto = this.articulo.precioTotal;
      nuevo.subTotal = this.articulo.precioTotal*this.cantidadProducto;
+     nuevo.horasCocina = this.articulo.tiempoEstimadoCocina;
      this.carritos.push(nuevo);
      localStorage.setItem('carro',JSON.stringify(this.carritos));
   }
@@ -104,7 +107,8 @@ agregarBebida(){
       nombreProducto:'',
       cantidad:0,
       precioProducto:0,
-      subTotal:0
+      subTotal:0,
+      horasCocina:0
     }
      nuevo.id = this.bebida.idBebida;
      nuevo.nombreProducto = this.bebida.nombreBebida;

@@ -3,7 +3,8 @@ export class Pedido {
   fechaPedido: string = "";
   numeroPedido: number= 0;
   estadoPedido: number= 0;
-  horaEstimadaFinPedido: string= "";
+  horaEstimadaFinPedido: number= 0;
   tipoEnvio: number= 0;
   totalPedido:number=0;
+  nombreUsuario:string="";
 }

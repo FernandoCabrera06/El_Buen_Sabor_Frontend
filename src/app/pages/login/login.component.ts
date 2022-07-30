@@ -31,7 +31,8 @@ export class LoginComponent  implements OnInit{
     nombreProducto: "",
     cantidad: 0,
     precioProducto: 0,
-    subTotal:0
+    subTotal:0,
+    horasCocina:0
   }
   carritos : Carrito[]=[];
 
