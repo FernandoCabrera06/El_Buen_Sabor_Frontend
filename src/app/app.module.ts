@@ -13,7 +13,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
-import {AutenticacionServicio} from './servicios/autenticacion.servicio';
+import { AutenticacionServicio } from './servicios/autenticacion.servicio';
+import { IngresosComponent } from './pages/reportes/ingresos/ingresos.component';
+import { GananciasComponent } from './pages/reportes/gananacias/gananacias.component';
+import {PedidosPorUsuarioComponent} from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component'
+import {PedidosPorPeriodoComponent} from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component'
+import {DetalleProductoComponent} from './pages/detalleProducto/detalleProducto.component'
+import { CarritoComponent } from './pages/carrito/carrito.component';
+import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.component';
+import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
+import { DetalleManufacturadoComponent } from './pages/detalle-manufacturado/detalle-manufacturado.component';
+import { RolesComponent } from './pages/roles/roles.component';
+import { FormRolesComponent } from './pages/form-roles/form-roles.component';
 
 
 @NgModule({
@@ -23,7 +34,19 @@ import {AutenticacionServicio} from './servicios/autenticacion.servicio';
     FooterComponent,
     HomeComponent,
     CatalogoComponent,
-    LoginComponent
+    LoginComponent,
+    IngresosComponent,
+    GananciasComponent,
+    PedidosPorUsuarioComponent,
+    PedidosPorPeriodoComponent,
+    DetalleProductoComponent,
+    CarritoComponent,
+    ManufacturadosComponent,
+    FormManufacturadosComponent,
+    DetalleManufacturadoComponent,
+    RolesComponent,
+    FormRolesComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -32,9 +55,9 @@ import {AutenticacionServicio} from './servicios/autenticacion.servicio';
     FormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [AutenticacionServicio],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

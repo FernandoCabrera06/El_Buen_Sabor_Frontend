@@ -3,6 +3,8 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { AutenticacionServicio } from '../../servicios/autenticacion.servicio';
 import { NgForm } from '@angular/forms';
 import { Usuario } from '../../entidades/Usuario';
+import{Carrito} from 'src/app/entidades/dto/CarritoDto';
+
 
 @Component({
   selector: 'app-login',
@@ -24,6 +26,15 @@ export class LoginComponent  implements OnInit{
     bajaUsuario:false
 
   };
+  carrito: Carrito ={
+    id:0,
+    nombreProducto: "",
+    cantidad: 0,
+    precioProducto: 0,
+    subTotal:0,
+    horasCocina:0
+  }
+  carritos : Carrito[]=[];
 
   usuario: string = '';
   clave: string = '';
@@ -32,6 +43,7 @@ export class LoginComponent  implements OnInit{
 
 
   ngOnInit(): void {
+    localStorage.setItem('carro', JSON.stringify(this.carritos));
   }
 
   onLogin() {

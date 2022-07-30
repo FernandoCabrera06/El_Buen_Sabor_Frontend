@@ -1,0 +1,79 @@
+<h1 style="padding-left: 50px">Gestión de Artículos Manufacturados</h1>
+<hr />
+
+<div class="row" style="padding-right: 50px">
+  <div class="col-md-12 text-right">
+    <button
+      type="button"
+      [routerLink]="['/manufacturado', '0']"
+      class="btn btn-primary"
+      type="button"
+      name="button"
+    >
+      Nuevo articulo manufacturado
+    </button>
+  </div>
+</div>
+<br />
+
+<div class="row animated fadeIn" style="margin: 2em">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table width="100%" class="table table-sm table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th style="width: 10%">ID</th>
+            <th style="width: 20%">Denominacion</th>
+            <th style="width: 20%">Tiempo Estimado Cocina</th>
+            <th style="width: 10%">Precio total</th>
+            <th style="width: 10%">Stock actual</th>
+            <th style="width: 40%; padding-right: 130px" class="text-right">
+              Opciones
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let articulo of articulos; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ articulo.denominacionArticuloManu }}</td>
+            <td>{{ articulo.tiempoEstimadoCocina }}</td>
+            <td>{{ articulo.precioTotal }}</td>
+            <td>{{ articulo.stock }}</td>
+
+            <td class="text-right w120">
+              <button
+                type="button"
+                (click)="verDetalle(articulo.idArticuloManufacturado)"
+                class="btn btn-outline-primary"
+                type="button"
+                name="button"
+              >
+                <i class="fas fa-edit"></i> Detalle</button
+              >&nbsp;&nbsp;
+              <button
+                type="button"
+                class="btn btn-outline-success"
+                [routerLink]="[
+                  '/manufacturado',
+                  articulo.idArticuloManufacturado
+                ]"
+                name="button"
+              >
+                <i class="fas fa-edit"></i> Editar</button
+              >&nbsp;&nbsp;
+              <button
+                type="button"
+                (click)="delete(articulo.idArticuloManufacturado)"
+                class="btn btn-outline-danger"
+                type="button"
+                name="button"
+              >
+                <i class="fas fa-trash-alt"></i> Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
