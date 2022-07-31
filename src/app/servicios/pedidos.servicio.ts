@@ -11,6 +11,7 @@ export class PedidoServicio {
 
   public pedidosData:Pedido[]=[];
   public pedidoEncontrado:any;
+  public idPedido:number=0;
 
   constructor(public http: HttpClient) {
     console.log("Servicio Cargado!!!");
@@ -41,13 +42,18 @@ export class PedidoServicio {
     return this.http.get("http://localhost:8080/pedido/listarPedidoXId/" + idx).pipe(
       map( pedidoEncontrado => pedidoEncontrado));
   }
-
+  getIdUltimoPedido(){
+    return this.http.get("http://localhost:8080/pedido/ultimoPedido/");
+  }
   //pedidos por usuario
   getPedidosPorUsuario(fechaDesde:string,fechaHasta:string){
     return this.http.get("http://localhost:8080/pedido/pedidosPorUsuario?fecha1="+fechaDesde+"&fecha2="+fechaHasta).pipe(
       map( pedidosData => pedidosData));
   }
 
+  getPagarPedido(id:string){
+    return this.http.get("http://localhost:8080/pedido/pagarPedido/"+id);
+  }
   //ranking de pedidos por fechas
   getPedidosPorFechas(fechaDesde:string,fechaHasta:string){
     return this.http.get("http://localhost:8080/pedido/pedidosPorFechas?fecha1="+fechaDesde+"&fecha2="+fechaHasta).pipe(
@@ -77,7 +83,7 @@ export class PedidoServicio {
         urlServer = 'http://localhost:8080/pedido/modificarPedido';
         method = "PUT";
       }
-      await fetch(urlServer, {
+      return await fetch(urlServer, {
         "method": method,
         "body": JSON.stringify(pedido),
         "headers": {
@@ -86,6 +92,9 @@ export class PedidoServicio {
       });
 
     }
+
+
+
 
 
 
