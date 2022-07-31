@@ -1,26 +1,61 @@
-<h3>Ganancias por periodo</h3>
-<hr>
-
 <div>
-    <div class="col-md-12">
-        <form (ngSubmit)="ganancias()" #forma="ngForm">
-            <div class="form-group">
-                <label for="fechaDesde">Fecha desde</label>
-                <input id="fechaDesde" [(ngModel)]="reporte.fechaDesde" name="fechaDesde" class="form-control" required minlength="4" placeholder="yyyy-MM-dd">
-            </div>
-            <div class="form-group">
-                <label for="fechaHasta">Fecha hasta</label>
-                <input id="fechaHasta" [(ngModel)]="reporte.fechaHasta" name="fechaHasta" class="form-control" required minlength="4" placeholder="yyyy-MM-dd">
-            </div>
+  <h3>Ganancias por periodo</h3>
+  <hr />
 
-            <div class="form-group">
-                <button type="button" class="btn btn-outline-success" (click)="ganancias()">Consultar</button>
-                <span style="text-align: right; width: 500; color: rgb(51, 255, 0); font-weight: bold">&nbsp;&nbsp;&nbsp;</span>
-            </div>
-        </form>
+  <div>
+    <div class="col-md-12">
+      <form (ngSubmit)="ganancias()" #forma="ngForm">
+        <div class="form-group">
+          <label for="fechaDesde">Fecha desde</label>
+          <input
+            id="fechaDesde"
+            [(ngModel)]="reporte.fechaDesde"
+            name="fechaDesde"
+            class="form-control"
+            required
+            minlength="4"
+            placeholder="yyyy-MM-dd"
+          />
+        </div>
+        <div class="form-group">
+          <label for="fechaHasta">Fecha hasta</label>
+          <input
+            id="fechaHasta"
+            [(ngModel)]="reporte.fechaHasta"
+            name="fechaHasta"
+            class="form-control"
+            required
+            minlength="4"
+            placeholder="yyyy-MM-dd"
+          />
+        </div>
+
+        <div class="form-group">
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            (click)="ganancias()"
+          >
+            Consultar
+          </button>
+          <span
+            style="
+              text-align: right;
+              width: 500;
+              color: rgb(51, 255, 0);
+              font-weight: bold;
+            "
+            >&nbsp;&nbsp;&nbsp;</span
+          >
+        </div>
+      </form>
     </div>
     <div class="container-ingresos" *ngIf="gananciasPorPeriodo > 0">
-        <h3>Ganancias (total ventas - total costos) desde el {{reporte.fechaDesde}} al {{reporte.fechaHasta}}</h3>
-        <h3> $ {{gananciasPorPeriodo}}</h3>
+      <h3>
+        Ganancias (total ventas - total costos) desde el
+        {{ reporte.fechaDesde }} al {{ reporte.fechaHasta }}
+      </h3>
+      <h3>$ {{ gananciasPorPeriodo }}</h3>
     </div>
+  </div>
 </div>
