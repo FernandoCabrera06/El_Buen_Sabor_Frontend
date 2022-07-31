@@ -20,6 +20,7 @@ export class PedidoAprobadoComponent  implements OnInit{
     const dato = localStorage.getItem('idPedido');
     let id:any;
     if(dato) id = dato;
+
     this.servPedido.getPagarPedido(id);
   }
 

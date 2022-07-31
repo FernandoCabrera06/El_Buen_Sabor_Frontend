@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import{Pedido} from '../entidades/Pedido';
 import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import{PedidoDto} from '../entidades/dto/PedidoDto';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +34,9 @@ export class PedidoServicio {
 
 
   //lee todos los pedidos
-  getPedidosFromDataBase():any{
-    return this.http.get("http://localhost:8080/pedido/listarPedidos").pipe(
-      map( pedidosData => pedidosData));
+  getPedidosFromDataBase():Observable<PedidoDto[]>{
+    return this.http.get<PedidoDto[]>("http://localhost:8080/pedido/listarPedidos");
+
   }
 
   //busca un pedido por el id
@@ -90,6 +92,11 @@ export class PedidoServicio {
         "Content-Type": 'application/json'
         }
       });
+
+    }
+
+    getPedidosPorUsuarioFromDataBase(nombreUsuario:any):Observable<PedidoDto[]>{
+      return this.http.get<PedidoDto[]>("http://localhost:8080/pedido/listarPedidosPorUsuario?nombreUsuario="+nombreUsuario);
 
     }
 

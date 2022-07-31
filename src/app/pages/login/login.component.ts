@@ -21,7 +21,7 @@ export class LoginComponent  implements OnInit{
     clave: "",
     email:  "",
     usuario: "",
-    telelfono:0,
+    telefono:0,
     rol:"",
     bajaUsuario:false
 
@@ -77,7 +77,7 @@ export class LoginComponent  implements OnInit{
     clave: "",
     email:  "",
     usuario: "",
-    telelfono:0,
+    telefono:0,
     rol:"",
     bajaUsuario:false
     });

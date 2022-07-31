@@ -1,7 +1,3 @@
-h1 {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: rgb(49, 6, 238);
-    font-weight: normal;
+* {
+    background-color: #FFF !important;
 }

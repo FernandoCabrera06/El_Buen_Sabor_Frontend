@@ -5,7 +5,7 @@ export class Usuario {
   clave: string= "";
   email: string= "";
   usuario: string= "";
-  telelfono:number=0;
+  telefono:number=0;
   rol:string="";
   bajaUsuario:boolean=false;
 }
