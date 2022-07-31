@@ -1,6 +1,6 @@
 .equipo{
     margin-bottom: 100px;
-    margin-left: 10px;
+    margin-left: 180px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -24,6 +24,7 @@
 }
 
 .equipo-titulo{
+    margin-top: 10px;
     text-align: justify;
     margin-left: 560px;
 }
