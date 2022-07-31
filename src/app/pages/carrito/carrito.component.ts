@@ -10,6 +10,7 @@ import{Carrito} from 'src/app/entidades/dto/CarritoDto';
 import{CarritoServicio} from 'src/app/servicios/carrito.servicio';
 import{Pedido} from 'src/app/entidades/Pedido';
 import {PedidoServicio} from 'src/app/servicios/pedidos.servicio';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -44,6 +45,8 @@ export class CarritoComponent implements OnInit {
     totalPedido:0,
     nombreUsuario:"",
   }
+
+
   constructor(private router: Router,private activeRoute:ActivatedRoute, private ser: CarritoServicio, private servPedido: PedidoServicio ) {
 
   }
@@ -60,17 +63,32 @@ export class CarritoComponent implements OnInit {
   }
 
   confirmar(){
+
     localStorage.setItem('carro',JSON.stringify(this.carritos));
     this.pedido.horaEstimadaFinPedido = this.carritos.reduce((a,b)=> a+b.horasCocina,0);
     this.pedido.totalPedido = this.totalCompra;
     const dato = localStorage.getItem('usuario');
     if(dato) this.pedido.nombreUsuario = dato;
     this.servPedido.guardarPOST(this.pedido);
-
     this.ser.descontarStock();
-
     this.ser.resetCarrito();
-    window.location.reload();
+    this.servPedido.getIdUltimoPedido().subscribe((dato:any)=>{
+      let id = dato+1;
+      localStorage.setItem('idPedido',JSON.stringify(id));
+      this.onNavigate(id);
+   });
+
+
+    //window.close();
+
   }
+
+  onNavigate(id:any){
+
+     window.location.href=("http://localhost:3000/"+id+"/"+this.pedido.totalPedido);
+
+    }
+
+
 
 }
