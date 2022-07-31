@@ -45,9 +45,10 @@
                                     <input id="inputClave" [(ngModel)]="user.clave" name="clave" class="form-control" required minlength="4" placeholder="Clave">
                                 </div>
                                 <button type="button" class="btn btn-outline-success" (click)="onLogin()">Login</button>
-
+                                <br><br>
                                 <div class="form-group">
-                                    <a routerLink="/usuario/registro" class="form-control login-user">¿ No tienes cuenta ?</a>
+                                    <button type="button" class="btn btn-outline-danger" routerLink="/registro">¿ No tienes cuenta ?</button>
+
                                 </div>
                             </form>
                         </div>
