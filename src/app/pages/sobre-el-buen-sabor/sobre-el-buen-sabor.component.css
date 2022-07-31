@@ -1,0 +1,26 @@
+.equipo{
+    margin-bottom: 100px;
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-info{
+    text-align: justify; 
+    margin: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.small-container{
+    margin: 20px;
+}
+
+.card-title{
+    text-align: center;
+    font-family: monospace;
+}
+
+.equipo-titulo{
+    text-align: justify;
+    margin-left: 430px;
+}

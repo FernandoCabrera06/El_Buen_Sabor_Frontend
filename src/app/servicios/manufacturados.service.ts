@@ -73,7 +73,7 @@ export class ManufacturadosService {
       'http://localhost:8080/articuloManufacturado/articuloManufacturado';
     let method = 'POST';
     if (
-      articuloManufacturado &&
+      articuloManufacturado && 
       articuloManufacturado.idArticuloManufacturado > 0
     ) {
       urlServer =

@@ -25,6 +25,7 @@ import { FormManufacturadosComponent } from './pages/form-manufacturados/form-ma
 import { DetalleManufacturadoComponent } from './pages/detalle-manufacturado/detalle-manufacturado.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
+import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { FormRolesComponent } from './pages/form-roles/form-roles.component';
     DetalleManufacturadoComponent,
     RolesComponent,
     FormRolesComponent,
+    SobreElBuenSaborComponent,
 
   ],
   imports: [
