@@ -1,4 +1,30 @@
 img {
-    width: 300px;
-    height: 300px;
+    width: 450px;
+    height: 400px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.row-catalogo{
+    margin-left: 100px;
+    margin-bottom: 150px;
+    width: 100%;
+    
+}
+
+.col-2{
+    margin-right: 150px;
+}
+
+* {
+    background-color: #FFF !important;
+}
+
+h1{
+    margin-top: 20px;
+}
+
+.row{
+    border: 3px solid;
+    border-color: bisque;
 }
