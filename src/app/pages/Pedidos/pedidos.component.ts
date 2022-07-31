@@ -7,21 +7,13 @@ import{Carrito} from 'src/app/entidades/dto/CarritoDto';
 import {PedidoServicio} from 'src/app/servicios/pedidos.servicio';
 
 @Component({
-  selector: 'app-pedidoAprobado',
-  templateUrl: './pedidoAprobado.component.html',
-  styleUrls: ['./pedidoAprobado.component.css']
+  selector: 'app-pedidos',
+  templateUrl: './pedidos.component.html',
+  styleUrls: ['./pedidos.component.css']
 })
-export class PedidoAprobadoComponent  implements OnInit{
-
+export class PedidosComponent  implements OnInit{
   constructor(private router: Router,private activeRoute:ActivatedRoute, private servPedido: PedidoServicio ) {
 
   }
-  ngOnInit(): void {
-    const dato = localStorage.getItem('idPedido');
-    let id:any;
-    if(dato) id = dato;
-
-    this.servPedido.getPagarPedido(id);
-  }
-
+  ngOnInit(): void {}
 }

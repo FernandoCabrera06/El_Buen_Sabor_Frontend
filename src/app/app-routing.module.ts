@@ -15,6 +15,7 @@ import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
 import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
 import { PedidoAprobadoComponent } from './pages/pedidoAprobado/pedidoAprobado.component';
+import {PedidosComponent} from './pages/Pedidos/pedidos.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,6 +50,7 @@ const routes: Routes = [
     path: 'sobreNosotros',
     component: SobreElBuenSaborComponent,
   },
+  { path: 'pedidos', component: PedidosComponent },
 ];
 
 @NgModule({

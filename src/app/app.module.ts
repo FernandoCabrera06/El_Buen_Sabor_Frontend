@@ -26,7 +26,8 @@ import { DetalleManufacturadoComponent } from './pages/detalle-manufacturado/det
 import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
 import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
-
+import {PedidoAprobadoComponent} from './pages/pedidoAprobado/pedidoAprobado.component';
+import {PedidosComponent} from './pages/Pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-
     RolesComponent,
     FormRolesComponent,
     SobreElBuenSaborComponent,
+    PedidoAprobadoComponent,
+    PedidosComponent
 
   ],
   imports: [
