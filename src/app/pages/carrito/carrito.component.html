@@ -1,4 +1,4 @@
-<div class="row-catalogo">
+<!-- <div class="row-catalogo">
   <h2>Carrito de Compras</h2>
   <div class="col-10" *ngFor="let articulo of carritos; let i = index">
     <p>
@@ -25,3 +25,37 @@
     Seguir comprando
   </button>
 </div>
+<br><br><br> -->
+
+<!-- ----------------------------------------------------------------------------------- -->
+<div class="card border-secondary mb-3" style="width: 18rem; margin-left: 50px;" *ngFor="let articulo of carritos; let i = index">
+  <div class="card-body">
+    <h4 class="card-title">Carrito de Compras</h4>
+    <p> <strong>Producto:</strong> {{ articulo.nombreProducto }}</p>
+    <i class="fa-solid fa-circle-trash">
+    <button
+        type="button"
+        class="btn btn-outline-danger btn-sm"
+        (click)="eliminar(i)"
+      >
+        Eliminar producto
+      </button>
+    </i>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Precio:  </strong>${{ articulo.precioProducto }}</li>
+    <li class="list-group-item"><strong>Cantidad:</strong> {{ articulo.cantidad }}</li>
+    <li class="list-group-item"><strong>Subtotal: </strong>${{ articulo.subTotal }}</li>
+  </ul>
+  <div class="card-body">
+    <h5 class="card-title">TOTAL: ${{ totalCompra }}</h5>
+    <button type="button" class="btn btn-outline-success btn-sm" (click)="confirmar()">
+      Confirmar</button> <span>&nbsp;</span>
+      <button type="button" class="btn btn-outline-primary btn-sm" routerLink="/catalogo">
+        Seguir comprando
+      </button>
+    </div>
+</div>
+
+<br><br><br>
+
