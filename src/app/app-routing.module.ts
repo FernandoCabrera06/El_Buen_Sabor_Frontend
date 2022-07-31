@@ -13,7 +13,8 @@ import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.c
 import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
-import {PedidoAprobadoComponent} from './pages/pedidoAprobado/pedidoAprobado.component';
+import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
+import { PedidoAprobadoComponent } from './pages/pedidoAprobado/pedidoAprobado.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'rol/:idRol',
     component: FormRolesComponent,
+  },
+  {
+    path: 'sobreNosotros',
+    component: SobreElBuenSaborComponent,
   },
 ];
 
