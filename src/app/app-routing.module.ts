@@ -13,11 +13,8 @@ import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.c
 import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
-<<<<<<< HEAD
 import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
-=======
-import {PedidoAprobadoComponent} from './pages/pedidoAprobado/pedidoAprobado.component';
->>>>>>> 040307af24be8af12f17f67a8bdb3840fa86465f
+import { PedidoAprobadoComponent } from './pages/pedidoAprobado/pedidoAprobado.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

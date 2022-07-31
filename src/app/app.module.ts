@@ -25,11 +25,7 @@ import { FormManufacturadosComponent } from './pages/form-manufacturados/form-ma
 import { DetalleManufacturadoComponent } from './pages/detalle-manufacturado/detalle-manufacturado.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
-<<<<<<< HEAD
 import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
-=======
-import { PedidoAprobadoComponent } from './pages/pedidoAprobado/pedidoAprobado.component';
->>>>>>> 040307af24be8af12f17f67a8bdb3840fa86465f
 
 
 @NgModule({
@@ -51,11 +47,7 @@ import { PedidoAprobadoComponent } from './pages/pedidoAprobado/pedidoAprobado.c
     DetalleManufacturadoComponent,
     RolesComponent,
     FormRolesComponent,
-<<<<<<< HEAD
     SobreElBuenSaborComponent,
-=======
-    PedidoAprobadoComponent,
->>>>>>> 040307af24be8af12f17f67a8bdb3840fa86465f
 
   ],
   imports: [
