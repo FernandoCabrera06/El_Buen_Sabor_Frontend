@@ -16,24 +16,21 @@ import { environment } from 'src/environments/environment';
 import { AutenticacionServicio } from './servicios/autenticacion.servicio';
 import { IngresosComponent } from './pages/reportes/ingresos/ingresos.component';
 import { GananciasComponent } from './pages/reportes/gananacias/gananacias.component';
-import {PedidosPorUsuarioComponent} from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component'
-import {PedidosPorPeriodoComponent} from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component'
-import {DetalleProductoComponent} from './pages/detalleProducto/detalleProducto.component'
+import { PedidosPorUsuarioComponent } from './pages/reportes/pedidosPorUsuario/pedidosPorUsuario.component';
+import { PedidosPorPeriodoComponent } from './pages/reportes/pedidosPorPeriodo/pedidosPorPeriodo.component';
+import { DetalleProductoComponent } from './pages/detalleProducto/detalleProducto.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.component';
 import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
 import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
-import {PedidoAprobadoComponent} from './pages/pedidoAprobado/pedidoAprobado.component';
-import {PedidosComponent} from './pages/Pedidos/pedidos.component';
-import {RegistroComponent} from './pages/registro/registro.component';
-<<<<<<< HEAD
-import {UsuariosComponent} from './pages/usuarios/usuarios.component';
-import {FormUsuariosComponent} from './pages/form-usuarios/form-usuarios.component';
-=======
+import { PedidoAprobadoComponent } from './pages/pedidoAprobado/pedidoAprobado.component';
+import { PedidosComponent } from './pages/Pedidos/pedidos.component';
+import { RegistroComponent } from './pages/registro/registro.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { FormUsuariosComponent } from './pages/form-usuarios/form-usuarios.component';
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
->>>>>>> c4302310d77ee88a3a2c3646fed9f31b683e5916
 
 @NgModule({
   declarations: [
@@ -57,13 +54,9 @@ import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.compo
     PedidoAprobadoComponent,
     PedidosComponent,
     RegistroComponent,
-<<<<<<< HEAD
     UsuariosComponent,
-    FormUsuariosComponent
-=======
-    RubroGeneralComponent
->>>>>>> c4302310d77ee88a3a2c3646fed9f31b683e5916
-
+    FormUsuariosComponent,
+    RubroGeneralComponent,
   ],
   imports: [
     BrowserModule,
