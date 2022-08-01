@@ -54,6 +54,9 @@ export class UsuariosComponent  implements OnInit{
       location.reload();
     }
   }
+  verDetalle(idx: number) {
 
+    this.router.navigate(['/formUsuarios/', idx]);
+  }
 
 }

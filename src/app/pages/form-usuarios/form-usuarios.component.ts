@@ -31,7 +31,9 @@ export class FormUsuariosComponent  implements OnInit{
   loading = true;
 
   constructor(private router: Router,private activeRoute:ActivatedRoute, private serv:UsuarioServicio ) {
-
+    this.activeRoute.params.subscribe((parametros) => {
+      this.usuario.idUsuario = parametros['idUsuario'];
+    });
 
   }
   ngOnInit(): void {

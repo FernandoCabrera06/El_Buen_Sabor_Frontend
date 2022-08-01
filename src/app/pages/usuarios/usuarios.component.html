@@ -4,7 +4,7 @@
 
     <div class="row" style="padding-right: 50px">
         <div class="col-md-12 text-right">
-            <button type="button" class="btn btn-primary" type="button" name="button" [routerLink]="['/formUsuarios']">
+            <button type="button" class="btn btn-primary" type="button" name="button" [routerLink]="['/formUsuarios/0']">
         Nuevo Usuario
       </button>
         </div>
@@ -42,7 +42,7 @@
                             <td>{{ usuario.telefono }}</td>
                             <td class="text-right w120">
                                 &nbsp;&nbsp;
-                                <button type="button" class="btn btn-outline-success" name="button">
+                                <button type="button" class="btn btn-outline-success" name="button" [routerLink]="['/formUsuarios/',usuario.idUsuario]">
                   <i class="fas fa-edit"></i> Editar</button
                 >&nbsp;&nbsp;
                 <button

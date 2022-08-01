@@ -56,7 +56,7 @@ const routes: Routes = [
   { path: 'pedidos', component: PedidosComponent },
   {path:'registro', component: RegistroComponent},
   {path:'usuarios', component: UsuariosComponent},
-  {path:'formUsuarios', component: FormUsuariosComponent},
+  {path:'formUsuarios/:idUsuario', component: FormUsuariosComponent},
 ];
 
 @NgModule({
