@@ -13,3 +13,11 @@
     background-color: #343a40!important;
     border-color: #454d55;
 }
+
+/* Estados del pedido */
+#preparacion{
+    background-color: #0d6efd!important;
+}
+#pagado{
+    background-color: #06bb33!important;
+}
