@@ -29,35 +29,56 @@
 
 <!-- ----------------------------------------------------------------------------------- -->
 <div class="carrito">
-  <h2 class="card-title" style="margin-left: 45px;">Carrito de Compras</h2>
+  <h2 class="card-title" style="margin-left: 45px">Carrito de Compras</h2>
 
   <div class="card-body">
-    <h5 class="card-title" style="margin-left:30px;">TOTAL: ${{ totalCompra }}</h5>
-    <button type="button" style="margin-left:30px;" class="btn btn-success btn-sm" (click)="confirmar()">
-      Confirmar</button> <span>&nbsp;</span>
+    <h5 class="card-title" style="margin-left: 30px">
+      TOTAL: ${{ totalCompra }}
+    </h5>
+    <button
+      type="button"
+      style="margin-left: 30px"
+      class="btn btn-success btn-sm"
+      (click)="confirmar()"
+    >
+      Confirmar
+    </button>
+    <span>&nbsp;</span>
     <button type="button" class="btn btn-primary btn-sm" routerLink="/catalogo">
       Seguir comprando
     </button>
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="card border-secondary mb-3"  style="width: 18rem; margin-left: 50px;"
-      *ngFor="let articulo of carritos; let i = index">
+    <div
+      class="card border-secondary mb-3"
+      style="width: 18rem; margin-left: 50px"
+      *ngFor="let articulo of carritos; let i = index"
+    >
       <div class="card-body">
-
-        <p> <strong>Producto:</strong> {{ articulo.nombreProducto }}</p>
+        <p><strong>Producto:</strong> {{ articulo.nombreProducto }}</p>
         <i class="fa-solid fa-circle-trash">
-          <button type="button" class="btn btn-danger btn-sm" (click)="eliminar(i)">
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            (click)="eliminar(i)"
+          >
             Eliminar producto
           </button>
         </i>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><strong>Precio: </strong>${{ articulo.precioProducto }}</li>
-        <li class="list-group-item"><strong>Cantidad:</strong> {{ articulo.cantidad }}</li>
-        <li class="list-group-item"><strong>Subtotal: </strong>${{ articulo.subTotal }}</li>
+        <li class="list-group-item">
+          <strong>Precio: </strong>${{ articulo.precioProducto }}
+        </li>
+        <li class="list-group-item">
+          <strong>Cantidad:</strong> {{ articulo.cantidad }}
+        </li>
+        <li class="list-group-item">
+          <strong>Subtotal: </strong>${{ articulo.subTotal }}
+        </li>
       </ul>
     </div>
   </div>
-
+  <br /><br />
 </div>
