@@ -29,6 +29,8 @@ import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-
 import {PedidoAprobadoComponent} from './pages/pedidoAprobado/pedidoAprobado.component';
 import {PedidosComponent} from './pages/Pedidos/pedidos.component';
 import {RegistroComponent} from './pages/registro/registro.component';
+import {UsuariosComponent} from './pages/usuarios/usuarios.component';
+import {FormUsuariosComponent} from './pages/form-usuarios/form-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import {RegistroComponent} from './pages/registro/registro.component';
     SobreElBuenSaborComponent,
     PedidoAprobadoComponent,
     PedidosComponent,
-    RegistroComponent
+    RegistroComponent,
+    UsuariosComponent,
+    FormUsuariosComponent
 
   ],
   imports: [
