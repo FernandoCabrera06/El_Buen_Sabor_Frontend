@@ -21,7 +21,7 @@ body {
 }
 
 img {
-    width: 500px;
+    width: 650px;
     height: 300px;
 }
 
@@ -52,8 +52,6 @@ h5 {
 .col-4 p {
     font-size: 16px;
 }
-
-
 
 
 /* Media query for 600 screen size */
