@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Usuario } from '../entidades/Usuario';
 import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -50,11 +51,11 @@ export class UsuarioServicio {
 
 
     //baja logica de un usuario
-     async deleteUsuarioFetch(idUsuario: string){
-      let urlServer = 'http://localhost:808/usuario/borrarUsuario/'+idUsuario;
+     async deleteUsuarioFetch(idUsuario: number){
+      let urlServer = 'http://localhost:8080/usuario/borrarUsuario/'+idUsuario;
       console.log(urlServer);
       let result = await fetch(urlServer, {
-          method: 'PUT',
+          method: 'DELETE',
           headers: {
               'Content-type': 'application/json',
               'Access-Control-Allow-Origin':'*'
@@ -81,6 +82,11 @@ export class UsuarioServicio {
 
     }
 
+
+    getUsuarioEmpleadosFromDataBase():Observable<Usuario[]>{
+      return this.http.get<Usuario[]>("http://localhost:8080/usuario/listarUsuariosEmpleados");
+
+    }
 
 
 }
