@@ -1,3 +1,9 @@
 * {
     background-color: #FFF !important;
 }
+
+.btn-success {
+    color: #fff;
+    background-color: #198754 !important;
+    border-color: #198754;
+}

@@ -22,15 +22,18 @@ import {DetalleProductoComponent} from './pages/detalleProducto/detalleProducto.
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { ManufacturadosComponent } from './pages/manufacturados/manufacturados.component';
 import { FormManufacturadosComponent } from './pages/form-manufacturados/form-manufacturados.component';
-import { DetalleManufacturadoComponent } from './pages/detalle-manufacturado/detalle-manufacturado.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
 import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
 import {PedidoAprobadoComponent} from './pages/pedidoAprobado/pedidoAprobado.component';
 import {PedidosComponent} from './pages/Pedidos/pedidos.component';
 import {RegistroComponent} from './pages/registro/registro.component';
+<<<<<<< HEAD
 import {UsuariosComponent} from './pages/usuarios/usuarios.component';
 import {FormUsuariosComponent} from './pages/form-usuarios/form-usuarios.component';
+=======
+import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
+>>>>>>> c4302310d77ee88a3a2c3646fed9f31b683e5916
 
 @NgModule({
   declarations: [
@@ -48,15 +51,18 @@ import {FormUsuariosComponent} from './pages/form-usuarios/form-usuarios.compone
     CarritoComponent,
     ManufacturadosComponent,
     FormManufacturadosComponent,
-    DetalleManufacturadoComponent,
     RolesComponent,
     FormRolesComponent,
     SobreElBuenSaborComponent,
     PedidoAprobadoComponent,
     PedidosComponent,
     RegistroComponent,
+<<<<<<< HEAD
     UsuariosComponent,
     FormUsuariosComponent
+=======
+    RubroGeneralComponent
+>>>>>>> c4302310d77ee88a3a2c3646fed9f31b683e5916
 
   ],
   imports: [

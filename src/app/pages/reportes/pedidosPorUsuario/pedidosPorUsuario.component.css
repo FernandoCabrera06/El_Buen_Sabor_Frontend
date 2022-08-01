@@ -13,3 +13,9 @@
     background-color: #343a40!important;
     border-color: #454d55;
 }
+
+.btn-success {
+    color: #fff;
+    background-color: #198754 !important;
+    border-color: #198754;
+}
