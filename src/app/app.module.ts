@@ -28,6 +28,8 @@ import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-
 import { PedidoAprobadoComponent } from './pages/pedidoAprobado/pedidoAprobado.component';
 import { PedidosComponent } from './pages/Pedidos/pedidos.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { FormUsuariosComponent } from './pages/form-usuarios/form-usuarios.component';
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
 
 @NgModule({
@@ -52,6 +54,8 @@ import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.compo
     PedidoAprobadoComponent,
     PedidosComponent,
     RegistroComponent,
+    UsuariosComponent,
+    FormUsuariosComponent,
     RubroGeneralComponent,
   ],
   imports: [
