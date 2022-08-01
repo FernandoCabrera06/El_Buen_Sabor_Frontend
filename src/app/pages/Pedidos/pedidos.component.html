@@ -1,47 +1,42 @@
 <div>
-  <div>
-    <h1 style="padding-left: 50px">Lista de Pedidos</h1>
-    <hr />
-    <h1 style="padding-left: 50px">Lista de Pedidos</h1>
-    <hr />
-  </div>
-  <div class="row animated fadeIn" style="margin: 2em">
-    <div class="col-md-12">
-      <div class="table-responsive">
-        <table width="100%" class="table table-sm table-hover">
-          <thead class="thead-dark">
-            <tr>
-              <th style="width: 10%">ID</th>
-              <th style="width: 10%">Nombre Usuario</th>
-              <th style="width: 10%">Fecha</th>
-              <th style="width: 10%">Numero Pedido</th>
-              <th style="width: 10%">Estado</th>
-              <th style="width: 10%">Hora estimada preparacion</th>
-              <th style="width: 10%">Total pedido</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pedido of pedidos; let i = index">
-              <td>{{ pedido.idPedido }}</td>
-              <td>{{ pedido.nombreUsuario }}</td>
-              <td>{{ pedido.fechaPedido }}</td>
-              <td>{{ pedido.idPedido }}</td>
-
-              <td
-                *ngIf="pedido.estadoPedido === 'En Preparación'"
-                id="preparacion"
-              >
-                {{ pedido.estadoPedido }}
-              </td>
-              <td *ngIf="pedido.estadoPedido === 'Pagado'" id="pagado">
-                {{ pedido.estadoPedido }}
-              </td>
-              <td>{{ pedido.horaEstimadaFinPedido }}</td>
-              <td>$ {{ pedido.totalPedido }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div>
+        <h1 style="padding-left: 50px">Lista de Pedidos</h1>
+        <hr />
     </div>
-  </div>
+    <div class="row animated fadeIn" style="margin: 2em">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table width="100%" class="table table-sm table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="width: 10%">ID</th>
+                            <th style="width: 10%">Nombre Usuario</th>
+                            <th style="width: 10%">Fecha</th>
+                            <th style="width: 10%">Numero Pedido</th>
+                            <th style="width: 10%">Estado</th>
+                            <th style="width: 10%">Hora estimada preparacion</th>
+                            <th style="width: 10%">Total pedido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pedido of pedidos; let i = index">
+                            <td>{{ pedido.idPedido }}</td>
+                            <td>{{ pedido.nombreUsuario }}</td>
+                            <td>{{ pedido.fechaPedido }}</td>
+                            <td>{{ pedido.idPedido }}</td>
+
+                            <td *ngIf="pedido.estadoPedido === 'En Preparación'" id="preparacion">
+                                {{ pedido.estadoPedido }}
+                            </td>
+                            <td *ngIf="pedido.estadoPedido === 'Pagado'" id="pagado">
+                                {{ pedido.estadoPedido }}
+                            </td>
+                            <td>{{ pedido.horaEstimadaFinPedido }}</td>
+                            <td>$ {{ pedido.totalPedido }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
