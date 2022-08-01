@@ -53,6 +53,13 @@ h5 {
     font-size: 16px;
 }
 
+.card-carrito{
+    display: flex;
+    flex-direction: row !important;
+    width: 18rem;
+}
+
+
 
 /* Media query for 600 screen size */
 
