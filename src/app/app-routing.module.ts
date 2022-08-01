@@ -15,8 +15,9 @@ import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
 import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
 import { PedidoAprobadoComponent } from './pages/pedidoAprobado/pedidoAprobado.component';
-import {PedidosComponent} from './pages/Pedidos/pedidos.component';
-import {RegistroComponent} from './pages/registro/registro.component';
+import { PedidosComponent } from './pages/Pedidos/pedidos.component';
+import { RegistroComponent } from './pages/registro/registro.component';
+import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,30 +30,16 @@ const routes: Routes = [
   { path: 'admin/maspedidas', component: PedidosPorPeriodoComponent },
   { path: 'detalle', component: DetalleProductoComponent },
   { path: 'carrito', component: CarritoComponent },
-  {path: 'pedidoAprobado', component:PedidoAprobadoComponent},
+  { path: 'pedidoAprobado', component: PedidoAprobadoComponent },
   { path: 'admin/manufacturados', component: ManufacturadosComponent },
-  {
-    path: 'manufacturado/:idArticuloManufacturado',
-    component: FormManufacturadosComponent,
-  },
-  {
-    path: 'detalleManufacturado/:idArticuloManufacturado',
-    component: DetalleProductoComponent,
-  },
-  {
-    path: 'admin/roles',
-    component: RolesComponent,
-  },
-  {
-    path: 'rol/:idRol',
-    component: FormRolesComponent,
-  },
-  {
-    path: 'sobreNosotros',
-    component: SobreElBuenSaborComponent,
-  },
+  { path: 'manufacturado/:idArticuloManufacturado',component: FormManufacturadosComponent,},
+  { path: 'detalleManufacturado/:idArticuloManufacturado',component: DetalleProductoComponent,},
+  { path: 'admin/roles',component: RolesComponent,},
+  { path: 'rol/:idRol',component: FormRolesComponent,},
+  { path: 'sobreNosotros',component: SobreElBuenSaborComponent,},
   { path: 'pedidos', component: PedidosComponent },
-  {path:'registro', component: RegistroComponent},
+  { path: 'registro', component: RegistroComponent },
+  { path: 'admin/rubrosGenerales', component: RubroGeneralComponent}
 ];
 
 @NgModule({

@@ -20,26 +20,26 @@ export class RubroGeneralService {
   }
 
   public getRubroXId(idx: number): any {
-    for (let rol of this.rubrosData) {
-      if (rol.idRubroGeneral == idx) {
-        return rol;
+    for (let rubro of this.rubrosData) {
+      if (rubro.idRubroGeneral == idx) {
+        return rubro;
       }
     }
   }
 
   //lee todos los rubros generales
   getRubrosGeneralesFromDataBase(): Observable<RubroGeneral[]> {
-    return this.http.get<RubroGeneral[]>('http://localhost:8080/listarRubroGenerales');
+    return this.http.get<RubroGeneral[]>('http://localhost:8080/rubroGeneral/listarRubrosGenerales');
   }
 
   //busca un rubro general por el id
   getRubroGeneralEnBaseDatosXId(idx: number) {
-    return this.http.get('http://localhost:8080/listarRubroGeneralXId/' + idx);
+    return this.http.get('http://localhost:8080/rubroGeneral/listarRubroGeneralXId/' + idx);
   }
 
   //baja logica de un rubro general
   async deleteRubroGeneralFetch(idx: number) {
-    let urlServer = 'http://localhost:8080/borrarRubroGeneral/' + idx;
+    let urlServer = 'http://localhost:8080/rubroGeneral/borrarRubroGeneral/' + idx;
     console.log(urlServer);
     let result = await fetch(urlServer, {
       method: 'DELETE',
@@ -54,10 +54,10 @@ export class RubroGeneralService {
   //guardar o actualizar un rubro general
   async guardarPOST(rubro: RubroGeneral) {
     rubro.idRubroGeneral = Number(rubro.idRubroGeneral);
-    let urlServer = 'http://localhost:8080/crearRubroGeneral';
+    let urlServer = 'http://localhost:8080/rubroGeneral/crearRubroGeneral';
     let method = 'POST';
     if (rubro && rubro.idRubroGeneral > 0) {
-      urlServer = 'http://localhost:8080/modificarRubroGeneral';
+      urlServer = 'http://localhost:8080/rubroGeneral/modificarRubroGeneral';
       method = 'PUT';
     }
     await fetch(urlServer, {
