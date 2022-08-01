@@ -1,3 +1,18 @@
 * {
     background-color: #FFF !important;
 }
+
+.btn-success {
+    color: #fff;
+    background-color: #198754 !important;
+    border-color: #198754;
+}
+
+.card{
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+label, input, button{
+    margin-left:18px
+}
