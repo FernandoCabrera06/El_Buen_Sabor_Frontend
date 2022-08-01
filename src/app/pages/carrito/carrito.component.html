@@ -29,24 +29,25 @@
 
 <!-- ----------------------------------------------------------------------------------- -->
 <div class="carrito">
-  <h4 class="card-title">Carrito de Compras</h4>
+  <h2 class="card-title" style="margin-left: 45px;">Carrito de Compras</h2>
+
   <div class="card-body">
-    <h5 class="card-title">TOTAL: ${{ totalCompra }}</h5>
-    <button type="button" class="btn btn-outline-success btn-sm" (click)="confirmar()">
+    <h5 class="card-title" style="margin-left:30px;">TOTAL: ${{ totalCompra }}</h5>
+    <button type="button" style="margin-left:30px;" class="btn btn-success btn-sm" (click)="confirmar()">
       Confirmar</button> <span>&nbsp;</span>
-    <button type="button" class="btn btn-outline-primary btn-sm" routerLink="/catalogo">
+    <button type="button" class="btn btn-primary btn-sm" routerLink="/catalogo">
       Seguir comprando
     </button>
   </div>
 
-  <div class="card-carrito">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="card border-secondary mb-3"  style="width: 18rem; margin-left: 50px;"
       *ngFor="let articulo of carritos; let i = index">
       <div class="card-body">
 
         <p> <strong>Producto:</strong> {{ articulo.nombreProducto }}</p>
         <i class="fa-solid fa-circle-trash">
-          <button type="button" class="btn btn-outline-danger btn-sm" (click)="eliminar(i)">
+          <button type="button" class="btn btn-danger btn-sm" (click)="eliminar(i)">
             Eliminar producto
           </button>
         </i>
@@ -58,6 +59,5 @@
       </ul>
     </div>
   </div>
-
 
 </div>
