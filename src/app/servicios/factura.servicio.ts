@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import{Factura} from '../entidades/Factura';
 import {map} from 'rxjs/operators';
-
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,15 +31,13 @@ export class FacturaServicio {
 
 
   //lee todos las facturas
-  getFacturasFromDataBase():any{
-    return this.http.get("http://localhost:8080/factura/listarFacturas").pipe(
-      map( facturasData => facturasData));
+  getFacturasFromDataBase():Observable<Factura[]>{
+    return this.http.get<Factura[]>("http://localhost:8080/factura/listarFacturas");
   }
 
   //busca una factura por el id
-  getFacturaEnBaseDatosXId(idx:string){
-    return this.http.get("http://localhost:8080/factura/listarFacturaXId/" + idx).pipe(
-      map( facturaEncontrada => facturaEncontrada));
+  getFacturaEnBaseDatosXId(idx:number){
+    return this.http.get("http://localhost:8080/factura/listarFacturaXId/" + idx);
   }
 
   //ingresos por periodo
@@ -87,6 +85,9 @@ export class FacturaServicio {
 
     }
 
+    getFacturaPorIdPedidoFromDataBase(idPedido:number):Observable<Factura>{
+      return this.http.get<Factura>("http://localhost:8080/factura/facturasPorIdPedido?idPedido="+idPedido);
 
+    }
 
 }

@@ -60,4 +60,7 @@ export class PedidosComponent  implements OnInit{
 
     this.router.navigate(['/formPedidos/', idPedido]);
   }
+  verFactura(idPedido:number){
+    this.router.navigate(['/detalleFactura/', idPedido]);
+  }
 }

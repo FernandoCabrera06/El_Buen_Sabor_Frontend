@@ -1,0 +1,24 @@
+<div class="container-ingresos">
+    <h3>
+        Factura n° {{factura.numeroFactura}}
+    </h3>
+
+    <table id="season-tble">
+        <tr>
+            <td>
+                <h3>Fecha Factura {{ factura.fechaFactura }}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Cliente: {{ usuario.nombres }} {{usuario.apellidos}}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Total Venta: {{ factura.totalVenta }}</h3>
+            </td>
+        </tr>
+    </table>
+
+</div>

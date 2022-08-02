@@ -22,8 +22,8 @@ import { FormUsuariosComponent} from './pages/form-usuarios/form-usuarios.compon
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
 import { FormPedidosComponent } from './pages/form-pedidos/form-pedidos.component';
 import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro-general.component';
-
-
+import{FacturaComponent} from './pages/factura/factura.component';
+import{DetalleFacturaComponent} from './pages/detalleFactura/detalleFactura.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,8 +49,9 @@ const routes: Routes = [
   {path:'formUsuarios/:idUsuario', component: FormUsuariosComponent},
   { path: 'admin/rubrosGenerales', component: RubroGeneralComponent},
   {path: 'formPedidos/:idPedido', component: FormPedidosComponent},
-  { path: 'rubroGeneral/:idRubroGeneral', component: FormRubroGeneralComponent}
-
+  { path: 'rubroGeneral/:idRubroGeneral', component: FormRubroGeneralComponent},
+  {path: 'admin/factura', component: FacturaComponent},
+  {path:'detalleFactura/:idPedido',component: DetalleFacturaComponent}
 ];
 
 @NgModule({

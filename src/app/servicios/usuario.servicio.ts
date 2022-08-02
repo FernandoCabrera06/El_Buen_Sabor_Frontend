@@ -87,6 +87,10 @@ export class UsuarioServicio {
       return this.http.get<Usuario[]>("http://localhost:8080/usuario/listarUsuariosEmpleados");
 
     }
+    getUsuarioXnombreUsuarioFromDataBase(nombreUsuario:string|null):Observable<Usuario>{
+      return this.http.get<Usuario>("http://localhost:8080/usuario/getUsuarioByNombreUsuario?nombreUsuario="+nombreUsuario);
+
+    }
 
 
 }
