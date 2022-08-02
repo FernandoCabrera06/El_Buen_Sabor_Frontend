@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ArticuloManufacturado } from '../entidades/ArticuloManufacturado';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArticuloMFRubroDto } from '../entidades/ArticuloMFRubroDto';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +38,14 @@ export class ManufacturadosService {
       'http://localhost:8080/articuloManufacturado/listarArticuloManufacturados'
     );
   }
+  //lee todos los articulos Manufacturados CON RUBROS
+  getArticulosMFRubrosFromDataBase(): Observable<
+  ArticuloMFRubroDto[]
+> {
+  return this.http.get<ArticuloMFRubroDto[]>(
+    'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadosRubros'
+  );
+}
 
   //busca un articulo Manufacturado por el id
   getArticuloManufacturadoEnBaseDatosXId(idx: number) {

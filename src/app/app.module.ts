@@ -32,6 +32,8 @@ import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { FormUsuariosComponent } from './pages/form-usuarios/form-usuarios.component';
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
 import {FormPedidosComponent} from './pages/form-pedidos/form-pedidos.component';
+import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro-general.component';
+
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import {FormPedidosComponent} from './pages/form-pedidos/form-pedidos.component'
     UsuariosComponent,
     FormUsuariosComponent,
     RubroGeneralComponent,
-    FormPedidosComponent
+    FormPedidosComponent,
+    FormRubroGeneralComponent,
+
 
   ],
   imports: [

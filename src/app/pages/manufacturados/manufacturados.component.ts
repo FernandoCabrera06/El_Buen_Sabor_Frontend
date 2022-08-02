@@ -30,6 +30,7 @@ export class ManufacturadosComponent implements OnInit {
         }
         this.loading = false;
       });
+      
   }
 
   delete(idArticuloManu: number) {

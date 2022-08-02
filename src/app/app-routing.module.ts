@@ -15,12 +15,14 @@ import { RolesComponent } from './pages/roles/roles.component';
 import { FormRolesComponent } from './pages/form-roles/form-roles.component';
 import { SobreElBuenSaborComponent } from './pages/sobre-el-buen-sabor/sobre-el-buen-sabor.component';
 import { PedidoAprobadoComponent } from './pages/pedidoAprobado/pedidoAprobado.component';
-import {PedidosComponent} from './pages/Pedidos/pedidos.component';
-import {RegistroComponent} from './pages/registro/registro.component';
-import {UsuariosComponent} from './pages/usuarios/usuarios.component';
-import {FormUsuariosComponent} from './pages/form-usuarios/form-usuarios.component';
+import { PedidosComponent} from './pages/Pedidos/pedidos.component';
+import { RegistroComponent} from './pages/registro/registro.component';
+import { UsuariosComponent} from './pages/usuarios/usuarios.component';
+import { FormUsuariosComponent} from './pages/form-usuarios/form-usuarios.component';
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
 import { FormPedidosComponent } from './pages/form-pedidos/form-pedidos.component';
+import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro-general.component';
+
 
 
 const routes: Routes = [
@@ -46,7 +48,8 @@ const routes: Routes = [
   {path:'usuarios', component: UsuariosComponent},
   {path:'formUsuarios/:idUsuario', component: FormUsuariosComponent},
   { path: 'admin/rubrosGenerales', component: RubroGeneralComponent},
-  {path: 'formPedidos/:idPedido', component: FormPedidosComponent}
+  {path: 'formPedidos/:idPedido', component: FormPedidosComponent},
+  { path: 'rubroGeneral/:idRubroGeneral', component: FormRubroGeneralComponent}
 
 ];
 
