@@ -30,10 +30,20 @@
     </div>
     <div class="container-ingresos" *ngIf="ingresosPorPeriodo > 0">
       <h3>
-        Ingresos (total ventas) desde el {{ reporte.fechaDesde }} al
-        {{ reporte.fechaHasta }}
+
       </h3>
-      <h3>$ {{ ingresosPorPeriodo }}</h3>
+      <button (click)="exportToExcel()">Exportar a Excel</button>
+      <table id="season-tble">
+        <tr>
+          <td> <h3>Ingresos (total ventas) desde el {{ reporte.fechaDesde }} al
+            {{ reporte.fechaHasta }}</h3></td>
+        </tr>
+        <tr>
+          <td><h3>$ {{ ingresosPorPeriodo }}</h3></td>
+        </tr>
+
+      </table>
+
     </div>
   </div>
 </div>

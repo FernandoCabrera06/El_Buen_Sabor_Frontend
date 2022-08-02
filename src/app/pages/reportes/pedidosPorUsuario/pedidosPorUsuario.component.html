@@ -30,11 +30,11 @@
     </div>
     <div class="container-ingresos" *ngIf="pedidos.length > 0">
       <h3>Desde fecha: {{ reporte.fechaDesde }}  Hasta fecha: {{ reporte.fechaHasta }}</h3>
-
+      <button (click)="exportToExcel()">Exportar a Excel</button>
       <div class="row animated fadeIn" style="margin: 2em">
         <div class="col-md-12">
             <div class="table-responsive">
-                <table width="100%" class="table table-sm table-hover">
+                <table width="100%" class="table table-sm table-hover" id="season-tble">
                     <thead class="thead-dark">
                         <tr>
                             <th style="width: 10%">Usuario</th>

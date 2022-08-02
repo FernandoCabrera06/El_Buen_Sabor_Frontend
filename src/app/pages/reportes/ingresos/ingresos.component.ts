@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,VERSION } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import {Reporte} from 'src/app/entidades/dto/Reporte';
 import { FacturaServicio } from 'src/app/servicios/factura.servicio';
-
+import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-ingresos',
   templateUrl: './ingresos.component.html',
@@ -28,6 +28,16 @@ export class IngresosComponent  implements OnInit{
         this.ingresosPorPeriodo = dato;
      });
 
+  }
+  name = 'ExcelSheet.xlsx';
+  exportToExcel(): void {
+    let element = document.getElementById('season-tble');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+
+    XLSX.writeFile(book, this.name);
   }
 
 }
