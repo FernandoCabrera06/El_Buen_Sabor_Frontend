@@ -31,6 +31,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { FormUsuariosComponent } from './pages/form-usuarios/form-usuarios.component';
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
+import {FormPedidosComponent} from './pages/form-pedidos/form-pedidos.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.compo
     UsuariosComponent,
     FormUsuariosComponent,
     RubroGeneralComponent,
+    FormPedidosComponent
 
   ],
   imports: [

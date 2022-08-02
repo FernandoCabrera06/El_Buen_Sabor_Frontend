@@ -20,6 +20,7 @@ import {RegistroComponent} from './pages/registro/registro.component';
 import {UsuariosComponent} from './pages/usuarios/usuarios.component';
 import {FormUsuariosComponent} from './pages/form-usuarios/form-usuarios.component';
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
+import { FormPedidosComponent } from './pages/form-pedidos/form-pedidos.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,8 @@ const routes: Routes = [
   {path:'registro', component: RegistroComponent},
   {path:'usuarios', component: UsuariosComponent},
   {path:'formUsuarios/:idUsuario', component: FormUsuariosComponent},
-  { path: 'admin/rubrosGenerales', component: RubroGeneralComponent}
+  { path: 'admin/rubrosGenerales', component: RubroGeneralComponent},
+  {path: 'formPedidos/:idPedido', component: FormPedidosComponent}
 
 ];
 

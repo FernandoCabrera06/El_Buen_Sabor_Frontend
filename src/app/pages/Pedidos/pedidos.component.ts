@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgModule } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { AutenticacionServicio } from '../../servicios/autenticacion.servicio';
-import { NgForm } from '@angular/forms';
+import { NgForm,FormsModule } from '@angular/forms';
 import { PedidoDto } from '../../entidades/dto/PedidoDto';
 import{Carrito} from 'src/app/entidades/dto/CarritoDto';
 import {PedidoServicio} from 'src/app/servicios/pedidos.servicio';
+
 
 @Component({
   selector: 'app-pedidos',
@@ -16,7 +17,7 @@ export class PedidosComponent  implements OnInit{
   idPedido: 0,
   fechaPedido: "",
   numeroPedido: 0,
-  estadoPedido: "0",
+  estadoPedido: "",
   horaEstimadaFinPedido: "0",
   tipoEnvio: 0,
   totalPedido:0,
@@ -24,6 +25,8 @@ export class PedidosComponent  implements OnInit{
 
   }
   pedidos: PedidoDto[] = [];
+  estadoPed="En Preparacion";
+  selectVisible=false;
   rol:string|null="";
   usuario:string|null="";
   loading = true;
@@ -52,5 +55,9 @@ export class PedidosComponent  implements OnInit{
       });
     }
 
+  }
+  confirmar(idPedido:number){
+
+    this.router.navigate(['/formPedidos/', idPedido]);
   }
 }
