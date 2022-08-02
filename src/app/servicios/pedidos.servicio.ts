@@ -40,9 +40,8 @@ export class PedidoServicio {
   }
 
   //busca un pedido por el id
-  getPedidoEnBaseDatosXId(idx:string){
-    return this.http.get("http://localhost:8080/pedido/listarPedidoXId/" + idx).pipe(
-      map( pedidoEncontrado => pedidoEncontrado));
+  getPedidoEnBaseDatosXId(idx:number){
+    return this.http.get("http://localhost:8080/pedido/listarPedidoXId/" + idx);
   }
   getIdUltimoPedido(){
     return this.http.get("http://localhost:8080/pedido/ultimoPedido/");

@@ -29,12 +29,28 @@
       </form>
     </div>
     <div class="container-ingresos" *ngIf="pedidos.length > 0">
-      <h3>Desde fecha: {{ reporte.fechaDesde }}</h3>
-      <h3>Hasta fecha: {{ reporte.fechaHasta }}</h3>
-      <div *ngFor="let pedido of pedidos">
-        <h5>Nombre comida: {{ pedido.nombreComida }}</h5>
-        <h5>Cantidad pedida: {{ pedido.cantPedida }}</h5>
-      </div>
+
+  <h3>Desde fecha: {{ reporte.fechaDesde }}  Hasta fecha: {{ reporte.fechaHasta }}</h3>
+
+  <div class="row animated fadeIn" style="margin: 2em">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table width="100%" class="table table-sm table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th style="width: 50%">Nombre Comida</th>
+                        <th style="width: 50%">Cantidad pedida</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  *ngFor="let pedido of pedidos">
+                        <td>{{ pedido.nombreComida }}</td>
+                        <td>{{ pedido.cantPedida }}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </div>
