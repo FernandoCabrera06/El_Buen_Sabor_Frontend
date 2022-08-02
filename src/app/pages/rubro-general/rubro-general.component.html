@@ -26,9 +26,10 @@
           <table width="100%" class="table table-sm table-hover">
             <thead class="thead-dark">
               <tr>
-                <th style="width: 20%; padding-left: 30px">ID</th>
-                <th style="width: 30%">Denominación</th>
-                <th style="width: 20%; padding-right: 80px" class="text-right">
+                <th style="width: 10%; padding-left: 30px">ID</th>
+                <th style="width: 10%">Denominación</th>
+                <th style="width: 10%">Artículos Manufacturados</th>
+                <th style="width: 10%; padding-right: 80px" class="text-right">
                   Opciones
                 </th>
               </tr>
@@ -36,12 +37,15 @@
             <tbody>
               <tr *ngFor="let rubro of rubros; let i = index">
                 <th scope="row" style="padding-left: 30px">{{ i + 1 }}</th>
-                <td>{{ rubro.denominacionRubroGeneral}}</td>
-  
+                <td>{{ rubro.denominacionRubroGeneral }}</td>
+
+                <div *ngFor="let art of articulos; let j = index">
+                <p id="denominacionMF" *ngIf=" art.idRubroGeneral== rubro.idRubroGeneral">{{art.denominacionArticuloManu}}</p>
+              </div>
                 <td class="text-right w120">
                   <button
                     type="button"
-                    [routerLink]="['/rol', rubro.idRubroGeneral]"
+                    [routerLink]="['/rubroGeneral', rubro.idRubroGeneral]"
                     class="btn btn-outline-success"
                     name="button"
                   >

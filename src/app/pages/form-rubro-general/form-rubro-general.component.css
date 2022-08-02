@@ -1,0 +1,21 @@
+* {
+    background-color: #FFF !important;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #198754 !important;
+    border-color: #198754;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd !important;
+    border-color: #0d6efd;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545 !important;
+    border-color: #dc3545;
+}
