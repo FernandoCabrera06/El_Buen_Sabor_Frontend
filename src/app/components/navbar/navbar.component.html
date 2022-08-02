@@ -12,15 +12,15 @@
 
             <!--<li class="nav-item " routerLinkActive="active">-->
             <li class="nav-item " routerLinkActive="active" *ngIf="logueado ">
-                <a class="nav-link" routerLink="admin/pedido">Pedidos<span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink="pedidos">Pedidos<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item " routerLinkActive="active">
-                <a class="nav-link" routerLink="Sobre El Buen Sabor">Sobre El Buen Sabor<span
+                <a class="nav-link" routerLink="sobreNosotros">Sobre El Buen Sabor<span
                       class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item " routerLinkActive="active">
+            <!--<li class="nav-item " routerLinkActive="active">
                 <a class="nav-link" routerLink="Contacto">Contacto<span class="sr-only">(current)</span></a>
-            </li>
+            </li>-->
 
             <!--<li class="nav-item " routerLinkActive="active">-->
             <li class="nav-item " routerLinkActive="active" *ngIf="logueado && rol == 'Cliente' || logueado && rol == 'Admin'">
@@ -68,10 +68,10 @@
             <li class="nav-item" *ngIf="logueado && rol === 'Cocinero'">
                 <a class="nav-link" routerLink="admin/manufacturado">Manufacturados</a>
             </li>
-            <!--  <li class="nav-item">-->
+            <!--  <li class="nav-item">
             <li class="nav-item" *ngIf="logueado">
                 <a class="nav-link" routerLink="cliente/edit">Mi perfil</a>
-            </li>
+            </li>-->
 
             <!--<li class="nav-item">-->
             <li class="nav-item" *ngIf="logueado">
