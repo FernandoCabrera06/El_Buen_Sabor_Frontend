@@ -53,7 +53,7 @@ export class PedidoServicio {
       map( pedidosData => pedidosData));
   }
 
-  getPagarPedido(id:string){
+  getPagarPedido(id:number){
     return this.http.get("http://localhost:8080/pedido/pagarPedido/"+id);
   }
   //ranking de pedidos por fechas

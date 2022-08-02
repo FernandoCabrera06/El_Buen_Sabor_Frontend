@@ -33,6 +33,7 @@ import { FormUsuariosComponent } from './pages/form-usuarios/form-usuarios.compo
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
 import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro-general.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro
     FormUsuariosComponent,
     RubroGeneralComponent,
     FormRubroGeneralComponent,
+
   ],
   imports: [
     BrowserModule,
