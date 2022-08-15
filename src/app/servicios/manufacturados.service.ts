@@ -12,19 +12,15 @@ export class ManufacturadosService {
   public articulosData: ArticuloManufacturado[] = [];
   public articuloEncontrado: any;
 
-  constructor(public http: HttpClient) {
-    console.log('Servicio Cargado!!!');
-  }
+  constructor(public http: HttpClient) {}
 
   public getArticulosManufacturados(): any[] {
     return this.articulosData;
-    console.log(this.articulosData);
   }
 
   public getArticuloManufacturadoXId(idx: number): any {
     for (let articulo of this.articulosData) {
       if (articulo.idArticuloManufacturado == idx) {
-        //console.log('ID QUE PEDI: ', idx);
         return articulo;
       }
     }
@@ -39,17 +35,14 @@ export class ManufacturadosService {
     );
   }
   //lee todos los articulos Manufacturados CON RUBROS
-  getArticulosMFRubrosFromDataBase(): Observable<
-  ArticuloMFRubroDto[]
-> {
-  return this.http.get<ArticuloMFRubroDto[]>(
-    'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadosRubros'
-  );
-}
+  getArticulosMFRubrosFromDataBase(): Observable<ArticuloMFRubroDto[]> {
+    return this.http.get<ArticuloMFRubroDto[]>(
+      'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadosRubros'
+    );
+  }
 
   //busca un articulo Manufacturado por el id
   getArticuloManufacturadoEnBaseDatosXId(idx: number) {
-    console.log('ID QUE PEDI: ', idx);
     return this.http.get(
       'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadoXId/' +
         idx
@@ -62,7 +55,6 @@ export class ManufacturadosService {
     let urlServer =
       'http://localhost:8080/articuloManufacturado/borrarArticuloManufacturado/' +
       Number(idArticulo);
-    console.log(urlServer);
     let result = await fetch(urlServer, {
       method: 'DELETE',
       headers: {
@@ -75,14 +67,11 @@ export class ManufacturadosService {
 
   //guardar o actualizar un articulo Manufacturado
   async guardarPOST(articuloManufacturado: ArticuloManufacturado) {
-    articuloManufacturado.idRubroGeneral = Number(
-      articuloManufacturado.idRubroGeneral
-    );
     let urlServer =
       'http://localhost:8080/articuloManufacturado/articuloManufacturado';
     let method = 'POST';
     if (
-      articuloManufacturado && 
+      articuloManufacturado &&
       articuloManufacturado.idArticuloManufacturado > 0
     ) {
       urlServer =

@@ -1,71 +1,75 @@
 <div>
-    <h1 style="padding-left: 85px">Gestión de Rubros Generales para productos</h1>
-    <hr />
-  
-    <div class="row">
-      <div class="col-md-12 text-right" style="padding-right: 100px">
-        <button
-          type="button"
-          [routerLink]="['/rol', '0']"
-          class="btn btn-primary"
-          type="button"
-          name="button"
-        >
-          Nuevo rubro general
-        </button>
-      </div>
-    </div>
-    <br />
-  
-    <div class="row animated fadeIn">
-      <div class="col-md-12">
-        <div
-          class="table-responsive"
-          style="padding-left: 80px; padding-right: 80px"
-        >
-          <table width="100%" class="table table-sm table-hover">
-            <thead class="thead-dark">
-              <tr>
-                <th style="width: 10%; padding-left: 30px">ID</th>
-                <th style="width: 10%">Denominación</th>
-                <th style="width: 10%">Artículos Manufacturados</th>
-                <th style="width: 10%; padding-right: 80px" class="text-right">
-                  Opciones
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let rubro of rubros; let i = index">
-                <th scope="row" style="padding-left: 30px">{{ i + 1 }}</th>
-                <td>{{ rubro.denominacionRubroGeneral }}</td>
+  <h1 style="padding-left: 85px">Gestión de Rubros Generales para productos</h1>
+  <hr />
 
-                <div *ngFor="let art of articulos; let j = index">
-                <p id="denominacionMF" *ngIf=" art.idRubroGeneral== rubro.idRubroGeneral">{{art.denominacionArticuloManu}}</p>
+  <div class="row">
+    <div class="col-md-12 text-right" style="padding-right: 100px">
+      <button
+        type="button"
+        [routerLink]="['/rubroGeneral', '0']"
+        class="btn btn-primary"
+        type="button"
+        name="button"
+      >
+        Nuevo rubro general
+      </button>
+    </div>
+  </div>
+  <br />
+
+  <div class="row animated fadeIn">
+    <div class="col-md-12">
+      <div
+        class="table-responsive"
+        style="padding-left: 80px; padding-right: 80px"
+      >
+        <table width="100%" class="table table-sm table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th style="width: 10%; padding-left: 30px">ID</th>
+              <th style="width: 10%">Denominación</th>
+              <th style="width: 10%">Artículos Manufacturados</th>
+              <th style="width: 10%; padding-right: 80px" class="text-right">
+                Opciones
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rubro of rubros; let i = index">
+              <th scope="row" style="padding-left: 30px">{{ i + 1 }}</th>
+              <td>{{ rubro.denominacionRubroGeneral }}</td>
+
+              <div *ngFor="let art of articulos; let j = index">
+                <p
+                  id="denominacionMF"
+                  *ngIf="art.idRubroGeneral == rubro.idRubroGeneral"
+                >
+                  {{ art.denominacionArticuloManu }}
+                </p>
               </div>
-                <td class="text-right w120">
-                  <button
-                    type="button"
-                    [routerLink]="['/rubroGeneral', rubro.idRubroGeneral]"
-                    class="btn btn-outline-success"
-                    name="button"
-                  >
-                    <i class="fas fa-edit"></i> Editar</button
-                  >&nbsp;&nbsp;
-                  <button
-                    type="button"
-                    (click)="delete(rubro.idRubroGeneral)"
-                    class="btn btn-outline-danger"
-                    type="button"
-                    name="button"
-                  >
-                    <i class="fas fa-trash-alt"></i> Eliminar
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+              <td class="text-right w120">
+                <button
+                  type="button"
+                  [routerLink]="['/rubroGeneral', rubro.idRubroGeneral]"
+                  class="btn btn-outline-success"
+                  name="button"
+                >
+                  <i class="fas fa-edit"></i> Editar</button
+                >&nbsp;&nbsp;
+                <button
+                  type="button"
+                  (click)="delete(rubro.idRubroGeneral)"
+                  class="btn btn-outline-danger"
+                  type="button"
+                  name="button"
+                >
+                  <i class="fas fa-trash-alt"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-  
+</div>
