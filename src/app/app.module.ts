@@ -35,6 +35,7 @@ import {FormPedidosComponent} from './pages/form-pedidos/form-pedidos.component'
 import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro-general.component';
 import {FacturaComponent} from './pages/factura/factura.component';
 import {DetalleFacturaComponent} from './pages/detalleFactura/detalleFactura.component';
+import { ArticuloInsumoComponent } from './components/articulo-insumo/articulo-insumo.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {DetalleFacturaComponent} from './pages/detalleFactura/detalleFactura.com
     FormPedidosComponent,
     FormRubroGeneralComponent,
     FacturaComponent,
-    DetalleFacturaComponent
+    DetalleFacturaComponent,
+    ArticuloInsumoComponent
 
   ],
   imports: [
