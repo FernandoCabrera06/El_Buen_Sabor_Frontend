@@ -1,116 +1,83 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a href="index.html"><img src="../../../assets/images/logo.png" alt="logo" class="logo-header" /></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a href="index.html"><img src="../../../assets/images/logo.png" alt="logo" class="logo-header" /></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav my-2 my-lg-0">
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a
-        >
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <ul class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
       </li>
 
       <!--<li class="nav-item " routerLinkActive="active">-->
       <li class="nav-item" routerLinkActive="active" *ngIf="logueado">
-        <a class="nav-link" routerLink="pedidos"
-          >Pedidos<span class="sr-only">(current)</span></a
-        >
+        <a class="nav-link" routerLink="pedidos">Pedidos<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="sobreNosotros"
-          >Sobre El Buen Sabor<span class="sr-only">(current)</span></a
-        >
+        <a class="nav-link" routerLink="sobreNosotros">Sobre El Buen Sabor<span class="sr-only">(current)</span></a>
       </li>
       <!--<li class="nav-item " routerLinkActive="active">-->
-      <li
-        class="nav-item"
-        routerLinkActive="active"
-        *ngIf="(logueado && rol == 'Cliente') || (logueado && rol == 'Admin')"
-      >
-        <a class="nav-link" routerLink="carrito"
-          ><img
-            src="../../../assets/images/cart.png"
-            class="img-carrito"
-          /><span
-            *ngIf="numItems != 0"
-            class="translate-middle badge rounded-pill bg-danger"
-          >
+      <li class="nav-item" routerLinkActive="active"
+        *ngIf="(logueado && rol == 'Cliente') || (logueado && rol == 'Admin')">
+        <a class="nav-link" routerLink="carrito"><img src="../../../assets/images/cart.png" class="img-carrito" /><span
+            *ngIf="numItems != 0" class="translate-middle badge rounded-pill bg-danger">
             {{ numItems }}
             <span class="visually-hidden">unread messages</span>
-          </span></a
-        >
+          </span></a>
       </li>
     </ul>
     <ul class="navbar-nav">
       <!--<li class="nav-item dropdown"> -->
       <li class="nav-item dropdown" *ngIf="logueado && rol === 'Admin'">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdown"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Estadistica
         </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="admin/ganancias">Ganancias</a>
-                    <a class="dropdown-item" routerLink="admin/ingresos">Ingresos</a>
-                    <a class="dropdown-item" routerLink="admin/maspedidas">Mas pedidas</a>
-                    <a class="dropdown-item" routerLink="admin/pcliente">Pedidos Cliente</a
-          >
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="admin/ganancias">Ganancias</a>
+          <a class="dropdown-item" routerLink="admin/ingresos">Ingresos</a>
+          <a class="dropdown-item" routerLink="admin/maspedidas">Mas pedidas</a>
+          <a class="dropdown-item" routerLink="admin/pcliente">Pedidos Cliente</a>
         </div>
       </li>
       <!-- <li class="nav-item dropdown">-->
       <li class="nav-item dropdown" *ngIf="logueado && rol === 'Admin'">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdown"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Administrar
         </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" routerLink="admin/rubrosGenerales">Rubro General</a
-          >
-          <a class="dropdown-item" routerLink="admin/rarticulo"
-            >Rubro Articulo</a
-          >
-          <a class="dropdown-item" routerLink="admin/insumo">Articulo Insumo</a>
-                        <a class="dropdown-item" routerLink="admin/manufacturados">Articulo Manufacturado</a
-          >
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="admin/rubrosGenerales">Rubro General</a>
+          <a class="dropdown-item" routerLink="admin/rarticulo">Rubro Articulo</a>
+          <a class="dropdown-item" routerLink="admin/insumos">Articulo Insumo</a>
+          <a class="dropdown-item" routerLink="admin/manufacturados">Articulo Manufacturado</a>
           <a class="dropdown-item" routerLink="usuarios">Usuarios</a>
-                        <a class="dropdown-item" routerLink="admin/roles">Roles</a>
-                        <a class="dropdown-item" routerLink="admin/factura">Facturas</a>
-                    </div>
-            </li>
-            <!--<li class="nav-item " routerLinkActive="active">-->
-            <li class="nav-item" routerLinkActive="active" *ngIf="!logueado">
-                <a class="nav-link" routerLink="registro">Registro</a>
-            </li>
-            <!-- <li class="nav-item" routerLinkActive="active">-->
-            <li class="nav-item" routerLinkActive="active" *ngIf="!logueado">
-                <a class="nav-link" routerLink="user/login">Login</a>
-            </li>
-            <!-- <li class="nav-item">-->
-            <li class="nav-item" *ngIf="logueado && rol === 'Cocinero'">
-                <a class="nav-link" routerLink="admin/manufacturado">Manufacturados</a>
-            </li>
-            <!--  <li class="nav-item">-->
-            <li class="nav-item" *ngIf="logueado">
-                <a class="nav-link" routerLink="cliente/edit">Mi perfil</a>
-            </li>
-
-            <!--<li class="nav-item">-->
-            <li class="nav-item" *ngIf="logueado">
-                <a href="#" class="nav-link" (click)="onLogout()">Salir</a>
-            </li>
-        </ul>
+          <a class="dropdown-item" routerLink="admin/roles">Roles</a>
+          <a class="dropdown-item" routerLink="admin/factura">Facturas</a>
         </div>
+      </li>
+      <!--<li class="nav-item " routerLinkActive="active">-->
+      <li class="nav-item" routerLinkActive="active" *ngIf="!logueado">
+        <a class="nav-link" routerLink="registro">Registro</a>
+      </li>
+      <!-- <li class="nav-item" routerLinkActive="active">-->
+      <li class="nav-item" routerLinkActive="active" *ngIf="!logueado">
+        <a class="nav-link" routerLink="user/login">Login</a>
+      </li>
+      <!-- <li class="nav-item">-->
+      <li class="nav-item" *ngIf="logueado && rol === 'Cocinero'">
+        <a class="nav-link" routerLink="admin/manufacturado">Manufacturados</a>
+      </li>
+      <!--  <li class="nav-item">-->
+      <li class="nav-item" *ngIf="logueado">
+        <a class="nav-link" routerLink="cliente/edit">Mi perfil</a>
+      </li>
+
+      <!--<li class="nav-item">-->
+      <li class="nav-item" *ngIf="logueado">
+        <a href="#" class="nav-link" (click)="onLogout()">Salir</a>
+      </li>
+    </ul>
+  </div>
 </nav>
