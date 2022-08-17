@@ -1,3 +1,6 @@
+import { PrecioArticuloInsumo } from "./PrecioArticuloInsumo";
+import { RubroArticulo } from "./RubroArticulo";
+
 export class ArticuloInsumo{
     idArticuloInsumo:number = 0;
     denominacionArticuloInsumo:string = "";
@@ -7,6 +10,6 @@ export class ArticuloInsumo{
     unidadMedidaArticuloInsumo:string = "";
     esArticuloInsumo:boolean = true;
     bajaArticuloInsumo:boolean = true;
-    preciosArticulosInsumo:number[] = [];
-    rubroArticulo:string = "";
+    preciosArticulosInsumo:PrecioArticuloInsumo[] = [];
+    rubroArticulo:RubroArticulo = new RubroArticulo();
 }

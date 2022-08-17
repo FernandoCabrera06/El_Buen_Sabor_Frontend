@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-md-12 text-right">
-            <button type="button" [routerLink]="['/manufacturado', '0']" class="btn btn-primary" type="button"
+            <button type="button" [routerLink]="['/insumo', '0']" class="btn btn-primary" type="button"
                 name="button">
                 Nuevo articulo insumo
             </button>
@@ -29,10 +29,7 @@
                             <th style="width: 10%">Es Insumo</th>
                             <th style="width: 10%">Precios</th>
                             <th style="width: 10%">Rubro</th>
-
-                            <th style="width: 40%; padding-right: 130px" class="text-right">
-                                Opciones
-                            </th>
+                            <th style="width: 40%; padding-right: 130px" class="text-right">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,10 +46,7 @@
 
                             <td class="text-right w120">
                                 >&nbsp;&nbsp;
-                                <button type="button" class="btn btn-outline-success" [routerLink]="[
-                      '/manufacturado',
-                      insumo.idArticuloInsumo
-                    ]" name="button">
+                                <button type="button" class="btn btn-outline-success" [routerLink]="['/insumo',insumo.idArticuloInsumo]" name="button">
                                     <i class="fas fa-edit"></i> Editar</button>&nbsp;&nbsp;
                                 <button type="button" class="btn btn-outline-danger" type="button" name="button">
                                     <i class="fas fa-trash-alt"></i> Eliminar
