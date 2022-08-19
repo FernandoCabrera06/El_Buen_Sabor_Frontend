@@ -44,7 +44,7 @@
                                 &nbsp;&nbsp;
                                 <button type="button" class="btn btn-outline-success" [routerLink]="['/insumo',insumo.idArticuloInsumo]" name="button">
                                     <i class="fas fa-edit"></i> Editar</button>&nbsp;&nbsp;
-                                <button type="button" class="btn btn-outline-danger" type="button" name="button">
+                                <button type="button" (click)="delete(insumo.idArticuloInsumo)" class="btn btn-outline-danger" type="button" name="button">
                                     <i class="fas fa-trash-alt"></i> Eliminar
                                 </button>
                             </td>
