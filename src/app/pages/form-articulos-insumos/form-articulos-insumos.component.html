@@ -51,6 +51,43 @@
                         required minlength="4" />
                 </div>
 
+                <!-- TODOS LOS CAMPOS DEL OBJETO PRECIOS DEL ARTICULO INSUMO -->
+                <!-- PRECIOS DE COSTO -->
+                <div class="form-group">
+                    <label for="rubro">Precio de costo</label>
+                    <input id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].precioCostoArticuloInsumo" name="modelo" class="form-control"
+                        required minlength="4" />
+                </div>
+
+                <!-- PRECIOS DE VENTA -->
+                <div class="form-group">
+                    <label for="rubro">Precio de venta</label>
+                    <input id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].precioVentaArticuloInsumo" name="modelo" class="form-control"
+                        required minlength="4" />
+                </div>
+
+                 <!-- CANTIDAD PRECIOS DEL INSUMO -->
+                 <div class="form-group">
+                    <label for="rubro">Cantidad de precios del insumo</label>
+                    <input id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].cantidadPrecioArtInsumo" name="modelo" class="form-control"
+                        required minlength="4" />
+                </div>
+
+                <!-- FECHA DE COMPRA -->
+                <div class="form-group">
+                    <label for="rubro">Fecha de compra</label>
+                    <input id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].fechaPrecioArtInsumo" name="modelo" class="form-control"
+                        required minlength="4" />
+                </div>
+
+                <!-- TODOS LOS CAMPOS DEL OBJETO RUBRO_ARTICULO DEL ARTICULO INSUMO -->
+                <!-- RUBRO ARTICULO -->
+                <div class="form-group">
+                    <label for="rubro">Rubro articulo</label>
+                    <input id="rubro" [(ngModel)]="insumo.rubroArticulo.denominacionRubroArticulo" name="modelo" class="form-control"
+                        required minlength="4" />
+                </div>
+
                  <!-- BOTON GUARDAR -->
                 <div class="form-group">
                     <button type="button" class="btn btn-success" (click)="guardarPOST()">
