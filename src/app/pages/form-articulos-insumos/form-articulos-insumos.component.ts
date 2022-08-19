@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticuloInsumo } from 'src/app/entidades/ArticuloInsumo';
+import { PrecioArticuloInsumo } from 'src/app/entidades/PrecioArticuloInsumo';
 import { RubroArticulo } from 'src/app/entidades/RubroArticulo';
 import { ArticuloInsumoService } from 'src/app/servicios/articulo-insumo.service';
 
@@ -20,7 +21,7 @@ export class FormArticulosInsumosComponent implements OnInit {
     unidadMedidaArticuloInsumo: '',
     esArticuloInsumo: false,
     bajaArticuloInsumo: false,
-    preciosArticulosInsumo: [], // ------> REVISAR ACA, XQ NO TOMA UN ARRAY DE TIPO preciosArticulosInsumos[]
+    preciosArticulosInsumo: [],
     rubroArticulo: new RubroArticulo(),
   };
   new = false;

@@ -25,58 +25,58 @@
 
                 <!-- ES INSUMO?  SI/NO -->
                 <div class="form-group">
-                    <label for="precio">Es insumo? Si/No</label>
-                    <input id="precio" type="text" [(ngModel)]="insumo.esArticuloInsumo" name="precio"
+                    <label for="esInsumo">Es insumo? Si/No</label>
+                    <input id="esInsumo" type="text" [(ngModel)]="insumo.esArticuloInsumo" name="esInsumo"
                         class="form-control" required minlength="4" />
                 </div>
 
                 <!-- STOCK ACTUAL -->
                 <div class="form-group">
-                    <label for="rubro">Stock actual</label>
-                    <input type="number" id="rubro" [(ngModel)]="insumo.stockActual" name="rubro" class="form-control" required
+                    <label for="stockActual">Stock actual</label>
+                    <input type="number" id="stockActual" [(ngModel)]="insumo.stockActual" name="stockActual" class="form-control" required
                         minlength="4" />
                 </div>
 
                 <!-- STOCK MINIMO -->
                 <div class="form-group">
-                    <label for="rubro">Stock mínimo</label>
-                    <input id="rubro" [(ngModel)]="insumo.stockMinimo" name="rubro" class="form-control" required
+                    <label for="stockMinimo">Stock mínimo</label>
+                    <input id="stockMinimo" [(ngModel)]="insumo.stockMinimo" name="stockMinimo" class="form-control" required
                         minlength="4" />
                 </div>
 
                 <!-- UNIDAD DE MEDIDA -->
                 <div class="form-group">
-                    <label for="rubro">Unidad de medida</label>
-                    <input type="text" id="unidadMedida" [(ngModel)]="insumo.unidadMedidaArticuloInsumo" name="modelo" class="form-control"
+                    <label for="unidadMedida">Unidad de medida</label>
+                    <input type="text" id="unidadMedida" [(ngModel)]="insumo.unidadMedidaArticuloInsumo" name="unidadMedida" class="form-control"
                         required minlength="4" />
                 </div>
 
                 <!-- TODOS LOS CAMPOS DEL OBJETO PRECIOS DEL ARTICULO INSUMO -->
                 <!-- PRECIOS DE COSTO -->
                 <div class="form-group">
-                    <label for="rubro">Precio de costo</label>
-                    <input id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].precioCostoArticuloInsumo" name="modelo" class="form-control"
+                    <label for="precioCosto">Precio de costo</label>
+                    <input id="precioCosto" [(ngModel)]="insumo.preciosArticulosInsumo[0].precioCostoArticuloInsumo" name="precioCosto" class="form-control"
                         required minlength="4" />
                 </div>
 
                 <!-- PRECIOS DE VENTA -->
                 <div class="form-group">
-                    <label for="rubro">Precio de venta</label>
-                    <input id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].precioVentaArticuloInsumo" name="modelo" class="form-control"
+                    <label for="precioVenta">Precio de venta</label>
+                    <input id="precioVenta" [(ngModel)]="insumo.preciosArticulosInsumo[0].precioVentaArticuloInsumo" name="precioVenta" class="form-control"
                         required minlength="4" />
                 </div>
 
                  <!-- CANTIDAD PRECIOS DEL INSUMO -->
                  <div class="form-group">
-                    <label for="rubro">Cantidad de precios del insumo</label>
-                    <input id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].cantidadPrecioArtInsumo" name="modelo" class="form-control"
+                    <label for="cantidad">Cantidad de precios del insumo</label>
+                    <input id="cantidad" [(ngModel)]="insumo.preciosArticulosInsumo[0].cantidadPrecioArtInsumo" name="cantidad" class="form-control"
                         required minlength="4" />
                 </div>
 
                 <!-- FECHA DE COMPRA -->
                 <div class="form-group">
-                    <label for="rubro">Fecha de compra</label>
-                    <input type="date" id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].fechaPrecioArtInsumo" name="modelo" class="form-control"
+                    <label for="fecha">Fecha de compra</label>
+                    <input type="date" id="fecha" [(ngModel)]="insumo.preciosArticulosInsumo[0].fechaPrecioArtInsumo" name="fecha" class="form-control"
                         required minlength="4" />
                 </div>
 
@@ -84,7 +84,7 @@
                 <!-- RUBRO ARTICULO -->
                 <div class="form-group">
                     <label for="rubro">Rubro articulo</label>
-                    <input id="rubro" [(ngModel)]="insumo.rubroArticulo.denominacionRubroArticulo" name="modelo" class="form-control"
+                    <input id="rubro" [(ngModel)]="insumo.rubroArticulo.denominacionRubroArticulo" name="rubro" class="form-control"
                         required minlength="4" />
                 </div>
 
