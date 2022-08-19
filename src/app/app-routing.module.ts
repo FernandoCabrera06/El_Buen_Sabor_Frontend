@@ -24,7 +24,8 @@ import { FormPedidosComponent } from './pages/form-pedidos/form-pedidos.componen
 import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro-general.component';
 import { FacturaComponent } from './pages/factura/factura.component';
 import { DetalleFacturaComponent } from './pages/detalleFactura/detalleFactura.component';
-import { ArticuloInsumoComponent } from './components/articulo-insumo/articulo-insumo.component';
+import { ArticuloInsumoComponent } from './pages/articulo-insumo/articulo-insumo.component';
+import { FormArticulosInsumosComponent } from './pages/form-articulos-insumos/form-articulos-insumos.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'admin/factura', component: FacturaComponent },
   { path: 'detalleFactura/:idPedido', component: DetalleFacturaComponent },
   { path: 'admin/insumos', component: ArticuloInsumoComponent },
+  { path: 'insumo/:idArticuloInsumo', component: FormArticulosInsumosComponent}
 ];
 
 @NgModule({

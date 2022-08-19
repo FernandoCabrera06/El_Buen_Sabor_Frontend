@@ -31,11 +31,12 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { FormUsuariosComponent } from './pages/form-usuarios/form-usuarios.component';
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
-import {FormPedidosComponent} from './pages/form-pedidos/form-pedidos.component';
+import { FormPedidosComponent } from './pages/form-pedidos/form-pedidos.component';
 import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro-general.component';
-import {FacturaComponent} from './pages/factura/factura.component';
-import {DetalleFacturaComponent} from './pages/detalleFactura/detalleFactura.component';
-import { ArticuloInsumoComponent } from './components/articulo-insumo/articulo-insumo.component';
+import { FacturaComponent } from './pages/factura/factura.component';
+import { DetalleFacturaComponent } from './pages/detalleFactura/detalleFactura.component';
+import { ArticuloInsumoComponent } from './pages/articulo-insumo/articulo-insumo.component';
+import { FormArticulosInsumosComponent } from './pages/form-articulos-insumos/form-articulos-insumos.component';
 
 @NgModule({
   declarations: [
@@ -66,8 +67,8 @@ import { ArticuloInsumoComponent } from './components/articulo-insumo/articulo-i
     FormRubroGeneralComponent,
     FacturaComponent,
     DetalleFacturaComponent,
-    ArticuloInsumoComponent
-
+    ArticuloInsumoComponent,
+    FormArticulosInsumosComponent,
   ],
   imports: [
     BrowserModule,

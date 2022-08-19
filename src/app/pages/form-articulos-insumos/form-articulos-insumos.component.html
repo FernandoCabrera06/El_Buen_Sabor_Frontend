@@ -1,0 +1,69 @@
+<div style="padding-left: 35px; padding-right: 85px">
+    <h3>
+        Articulo Insumo <small>{{ insumo.idArticuloInsumo }}</small>
+    </h3>
+
+    <button class="btn btn-danger" [routerLink]="['/admin/insumos']">
+        Volver
+    </button>
+    <span>&nbsp;</span>
+    <button class="btn btn-success" (click)="addNew(forma)">
+        Limpiar campos
+    </button>
+    <hr />
+
+    <div class="row animated fadeIn fast">
+        <div class="col-md-12">
+            <form #forma="ngForm">
+
+                 <!-- DENOMINACION -->
+                <div class="form-group">
+                    <label for="nombre">Denominacion</label>
+                    <input id="nombre" [(ngModel)]="insumo.denominacionArticuloInsumo" name="nombre"
+                        class="form-control" required minlength="4" />
+                </div>
+
+                <!-- ES INSUMO?  SI/NO -->
+                <div class="form-group">
+                    <label for="precio">Es insumo? Si/No</label>
+                    <input id="precio" type="number" [(ngModel)]="insumo.esArticuloInsumo" name="precio"
+                        class="form-control" required minlength="4" />
+                </div>
+
+                <!-- STOCK ACTUAL -->
+                <div class="form-group">
+                    <label for="rubro">Stock actual</label>
+                    <input id="rubro" [(ngModel)]="insumo.stockActual" name="rubro" class="form-control" required
+                        minlength="4" />
+                </div>
+
+                <!-- STOCK MINIMO -->
+                <div class="form-group">
+                    <label for="rubro">Stock mínimo</label>
+                    <input id="rubro" [(ngModel)]="insumo.stockMinimo" name="rubro" class="form-control" required
+                        minlength="4" />
+                </div>
+
+                <!-- UNIDAD DE MEDIDA -->
+                <div class="form-group">
+                    <label for="rubro">Unidad de medida</label>
+                    <input id="rubro" [(ngModel)]="insumo.unidadMedidaArticuloInsumo" name="modelo" class="form-control"
+                        required minlength="4" />
+                </div>
+
+                 <!-- BOTON GUARDAR -->
+                <div class="form-group">
+                    <button type="button" class="btn btn-success" (click)="guardarPOST()">
+                        Guardar
+                    </button>
+                    <span style="
+                text-align: right;
+                width: 500;
+                color: blue;
+                font-weight: bold;
+              ">&nbsp;&nbsp;&nbsp; {{ resultado }}</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
