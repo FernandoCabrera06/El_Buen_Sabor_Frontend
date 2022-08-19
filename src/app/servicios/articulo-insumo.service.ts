@@ -34,9 +34,9 @@ export class ArticuloInsumoService {
   }
 
   //busca un articulo insumo por el id
-  getArticuloManufacturadoEnBaseDatosXId(idx: number) {
+  getArticuloInsumoEnBaseDatosXId(idx: number) {
     return this.http.get(
-      'http://localhost:8080/articuloInsumo/listarArticuloInsumoXId/' + idx
+      'http://localhost:8080/articuloInsumo/articuloInsumoXId/' + idx
     );
   }
 

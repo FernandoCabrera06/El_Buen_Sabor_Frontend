@@ -37,7 +37,7 @@ export class FormArticulosInsumosComponent implements OnInit {
 
       if (this.idArticuloInsumo != 0) {
         servicioInsumo
-          .getArticuloManufacturadoEnBaseDatosXId(this.idArticuloInsumo)
+          .getArticuloInsumoEnBaseDatosXId(this.idArticuloInsumo)
           .subscribe(
             (insumoEncontrado: any) =>
               (this.insumo = insumoEncontrado as ArticuloInsumo)

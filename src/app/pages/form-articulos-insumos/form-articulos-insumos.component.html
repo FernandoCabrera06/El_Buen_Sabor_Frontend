@@ -1,6 +1,6 @@
 <div style="padding-left: 35px; padding-right: 85px">
     <h3>
-        Articulo Insumo <small>{{ insumo.idArticuloInsumo }}</small>
+        Articulo Insumo ID: <small>{{ insumo.idArticuloInsumo }}</small>
     </h3>
 
     <button class="btn btn-danger" [routerLink]="['/admin/insumos']">
@@ -26,14 +26,14 @@
                 <!-- ES INSUMO?  SI/NO -->
                 <div class="form-group">
                     <label for="precio">Es insumo? Si/No</label>
-                    <input id="precio" type="number" [(ngModel)]="insumo.esArticuloInsumo" name="precio"
+                    <input id="precio" type="text" [(ngModel)]="insumo.esArticuloInsumo" name="precio"
                         class="form-control" required minlength="4" />
                 </div>
 
                 <!-- STOCK ACTUAL -->
                 <div class="form-group">
                     <label for="rubro">Stock actual</label>
-                    <input id="rubro" [(ngModel)]="insumo.stockActual" name="rubro" class="form-control" required
+                    <input type="number" id="rubro" [(ngModel)]="insumo.stockActual" name="rubro" class="form-control" required
                         minlength="4" />
                 </div>
 
@@ -47,7 +47,7 @@
                 <!-- UNIDAD DE MEDIDA -->
                 <div class="form-group">
                     <label for="rubro">Unidad de medida</label>
-                    <input id="rubro" [(ngModel)]="insumo.unidadMedidaArticuloInsumo" name="modelo" class="form-control"
+                    <input type="text" id="unidadMedida" [(ngModel)]="insumo.unidadMedidaArticuloInsumo" name="modelo" class="form-control"
                         required minlength="4" />
                 </div>
 
@@ -76,7 +76,7 @@
                 <!-- FECHA DE COMPRA -->
                 <div class="form-group">
                     <label for="rubro">Fecha de compra</label>
-                    <input id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].fechaPrecioArtInsumo" name="modelo" class="form-control"
+                    <input type="date" id="rubro" [(ngModel)]="insumo.preciosArticulosInsumo[0].fechaPrecioArtInsumo" name="modelo" class="form-control"
                         required minlength="4" />
                 </div>
 
