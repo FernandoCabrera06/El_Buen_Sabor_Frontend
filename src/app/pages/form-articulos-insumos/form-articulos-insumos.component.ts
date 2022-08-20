@@ -21,7 +21,7 @@ export class FormArticulosInsumosComponent implements OnInit {
     unidadMedidaArticuloInsumo: '',
     esArticuloInsumo: false,
     bajaArticuloInsumo: false,
-    preciosArticulosInsumo: [],
+    preciosArticulosInsumo: [new PrecioArticuloInsumo()],
     rubroArticulo: new RubroArticulo(),
   };
   new = false;
@@ -54,16 +54,16 @@ export class FormArticulosInsumosComponent implements OnInit {
   addNew(formu: NgForm) {
     this.router.navigate(['/insumo', '0']);
     formu.reset({
-    idArticuloInsumo : '',
-    denominacionArticuloInsumo: '',
-    imagenArticuloInsumo: '',
-    stockActual: 0,
-    stockMinimo: 0,
-    unidadMedidaArticuloInsumo: '',
-    esArticuloInsumo: '',
-    bajaArticuloInsumo: '',
-    preciosArticulosInsumo: [], // ------> REVISAR ACA, XQ NO TOMA UN ARRAY DE TIPO preciosArticulosInsumos[]
-    rubroArticulo: new RubroArticulo(),
+      idArticuloInsumo: '',
+      denominacionArticuloInsumo: '',
+      imagenArticuloInsumo: '',
+      stockActual: 0,
+      stockMinimo: 0,
+      unidadMedidaArticuloInsumo: '',
+      esArticuloInsumo: '',
+      bajaArticuloInsumo: '',
+      preciosArticulosInsumo: [], // ------> REVISAR ACA, XQ NO TOMA UN ARRAY DE TIPO preciosArticulosInsumos[]
+      rubroArticulo: new RubroArticulo(),
     });
   }
 
@@ -73,7 +73,7 @@ export class FormArticulosInsumosComponent implements OnInit {
   }
 
   async guardarPOST() {
-    this.servicioInsumo.guardarPOST(this.insumo);
+    this.servicioInsumo.guardarPOST(this.insumo, this.insumo.idArticuloInsumo);
     this.resultado = 'Operación finalizada, verifique los datos';
     this.router.navigate(['admin/insumos']);
   }

@@ -4,15 +4,13 @@ import { Observable } from 'rxjs';
 import { ArticuloInsumo } from '../entidades/ArticuloInsumo';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArticuloInsumoService {
   public insumosData: ArticuloInsumo[] = [];
   public insumoEncontrado: any;
 
-  constructor(public http: HttpClient) { }
-
-
+  constructor(public http: HttpClient) {}
 
   public getArticulosInsumos(): any[] {
     return this.insumosData;
@@ -43,7 +41,8 @@ export class ArticuloInsumoService {
   //baja logica de un articulo insumo
   async deleteArticuloInsumoFetch(idInsumo: number) {
     let urlServer =
-      'http://localhost:8080/articuloInsumo/borrarArticuloInsumo/' + Number(idInsumo);
+      'http://localhost:8080/articuloInsumo/borrarArticuloInsumo/' +
+      Number(idInsumo);
     let result = await fetch(urlServer, {
       method: 'DELETE',
       headers: {
@@ -55,13 +54,14 @@ export class ArticuloInsumoService {
   }
 
   //guardar o actualizar un articulo insumo
-  async guardarPOST(articuloInsumo: ArticuloInsumo) {
-    let urlServer =
-      'http://localhost:8080/articuloInsumo/crearArticuloInsumo';
+  async guardarPOST(articuloInsumo: ArticuloInsumo, idArticuloInsumo: number) {
+    let urlServer = 'http://localhost:8080/articuloInsumo/crearArticuloInsumo';
     let method = 'POST';
 
-    if ( articuloInsumo && articuloInsumo.idArticuloInsumo > 0 ) {
-      urlServer = 'http://localhost:8080/articuloInsumo/modificarArticuloInsumo';
+    if (articuloInsumo && articuloInsumo.idArticuloInsumo > 0) {
+      urlServer =
+        'http://localhost:8080/articuloInsumo/modificarArticuloInsumo/' +
+        idArticuloInsumo;
       method = 'PUT';
     }
     await fetch(urlServer, {
@@ -73,4 +73,3 @@ export class ArticuloInsumoService {
     });
   }
 }
-

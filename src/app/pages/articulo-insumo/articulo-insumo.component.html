@@ -1,61 +1,85 @@
 <div>
-    <h1>Gestión de Artículos Insumo</h1>
-    <hr />
+  <h1>Gestión de Artículos Insumo</h1>
+  <hr />
 
-        <div class="col-md-10">
-            <div class="row-animated-fadeIn">
-                <div class="row">
-                    <div class="col-md-12 text-right">
-                        <button type="button" [routerLink]="['/insumo', '0']" class="btn btn-primary" type="button"
-                            name="button">
-                            Nuevo articulo insumo
-                        </button>
-                    </div>
-                </div>
-            <div class="table-responsive">
-                <table width="100%" class="table table-sm table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th style="width: 2%"></th>
-                            <th style="width: 10%">ID</th>
-                            <th style="width: 10%">Denominacion</th>
-                            <th style="width: 10%">Stock actual</th>
-                            <th style="width: 10%">Stock minimo</th>
-                            <th style="width: 10%">Unidad de medida</th>
-                            <th style="width: 10%">Es Insumo</th>
-                            <th style="width: 10%">Precios</th>
-                            <th style="width: 10%">Rubro</th>
-                            <th style="width: 20%; padding-right: 130px" class="text-right">Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let insumo of insumos; let i = index">
-                            <td></td>
-                            <th scope="row">{{ i + 1 }}</th>
-                            <td>{{ insumo.denominacionArticuloInsumo }}</td>
-                            <td>{{ insumo.stockActual }}</td>
-                            <td>{{ insumo.stockMinimo }}</td>
-                            <td>{{ insumo.unidadMedidaArticuloInsumo }}</td>
-                            <td>{{ insumo.esArticuloInsumo? "SI" : "NO" }}</td>
-                            <td>{{ insumo.preciosArticulosInsumo[0]?.precioCostoArticuloInsumo }}</td>
-                            <td>{{ insumo.rubroArticulo.denominacionRubroArticulo }}</td>
-
-                            <td class="text-right w120">
-                                &nbsp;&nbsp;
-                                <button type="button" class="btn btn-outline-success" [routerLink]="['/insumo',insumo.idArticuloInsumo]" name="button">
-                                    <i class="fas fa-edit" [routerLink]="[
-                                    '/insumo',
-                                    insumo.idArticuloInsumo
-                                  ]"></i> Editar</button>&nbsp;&nbsp;
-
-                                <button type="button" (click)="delete(insumo.idArticuloInsumo)" class="btn btn-outline-danger" type="button" name="button">
-                                    <i class="fas fa-trash-alt"></i> Eliminar
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+  <div class="col-md-10">
+    <div class="row-animated-fadeIn">
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <button
+            type="button"
+            [routerLink]="['/insumo', '0']"
+            class="btn btn-primary"
+            type="button"
+            name="button"
+          >
+            Nuevo articulo insumo
+          </button>
         </div>
+      </div>
+      <div class="table-responsive">
+        <table width="100%" class="table table-sm table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th style="width: 2%"></th>
+              <th style="width: 10%">ID</th>
+              <th style="width: 10%">Denominacion</th>
+              <th style="width: 10%">Stock actual</th>
+              <th style="width: 10%">Stock minimo</th>
+              <th style="width: 10%">Unidad de medida</th>
+              <th style="width: 10%">Es Insumo</th>
+              <th style="width: 10%">Precio</th>
+              <th style="width: 10%">Rubro</th>
+              <th style="width: 20%; padding-right: 130px" class="text-right">
+                Opciones
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let insumo of insumos; let i = index">
+              <td></td>
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ insumo.denominacionArticuloInsumo }}</td>
+              <td>{{ insumo.stockActual.toPrecision(3) }}</td>
+              <td>{{ insumo.stockMinimo.toPrecision(3) }}</td>
+              <td>{{ insumo.unidadMedidaArticuloInsumo }}</td>
+              <td>{{ insumo.esArticuloInsumo ? "SI" : "NO" }}</td>
+              <td>
+                {{
+                  insumo.preciosArticulosInsumo[0]?.precioCostoArticuloInsumo
+                }}
+              </td>
+              <td>{{ insumo.rubroArticulo.denominacionRubroArticulo }}</td>
+
+              <td class="text-right w120">
+                &nbsp;&nbsp;
+                <button
+                  type="button"
+                  class="btn btn-outline-success"
+                  [routerLink]="['/insumo', insumo.idArticuloInsumo]"
+                  name="button"
+                >
+                  <i
+                    class="fas fa-edit"
+                    [routerLink]="['/insumo', insumo.idArticuloInsumo]"
+                  ></i>
+                  Editar</button
+                >&nbsp;&nbsp;
+
+                <button
+                  type="button"
+                  (click)="delete(insumo.idArticuloInsumo)"
+                  class="btn btn-outline-danger"
+                  type="button"
+                  name="button"
+                >
+                  <i class="fas fa-trash-alt"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 </div>
