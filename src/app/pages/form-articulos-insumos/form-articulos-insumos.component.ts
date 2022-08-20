@@ -54,14 +54,14 @@ export class FormArticulosInsumosComponent implements OnInit {
   addNew(formu: NgForm) {
     this.router.navigate(['/insumo', '0']);
     formu.reset({
-    idArticuloInsumo : 0,
+    idArticuloInsumo : '',
     denominacionArticuloInsumo: '',
     imagenArticuloInsumo: '',
     stockActual: 0,
     stockMinimo: 0,
     unidadMedidaArticuloInsumo: '',
-    esArticuloInsumo: false,
-    bajaArticuloInsumo: false,
+    esArticuloInsumo: '',
+    bajaArticuloInsumo: '',
     preciosArticulosInsumo: [], // ------> REVISAR ACA, XQ NO TOMA UN ARRAY DE TIPO preciosArticulosInsumos[]
     rubroArticulo: new RubroArticulo(),
     });

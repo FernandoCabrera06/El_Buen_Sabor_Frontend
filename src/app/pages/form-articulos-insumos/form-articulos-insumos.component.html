@@ -40,14 +40,14 @@
                 <!-- STOCK MINIMO -->
                 <div class="form-group">
                     <label for="stockMinimo">Stock mínimo</label>
-                    <input id="stockMinimo" [(ngModel)]="insumo.stockMinimo" name="stockMinimo" class="form-control" required
+                    <input type="number" id="stockMinimo" [(ngModel)]="insumo.stockMinimo" name="stockMinimo" class="form-control" required
                         minlength="4" />
                 </div>
 
                 <!-- UNIDAD DE MEDIDA -->
                 <div class="form-group">
                     <label for="unidadMedida">Unidad de medida</label>
-                    <input type="text" id="unidadMedida" [(ngModel)]="insumo.unidadMedidaArticuloInsumo" name="unidadMedida" class="form-control"
+                    <input id="unidadMedida" [(ngModel)]="insumo.unidadMedidaArticuloInsumo" name="unidadMedida" class="form-control"
                         required minlength="4" />
                 </div>
 
