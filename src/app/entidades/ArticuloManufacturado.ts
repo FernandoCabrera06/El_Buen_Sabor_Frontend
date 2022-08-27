@@ -6,4 +6,5 @@ export class ArticuloManufacturado {
   precioTotal: number = 0;
   stock: number = 0;
   insumos: string[] = [];
+  idRubroGeneral: number = 0;
 }

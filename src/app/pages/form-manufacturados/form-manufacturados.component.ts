@@ -18,6 +18,7 @@ export class FormManufacturadosComponent implements OnInit {
     precioTotal: 0,
     stock: 0,
     insumos: ([] = []),
+    idRubroGeneral: 0,
   };
   new = false;
   idArticuloManufacturado!: number;
