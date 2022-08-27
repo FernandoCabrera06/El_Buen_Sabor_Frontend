@@ -1,7 +1,5 @@
 <div style="padding-left: 35px; padding-right: 85px">
-  <h3>
-    Articulo Insumo ID: <small>{{ insumo.idArticuloInsumo }}</small>
-  </h3>
+  <h3>Articulo Insumo</h3>
 
   <button class="btn btn-danger" [routerLink]="['/admin/insumos']">
     Volver
@@ -13,7 +11,7 @@
   <hr />
 
   <div class="row animated fadeIn fast">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <form #forma="ngForm">
         <!-- DENOMINACION -->
         <div class="form-group">
@@ -30,16 +28,24 @@
 
         <!-- ES INSUMO?  SI/NO -->
         <div class="form-group">
-          <label for="esInsumo">Es insumo? Si/No</label>
+          <label>Es insumo?</label><br />
+          SI
           <input
-            id="esInsumo"
-            type="text"
-            [(ngModel)]="insumo.esArticuloInsumo"
             name="esInsumo"
-            class="form-control"
-            required
-            minlength="4"
-          />
+            ng-control="options"
+            type="radio"
+            [value]="true"
+            [(ngModel)]="insumo.esArticuloInsumo"
+          /><br />
+
+          NO
+          <input
+            name="esInsumo"
+            ng-control="options"
+            type="radio"
+            [value]="false"
+            [(ngModel)]="insumo.esArticuloInsumo"
+          /><br />
         </div>
 
         <!-- STOCK ACTUAL -->
@@ -146,17 +152,16 @@
         <!-- TODOS LOS CAMPOS DEL OBJETO RUBRO_ARTICULO DEL ARTICULO INSUMO -->
         <!-- RUBRO ARTICULO -->
         <div class="form-group">
-          <label for="rubro">Rubro articulo</label>
-          <input
-            id="rubro"
-            [(ngModel)]="insumo.rubroArticulo.denominacionRubroArticulo"
-            name="rubro"
-            class="form-control"
-            required
-            minlength="4"
-          />
+          <select name="rubro" [(ngModel)]="insumo.rubroArticulo">
+            <option [value]="insumo.rubroArticulo" selected>
+              Rubro Actual:
+              {{ insumo.rubroArticulo.denominacionRubroArticulo }}
+            </option>
+            <option [ngValue]="objeto" *ngFor="let objeto of rubros">
+              {{ objeto.denominacionRubroArticulo }}
+            </option>
+          </select>
         </div>
-
         <!-- BOTON GUARDAR -->
         <div class="form-group">
           <button type="button" class="btn btn-success" (click)="guardarPOST()">

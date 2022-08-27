@@ -1,52 +1,29 @@
-<!-- <div class="row-catalogo">
-  <h2>Carrito de Compras</h2>
-  <div class="col-10" *ngFor="let articulo of carritos; let i = index">
-    <p>
-      Nombre del producto: {{ articulo.nombreProducto }}
+<div class="carrito">
+  <h2 class="card-title">Carrito de Compras</h2>
+
+  <h4 id="tituloVacio" *ngIf="carritos.length == 0">Vacío!</h4>
+  <div *ngIf="carritos.length != 0">
+    <div class="card-body">
+      <h5 class="card-title" style="margin-left: 30px">
+        TOTAL: ${{ totalCompra }}
+      </h5>
       <button
         type="button"
-        class="btn btn-outline-danger"
-        (click)="eliminar(i)"
+        style="margin-left: 30px"
+        class="btn btn-success btn-sm"
+        (click)="confirmar()"
       >
-        Eliminar Producto
+        Confirmar
       </button>
-    </p>
-    <p>Precio producto: $ {{ articulo.precioProducto }}</p>
-    <p>Cantidad pedida: {{ articulo.cantidad }}</p>
-    <p>Subtotal: {{ articulo.subTotal }}</p>
-  </div>
-  <h5>Total compra: {{ totalCompra }}</h5>
-
-  <button type="button" class="btn btn-outline-success" (click)="confirmar()">
-    Confirmar</button
-  ><br />
-  <br /><br /><br />
-  <button type="button" class="btn btn-outline-danger" routerLink="/catalogo">
-    Seguir comprando
-  </button>
-</div>
-<br><br><br> -->
-
-<!-- ----------------------------------------------------------------------------------- -->
-<div class="carrito">
-  <h2 class="card-title" style="margin-left: 45px">Carrito de Compras</h2>
-
-  <div class="card-body">
-    <h5 class="card-title" style="margin-left: 30px">
-      TOTAL: ${{ totalCompra }}
-    </h5>
-    <button
-      type="button"
-      style="margin-left: 30px"
-      class="btn btn-success btn-sm"
-      (click)="confirmar()"
-    >
-      Confirmar
-    </button>
-    <span>&nbsp;</span>
-    <button type="button" class="btn btn-primary btn-sm" routerLink="/catalogo">
-      Seguir comprando
-    </button>
+      <span>&nbsp;</span>
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+        routerLink="/catalogo"
+      >
+        Seguir comprando
+      </button>
+    </div>
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4">

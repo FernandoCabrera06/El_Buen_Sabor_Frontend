@@ -5,6 +5,7 @@ import { ArticuloInsumo } from 'src/app/entidades/ArticuloInsumo';
 import { PrecioArticuloInsumo } from 'src/app/entidades/PrecioArticuloInsumo';
 import { RubroArticulo } from 'src/app/entidades/RubroArticulo';
 import { ArticuloInsumoService } from 'src/app/servicios/articulo-insumo.service';
+import { RubroArticuloService } from 'src/app/servicios/rubro-articulo.service';
 
 @Component({
   selector: 'app-form-articulos-insumos',
@@ -24,12 +25,14 @@ export class FormArticulosInsumosComponent implements OnInit {
     preciosArticulosInsumo: [new PrecioArticuloInsumo()],
     rubroArticulo: new RubroArticulo(),
   };
+
   new = false;
   idArticuloInsumo!: number;
   resultado = '';
-
+  respuestaBooleans: string[] = ['SI', 'NO'];
   constructor(
     private servicioInsumo: ArticuloInsumoService,
+    private servicioRubroArt: RubroArticuloService,
     private router: Router,
     private activeRoute: ActivatedRoute
   ) {
@@ -49,7 +52,15 @@ export class FormArticulosInsumosComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  rubros: RubroArticulo[] = [];
+
+  ngOnInit(): void {
+    this.servicioRubroArt.getRubrosArticuloFromDataBase().subscribe((data) => {
+      for (let rubroArtDB in data) {
+        this.rubros.push(data[rubroArtDB]);
+      }
+    });
+  }
 
   addNew(formu: NgForm) {
     this.router.navigate(['/insumo', '0']);
@@ -62,7 +73,7 @@ export class FormArticulosInsumosComponent implements OnInit {
       unidadMedidaArticuloInsumo: '',
       esArticuloInsumo: '',
       bajaArticuloInsumo: '',
-      preciosArticulosInsumo: [], // ------> REVISAR ACA, XQ NO TOMA UN ARRAY DE TIPO preciosArticulosInsumos[]
+      preciosArticulosInsumo: [],
       rubroArticulo: new RubroArticulo(),
     });
   }
