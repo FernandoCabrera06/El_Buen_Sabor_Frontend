@@ -1,47 +1,67 @@
-<div>
-    <div>
-        <h1 style="padding-left: 50px">Lista de Pedidos</h1>
-        <hr />
+<div id="content">
+  <div>
+    <h1 style="padding-left: 50px">Lista de Pedidos</h1>
+    <hr />
+  </div>
+  <div class="row animated fadeIn" style="margin: 2em">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table width="100%" class="table table-sm table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th style="width: 10%">N° Pedido</th>
+              <th style="width: 20%">Nombre Usuario</th>
+              <th style="width: 20%">Fecha</th>
+              <th style="width: 10%">Hora entrega</th>
+              <th style="width: 10%">Total pedido</th>
+              <th style="width: 10%">Estado</th>
+              <th style="width: 10%">Factura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pedido of pedidos; let i = index">
+              <td>{{ pedido.idPedido }}</td>
+              <td>{{ pedido.nombreUsuario }}</td>
+              <td>{{ pedido.fechaPedido }}</td>
+              <td>{{ pedido.horaEstimadaFinPedido }}</td>
+              <td>$ {{ pedido.totalPedido }}</td>
+              <td
+                *ngIf="pedido.estadoPedido === 'En Preparación'"
+                id="preparacion"
+              >
+                {{ pedido.estadoPedido }}
+              </td>
+              <td *ngIf="pedido.estadoPedido === 'Pagado'" id="pagado">
+                {{ pedido.estadoPedido }}
+              </td>
+              <td>
+                <button
+                  type="button"
+                  (click)="verFactura(pedido.idPedido)"
+                  class="btn btn-outline-danger"
+                  type="button"
+                  name="button"
+                  *ngIf="rol === 'Cliente'"
+                >
+                  <i></i> Ver Factura
+                </button>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  (click)="confirmar(pedido.idPedido)"
+                  class="btn btn-secondary"
+                  type="button"
+                  name="button"
+                  *ngIf="rol != 'Cliente'"
+                >
+                  <i></i> Cambiar Estado
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="row animated fadeIn" style="margin: 2em">
-        <div class="col-md-12">
-            <div class="table-responsive">
-                <table width="100%" class="table table-sm table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th style="width: 10%">N° Pedido</th>
-                            <th style="width: 20%">Nombre Usuario</th>
-                            <th style="width: 20%">Fecha</th>
-                            <th style="width: 10%">Hora entrega</th>
-                            <th style="width: 10%">Total pedido</th>
-                            <th style="width: 10%">Estado</th>
-                            <th style="width: 10%" *ngIf="rol === 'Cliente'">Factura</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let pedido of pedidos; let i = index">
-                            <td>{{ pedido.idPedido }}</td>
-                            <td>{{ pedido.nombreUsuario }}</td>
-                            <td>{{ pedido.fechaPedido }}</td>
-                            <td>{{ pedido.horaEstimadaFinPedido }}</td>
-                            <td>$ {{ pedido.totalPedido }}</td>
-                            <td *ngIf="pedido.estadoPedido === 'En Preparación'" id="preparacion">
-                                {{ pedido.estadoPedido }}
-                            </td>
-                            <td *ngIf="pedido.estadoPedido === 'Pagado'" id="pagado">
-                                {{ pedido.estadoPedido }}
-                            </td>
-                            <td>
-                                <button type="button" (click)="verFactura(pedido.idPedido)" class="btn btn-outline-danger" type="button" name="button" *ngIf="rol === 'Cliente'"><i ></i> Ver Factura</button>
-                            </td>
-                            <td>
-                                <button type="button" (click)="confirmar(pedido.idPedido)" class="btn btn-outline-danger" type="button" name="button" *ngIf="rol != 'Cliente'"><i ></i> Cambiar Estado</button>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>

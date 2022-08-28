@@ -2,11 +2,13 @@
   <h2 class="card-title">Carrito de Compras</h2>
 
   <h4 id="tituloVacio" *ngIf="carritos.length == 0">Vacío!</h4>
+
   <div *ngIf="carritos.length != 0">
     <div class="card-body">
       <h5 class="card-title" style="margin-left: 30px">
         TOTAL: ${{ totalCompra }}
       </h5>
+
       <button
         type="button"
         style="margin-left: 30px"
@@ -15,7 +17,9 @@
       >
         Confirmar
       </button>
+
       <span>&nbsp;</span>
+
       <button
         type="button"
         class="btn btn-primary btn-sm"
@@ -49,7 +53,7 @@
           <strong>Precio: </strong>${{ articulo.precioProducto }}
         </li>
         <li class="list-group-item">
-          <strong>Cantidad:</strong> {{ articulo.cantidad }}
+          <strong>Cantidad: </strong> {{ articulo.cantidad }}
         </li>
         <li class="list-group-item">
           <strong>Subtotal: </strong>${{ articulo.subTotal }}
