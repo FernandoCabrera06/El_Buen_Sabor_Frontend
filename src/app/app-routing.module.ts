@@ -20,8 +20,10 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { FormUsuariosComponent } from './pages/form-usuarios/form-usuarios.component';
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
+import { RubroArticuloComponent } from './pages/rubro-articulo/rubro-articulo.component';
 import { FormPedidosComponent } from './pages/form-pedidos/form-pedidos.component';
 import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro-general.component';
+import { FormRubroArticuloComponent } from './pages/form-rubro-articulo/form-rubro-articulo.component';
 import { FacturaComponent } from './pages/factura/factura.component';
 import { DetalleFacturaComponent } from './pages/detalleFactura/detalleFactura.component';
 import { ArticuloInsumoComponent } from './pages/articulo-insumo/articulo-insumo.component';
@@ -40,8 +42,14 @@ const routes: Routes = [
   { path: 'carrito', component: CarritoComponent },
   { path: 'pedidoAprobado', component: PedidoAprobadoComponent },
   { path: 'admin/manufacturados', component: ManufacturadosComponent },
-  { path: 'manufacturado/:idArticuloManufacturado',component: FormManufacturadosComponent,},
-  { path: 'detalleManufacturado/:idArticuloManufacturado',component: DetalleProductoComponent,},
+  {
+    path: 'manufacturado/:idArticuloManufacturado',
+    component: FormManufacturadosComponent,
+  },
+  {
+    path: 'detalleManufacturado/:idArticuloManufacturado',
+    component: DetalleProductoComponent,
+  },
   { path: 'admin/roles', component: RolesComponent },
   { path: 'rol/:idRol', component: FormRolesComponent },
   { path: 'sobreNosotros', component: SobreElBuenSaborComponent },
@@ -50,12 +58,23 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'formUsuarios/:idUsuario', component: FormUsuariosComponent },
   { path: 'admin/rubrosGenerales', component: RubroGeneralComponent },
+  { path: 'admin/rubrosArticulos', component: RubroArticuloComponent },
   { path: 'formPedidos/:idPedido', component: FormPedidosComponent },
-  { path: 'rubroGeneral/:idRubroGeneral',component: FormRubroGeneralComponent,},
+  {
+    path: 'rubroGeneral/:idRubroGeneral',
+    component: FormRubroGeneralComponent,
+  },
+  {
+    path: 'rubroArticulo/:idRubroArticulo',
+    component: FormRubroArticuloComponent,
+  },
   { path: 'admin/factura', component: FacturaComponent },
   { path: 'detalleFactura/:idPedido', component: DetalleFacturaComponent },
   { path: 'admin/insumos', component: ArticuloInsumoComponent },
-  { path: 'insumo/:idArticuloInsumo', component: FormArticulosInsumosComponent}
+  {
+    path: 'insumo/:idArticuloInsumo',
+    component: FormArticulosInsumosComponent,
+  },
 ];
 
 @NgModule({

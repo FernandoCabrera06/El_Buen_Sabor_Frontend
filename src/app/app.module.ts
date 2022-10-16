@@ -37,6 +37,8 @@ import { FacturaComponent } from './pages/factura/factura.component';
 import { DetalleFacturaComponent } from './pages/detalleFactura/detalleFactura.component';
 import { ArticuloInsumoComponent } from './pages/articulo-insumo/articulo-insumo.component';
 import { FormArticulosInsumosComponent } from './pages/form-articulos-insumos/form-articulos-insumos.component';
+import { RubroArticuloComponent } from './pages/rubro-articulo/rubro-articulo.component';
+import { FormRubroArticuloComponent } from './pages/form-rubro-articulo/form-rubro-articulo.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { FormArticulosInsumosComponent } from './pages/form-articulos-insumos/fo
     DetalleFacturaComponent,
     ArticuloInsumoComponent,
     FormArticulosInsumosComponent,
+    RubroArticuloComponent,
+    FormRubroArticuloComponent,
   ],
   imports: [
     BrowserModule,
