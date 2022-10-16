@@ -10,10 +10,9 @@ import { RubroGeneralService } from 'src/app/servicios/rubro-general.service';
   styleUrls: ['./form-rubro-general.component.css'],
 })
 export class FormRubroGeneralComponent implements OnInit {
-    rubroGeneral: RubroGeneral = {
+  rubroGeneral: RubroGeneral = {
     idRubroGeneral: 0,
     denominacionRubroGeneral: '',
-    articuloManufacturados: [],
   };
   new = false;
   idRubroGeneral!: number;
@@ -28,8 +27,12 @@ export class FormRubroGeneralComponent implements OnInit {
       this.idRubroGeneral = parametros['idRubroGeneral'];
 
       if (this.idRubroGeneral != 0) {
-        servicioRubroGeneral.getRubroGeneralEnBaseDatosXId(this.idRubroGeneral)
-          .subscribe((rubroEncontrado: any) => (this.rubroGeneral = rubroEncontrado as RubroGeneral));
+        servicioRubroGeneral
+          .getRubroGeneralEnBaseDatosXId(this.idRubroGeneral)
+          .subscribe(
+            (rubroEncontrado: any) =>
+              (this.rubroGeneral = rubroEncontrado as RubroGeneral)
+          );
       } else {
         console.log('ES NUEVO');
       }
