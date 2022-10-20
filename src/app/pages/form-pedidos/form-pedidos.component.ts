@@ -40,6 +40,8 @@ export class FormPedidosComponent  implements OnInit{
   rol:string|null="";
   usuario:string|null="";
   loading = true;
+  lista:string[]=["En Preparación","Demorado","Cancelado", "En delivery","Facturado","Pagado"];
+  seleccionado:string="";
   constructor(private router: Router,private activeRoute:ActivatedRoute, private servPedido: PedidoServicio ) {
     this.activeRoute.params.subscribe((parametros) => {
       this.pedido.idPedido = parametros['idPedido'];
@@ -67,7 +69,20 @@ export class FormPedidosComponent  implements OnInit{
     this.pedidoSave.idPedido = this.pedido.idPedido;
     this.pedidoSave.fechaPedido = this.pedido.fechaPedido;
     this.pedidoSave.numeroPedido = this.pedido.numeroPedido;
-    this.pedidoSave.estadoPedido =  parseInt(this.pedido.estadoPedido);
+    if(this.seleccionado === "En Preparación"){
+      this.pedidoSave.estadoPedido =  1;
+    }else if(this.seleccionado === "Demorado"){
+      this.pedidoSave.estadoPedido =  2;
+    }else if(this.seleccionado=== "Cancelado"){
+      this.pedidoSave.estadoPedido =  3;
+    }else if(this.seleccionado=== "En delivery"){
+      this.pedidoSave.estadoPedido =  4;
+    }else if(this.seleccionado=== "Facturado"){
+      this.pedidoSave.estadoPedido =  5;
+    }else if(this.seleccionado=== "Pagado"){
+      this.pedidoSave.estadoPedido =  6;
+    }
+
     this.pedidoSave.horaEstimadaFinPedido = parseInt(this.pedido.horaEstimadaFinPedido);
     this.pedidoSave.tipoEnvio = this.pedido.tipoEnvio;
     this.pedidoSave.totalPedido = this.pedido.totalPedido;
