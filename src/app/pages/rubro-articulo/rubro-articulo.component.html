@@ -1,17 +1,17 @@
 <div id="content">
-  <h1 style="padding-left: 85px">Gestión de Rubros Generales para productos</h1>
+  <h1 style="padding-left: 85px">Gestión de Rubros Articulos para insumos</h1>
   <hr />
   <div id="grilla">
     <div class="row">
       <div class="col-md-10 text-right">
         <button
           type="button"
-          [routerLink]="['/rubroGeneral', '0']"
+          [routerLink]="['/rubroArticulo', '0']"
           class="btn btn-primary"
           type="button"
           name="button"
         >
-          Nuevo rubro general
+          Nuevo rubro articulo
         </button>
       </div>
     </div>
@@ -25,7 +25,7 @@
               <tr>
                 <th style="width: 10%; padding-left: 30px">N°</th>
                 <th style="width: 10%">Denominación</th>
-                <th style="width: 10%">Artículos Manufacturados</th>
+                <th style="width: 10%">Artículos Insumos</th>
                 <th style="width: 10%; padding-right: 80px" class="text-right">
                   Opciones
                 </th>
@@ -34,24 +34,26 @@
             <tbody>
               <tr *ngFor="let rubro of rubros; let i = index">
                 <th scope="row" style="padding-left: 30px">{{ i + 1 }}</th>
-                <td>{{ rubro.denominacionRubroGeneral }}</td>
+                <td>{{ rubro.denominacionRubroArticulo }}</td>
 
-                <!-- Listado de articulos Manufacturados -->
+                <!-- Listado de articulos Insumos -->
                 <td>
-                  <span *ngFor="let art of articulos; let j = index">
-                    <li
-                      id="denominacionMF"
-                      *ngIf="art.idRubroGeneral == rubro.idRubroGeneral"
-                    >
-                      {{ "- " + art.denominacionArticuloManu }}
+                  <span
+                    *ngFor="
+                      let artInsumo of rubro.articulosInsumos;
+                      let j = index
+                    "
+                  >
+                    <li id="denominacionINSUMO">
+                      {{ " - " + artInsumo }}
                     </li>
                   </span>
-                  <!-- Listado de articulos Manufacturados -->
+                  <!-- Listado de articulos Insumos -->
                 </td>
                 <td class="text-right w120">
                   <button
                     type="button"
-                    [routerLink]="['/rubroGeneral', rubro.idRubroGeneral]"
+                    [routerLink]="['/rubroArticulo', rubro.idRubroArticulo]"
                     class="btn btn-outline-success"
                     name="button"
                   >
@@ -59,7 +61,7 @@
                   >&nbsp;&nbsp;
                   <button
                     type="button"
-                    (click)="delete(rubro.idRubroGeneral)"
+                    (click)="delete(rubro.idRubroArticulo)"
                     class="btn btn-outline-danger"
                     type="button"
                     name="button"

@@ -1,4 +1,4 @@
-<div>
+<div id="content">
   <br />
   <div class="small-container">
     <!-- ------------------------------Promos----------------------------------------- -->
@@ -186,7 +186,7 @@
         <p>$ {{ articulo.precioTotal }}</p>
         <button
           type="button"
-          class="btn btn-outline-success"
+          class="btn btn-success"
           (click)="agregar(i)"
           *ngIf="rol == 'Cliente' || rol == 'Admin'"
         >
@@ -207,7 +207,11 @@
     <!-- -----------------------------Bebidas------------------------------------------ -->
     <h2>Bebidas</h2>
     <div class="row-catalogo">
-      <div class="col-4" *ngFor="let bebida of bebidas; let i = index">
+      <div
+        class="col-4"
+        *ngFor="let bebida of bebidas; let i = index"
+        style="border: solid 0.5px #808080; padding-block: auto"
+      >
         <img
           src="../../../assets/images/{{ bebida.imagenBebida }}"
           (click)="detalleBebida(i)"
@@ -216,7 +220,7 @@
         <p>$ {{ bebida.precioTotal }}</p>
         <button
           type="button"
-          class="btn btn-outline-success"
+          class="btn btn-success"
           (click)="agregarBebida(i)"
           *ngIf="rol == 'Cliente' || rol == 'Admin'"
         >

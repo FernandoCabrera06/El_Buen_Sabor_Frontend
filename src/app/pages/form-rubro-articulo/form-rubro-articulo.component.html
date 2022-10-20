@@ -1,8 +1,8 @@
 <div id="content">
   <div class="content">
-    <h3>Rubro general</h3>
+    <h3>Rubro artículo</h3>
 
-    <button class="btn btn-danger" [routerLink]="['/admin/rubrosGenerales']">
+    <button class="btn btn-danger" [routerLink]="['/admin/rubrosArticulos']">
       Volver
     </button>
     <span>&nbsp;</span>
@@ -15,10 +15,10 @@
       <div class="col-md-3">
         <form #forma="ngForm">
           <div class="form-group">
-            <label for="nombre">Denominacion del rubro general</label>
+            <label for="nombre">Denominacion del rubro artículo</label>
             <input
               id="descripcion"
-              [(ngModel)]="rubroGeneral.denominacionRubroGeneral"
+              [(ngModel)]="rubroArticulo.denominacionRubroArticulo"
               name="descripcion"
               class="form-control"
               required

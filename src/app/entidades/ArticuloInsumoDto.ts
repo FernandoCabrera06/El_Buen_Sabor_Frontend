@@ -1,7 +1,7 @@
 import { PrecioArticuloInsumo } from './PrecioArticuloInsumo';
 import { RubroArticulo } from './RubroArticulo';
 
-export class ArticuloInsumo {
+export class ArticuloInsumoDto {
   idArticuloInsumo: number = 0;
   denominacionArticuloInsumo: string = '';
   imagenArticuloInsumo: string = '';

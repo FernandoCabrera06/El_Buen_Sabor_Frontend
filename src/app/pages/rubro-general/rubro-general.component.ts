@@ -10,29 +10,33 @@ import { RubroGeneralService } from 'src/app/servicios/rubro-general.service';
 @Component({
   selector: 'app-rubro-general',
   templateUrl: './rubro-general.component.html',
-  styleUrls: ['./rubro-general.component.css']
+  styleUrls: ['./rubro-general.component.css'],
 })
 export class RubroGeneralComponent implements OnInit {
-  rubros:RubroGeneral[] = [];
+  rubros: RubroGeneral[] = [];
   articulos: ArticuloMFRubroDto[] = [];
-  loading= true;
+  loading = true;
 
-  constructor(private servicioRubroGeneral:RubroGeneralService,private router: Router, private servicioManu: ManufacturadosService,
-    private modalService: NgbModal ) { }
+  constructor(
+    private servicioRubroGeneral: RubroGeneralService,
+    private router: Router,
+    private servicioManu: ManufacturadosService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
-    this.servicioRubroGeneral.getRubrosGeneralesFromDataBase().subscribe((data) => {
-      console.log(data);
-      for (let rubroDB in data) {
-        console.log(data[rubroDB]);
-        this.rubros.push(data[rubroDB]);
-      }
-      this.loading = false;
-    });
+    this.servicioRubroGeneral
+      .getRubrosGeneralesFromDataBase()
+      .subscribe((data) => {
+        console.log(data);
+        for (let rubroDB in data) {
+          console.log(data[rubroDB]);
+          this.rubros.push(data[rubroDB]);
+        }
+        this.loading = false;
+      });
 
-    this.servicioManu
-    .getArticulosMFRubrosFromDataBase()
-    .subscribe((dataMF) => {
+    this.servicioManu.getArticulosMFRubrosFromDataBase().subscribe((dataMF) => {
       console.log(dataMF);
       for (let articuloDBMF in dataMF) {
         console.log(dataMF[articuloDBMF]);
@@ -40,8 +44,6 @@ export class RubroGeneralComponent implements OnInit {
       }
       this.loading = false;
     });
-
-
   }
 
   delete(idRubroGeneral: number) {

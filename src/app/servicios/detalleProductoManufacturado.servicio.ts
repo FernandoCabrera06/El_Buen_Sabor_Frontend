@@ -17,6 +17,7 @@ export class detalleProductoManufactuardoServicio {
     precioTotal: 0,
     stock: 0,
     insumos: [],
+    idRubroGeneral: 0,
   };
 
   articuloBebida: Bebida = {

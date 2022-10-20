@@ -12,7 +12,9 @@ export class ManufacturadosService {
   public articulosData: ArticuloManufacturado[] = [];
   public articuloEncontrado: any;
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient) {
+    //console.log('Servicio Cargado!!!');
+  }
 
   public getArticulosManufacturados(): any[] {
     return this.articulosData;
@@ -67,6 +69,9 @@ export class ManufacturadosService {
 
   //guardar o actualizar un articulo Manufacturado
   async guardarPOST(articuloManufacturado: ArticuloManufacturado) {
+    articuloManufacturado.idRubroGeneral = Number(
+      articuloManufacturado.idRubroGeneral
+    );
     let urlServer =
       'http://localhost:8080/articuloManufacturado/articuloManufacturado';
     let method = 'POST';
