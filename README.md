@@ -8,7 +8,7 @@ Logueandose como administrador se obtiene acceso a la administración y gestión
 pedidos y facturación del local.  
 
 
-<h1 align="center">Frontend 🧮🖇️</h1>
+<h1 align="center">Frontend 📱🖥️</h1>
 
 Proyecto de tipo WEB, con una interfaz gráfica responsive realizada en Angular CLI Versión 13.3.8, en donde
 dividimos la estructura en cuatro paquetes:
