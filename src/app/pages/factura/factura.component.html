@@ -1,35 +1,32 @@
-<div>
-    <div>
-        <h1 style="padding-left: 50px">Lista de Facturas</h1>
-        <hr />
+<div id="content">
+  <div>
+    <h1 style="padding-left: 50px">Lista de Facturas</h1>
+    <hr />
+  </div>
+  <div class="row animated fadeIn" style="margin: 2em">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table width="100%" class="table table-sm table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th style="width: 10%">Id Factura</th>
+              <th style="width: 20%">Fecha</th>
+              <th style="width: 20%">Numero Factura</th>
+              <th style="width: 20%">Porcentaje descuento</th>
+              <th style="width: 10%">Total Venta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let factura of facturas; let i = index">
+              <td>{{ factura.idFactura }}</td>
+              <td>{{ factura.fechaFactura }}</td>
+              <td>{{ factura.numeroFactura }}</td>
+              <td>{{ factura.porcentajeDescuento }}</td>
+              <td>$ {{ factura.totalVenta }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="row animated fadeIn" style="margin: 2em">
-        <div class="col-md-12">
-            <div class="table-responsive">
-                <table width="100%" class="table table-sm table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th style="width: 10%">Id Factura</th>
-                            <th style="width: 20%">Fecha</th>
-                            <th style="width: 20%">Numero Factura</th>
-                            <th style="width: 20%">Porcentaje descuento</th>
-                            <th style="width: 10%">Total Venta</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let factura of facturas; let i = index">
-                            <td>{{ factura.idFactura }}</td>
-                            <td>{{ factura.fechaFactura }}</td>
-                            <td>{{ factura.numeroFactura }}</td>
-                            <td>{{ factura.porcentajeDescuento }}</td>
-                            <td>$ {{ factura.totalVenta }}</td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>

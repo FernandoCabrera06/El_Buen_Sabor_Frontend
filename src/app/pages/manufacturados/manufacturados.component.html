@@ -1,4 +1,4 @@
-<div>
+<div id="content">
   <h1>Gestión de Artículos Manufacturados</h1>
   <hr />
 
@@ -44,7 +44,7 @@
                   "$ " +
                     articulo.preciosArticulosManufacturados[
                       articulo.preciosArticulosManufacturados.length - 1
-                    ].precioVentaArticuloManufacturado
+                    ]?.precioVentaArticuloManufacturado
                 }}
               </td>
               <td>{{ articulo.stock }}</td>

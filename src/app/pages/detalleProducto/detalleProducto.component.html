@@ -56,15 +56,16 @@
           {{
             articulo.preciosArticulosManufacturados[
               articulo.preciosArticulosManufacturados.length - 1
-            ].precioVentaArticuloManufacturado
+            ]?.precioVentaArticuloManufacturado
           }}
         </h4>
         <td *ngFor="let insumos of articulo.insumos; let i = index">
           <tr>
+            -
             {{
               insumos
             }}
-            -
+            &nbsp;
           </tr>
         </td>
         <br />
@@ -117,7 +118,7 @@
           {{
             articulo.preciosArticulosManufacturados[
               articulo.preciosArticulosManufacturados.length - 1
-            ].precioVentaArticuloManufacturado
+            ]?.precioVentaArticuloManufacturado
           }}
         </h4>
         <td *ngFor="let insumos of articulo.insumos; let i = index">

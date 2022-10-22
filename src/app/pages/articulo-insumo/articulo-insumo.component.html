@@ -1,4 +1,4 @@
-<div>
+<div id="content">
   <h1>Gestión de Artículos Insumo</h1>
   <hr />
 
@@ -46,7 +46,9 @@
               <td>{{ insumo.esArticuloInsumo ? "SI" : "NO" }}</td>
               <td>
                 {{
-                  insumo.preciosArticulosInsumo[0]?.precioCostoArticuloInsumo
+                  insumo.preciosArticulosInsumo[
+                    insumo.preciosArticulosInsumo.length - 1
+                  ]?.precioCostoArticuloInsumo
                 }}
               </td>
               <td>{{ insumo.rubroArticulo.denominacionRubroArticulo }}</td>
