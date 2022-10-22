@@ -183,7 +183,14 @@
         <h5 title="{{ articulo.denominacionArticuloManu }}">
           {{ articulo.denominacionArticuloManu }}
         </h5>
-        <p>$ {{ articulo.precioTotal }}</p>
+        <p>
+          $
+          {{
+            articulo.preciosArticulosManufacturados[
+              articulo.preciosArticulosManufacturados.length - 1
+            ].precioVentaArticuloManufacturado
+          }}
+        </p>
         <button
           type="button"
           class="btn btn-success"

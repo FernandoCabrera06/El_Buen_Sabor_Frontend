@@ -4,6 +4,8 @@ import { ArticuloManufacturado } from '../entidades/ArticuloManufacturado';
 import { Bebida } from '../entidades/dto/BebidaDto';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { RubroGeneral } from '../entidades/RubroGeneral';
+import { PrecioArticuloManufacturado } from '../entidades/PrecioArticuloManufacturado';
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +16,10 @@ export class detalleProductoManufactuardoServicio {
     tiempoEstimadoCocina: 0,
     denominacionArticuloManu: '',
     imagenArticuloManu: '',
-    precioTotal: 0,
+    preciosArticulosManufacturados: [new PrecioArticuloManufacturado()],
     stock: 0,
     insumos: [],
-    idRubroGeneral: 0,
+    rubroGeneral: new RubroGeneral(),
   };
 
   articuloBebida: Bebida = {

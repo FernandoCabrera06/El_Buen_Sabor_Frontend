@@ -4,6 +4,7 @@ import { ArticuloManufacturado } from '../entidades/ArticuloManufacturado';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ArticuloMFRubroDto } from '../entidades/ArticuloMFRubroDto';
+import { RubroGeneral } from '../entidades/RubroGeneral';
 
 @Injectable({
   providedIn: 'root',
@@ -69,8 +70,8 @@ export class ManufacturadosService {
 
   //guardar o actualizar un articulo Manufacturado
   async guardarPOST(articuloManufacturado: ArticuloManufacturado) {
-    articuloManufacturado.idRubroGeneral = Number(
-      articuloManufacturado.idRubroGeneral
+    articuloManufacturado.rubroGeneral.idRubroGeneral = Number(
+      articuloManufacturado.rubroGeneral.idRubroGeneral
     );
     let urlServer =
       'http://localhost:8080/articuloManufacturado/articuloManufacturado';
@@ -101,6 +102,11 @@ export class ManufacturadosService {
       )
       .pipe(map((articuloEncontrado) => articuloEncontrado));
   }
-}
 
+  getRubrosGeneralesFromDataBase(): Observable<RubroGeneral[]> {
+    return this.http.get<RubroGeneral[]>(
+      'http://localhost:8080/rubroGeneral/listarRubrosGenerales'
+    );
+  }
+}
 //listarArticuloManufacturadoXId  revisar esto en el endpoint!

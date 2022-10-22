@@ -122,7 +122,7 @@
 
         <!-- CANTIDAD PRECIOS DEL INSUMO -->
         <div class="form-group">
-          <label for="cantidad">Cantidad de precios del insumo</label>
+          <label for="cantidad">Cantidad de insumo por precio</label>
           <input
             id="cantidad"
             [(ngModel)]="
@@ -152,7 +152,12 @@
         <!-- TODOS LOS CAMPOS DEL OBJETO RUBRO_ARTICULO DEL ARTICULO INSUMO -->
         <!-- RUBRO ARTICULO -->
         <div class="form-group">
-          <select name="rubro" [(ngModel)]="insumo.rubroArticulo">
+          <label for="fecha">Rubro de artículo insumo</label><br />
+          <select
+            name="rubro"
+            class="form-control"
+            [(ngModel)]="insumo.rubroArticulo"
+          >
             <option [value]="insumo.rubroArticulo" selected>
               Rubro Actual:
               {{ insumo.rubroArticulo.denominacionRubroArticulo }}

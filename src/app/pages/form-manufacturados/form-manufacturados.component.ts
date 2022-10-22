@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArticuloManufacturado } from 'src/app/entidades/ArticuloManufacturado';
+import { PrecioArticuloManufacturado } from 'src/app/entidades/PrecioArticuloManufacturado';
+import { RubroGeneral } from 'src/app/entidades/RubroGeneral';
 import { ManufacturadosService } from 'src/app/servicios/manufacturados.service';
 
 @Component({
@@ -15,10 +17,10 @@ export class FormManufacturadosComponent implements OnInit {
     tiempoEstimadoCocina: 0,
     denominacionArticuloManu: '',
     imagenArticuloManu: '',
-    precioTotal: 0,
+    preciosArticulosManufacturados: [new PrecioArticuloManufacturado()],
     stock: 0,
     insumos: ([] = []),
-    idRubroGeneral: 0,
+    rubroGeneral: new RubroGeneral(),
   };
   new = false;
   idArticuloManufacturado!: number;
@@ -45,7 +47,14 @@ export class FormManufacturadosComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  rubros: RubroGeneral[] = [];
+  ngOnInit(): void {
+    this.servicioManu.getRubrosGeneralesFromDataBase().subscribe((data) => {
+      for (let rubroGenDB in data) {
+        this.rubros.push(data[rubroGenDB]);
+      }
+    });
+  }
 
   addNew(formu: NgForm) {
     this.router.navigate(['/admin', 'nuevo']);
