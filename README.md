@@ -31,11 +31,11 @@ dividimos la estructura en cuatro paquetes:
 
 ## Herramientas 🔧
 
-✅ NodeJs 16.18.0 LTS
+📌 NodeJs 16.18.0 LTS
 
-✅ Node Package Manager (npm) Versión 8.11.0
+📌 Node Package Manager (npm) Versión 8.11.0
 
-✅ TypeScript (v4.6.3)
+📌 TypeScript (v4.6.3)
 
 
 ## Ejecución 🕹️
