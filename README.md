@@ -54,7 +54,7 @@ ng serve
 ```
 4️⃣ En el navegador dirigirse a [http://localhost:4200](http://localhost:4200)
 
-📢 ***IMPORTANTE: asegurarse de que [backend](https://github.com/Cortinezjuan/El_Buen_Sabor) esté corriendo, de lo contrario no se ejecutará correctamente el frontend***
+📢 ***IMPORTANTE: asegurarse de que [backend](https://github.com/Cortinezjuan/El_Buen_Sabor) esté corriendo, de lo contrario la app no tendrá donde buscar los datos***
 
 
 ## Repositorios del proyecto 💾
