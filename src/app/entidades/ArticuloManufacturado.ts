@@ -1,3 +1,4 @@
+import { ArticuloInsumo } from './ArticuloInsumo';
 import { PrecioArticuloManufacturado } from './PrecioArticuloManufacturado';
 import { RubroGeneral } from './RubroGeneral';
 

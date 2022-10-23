@@ -46,11 +46,12 @@ export class ManufacturadosService {
 
   //busca un articulo Manufacturado por el id
   getArticuloManufacturadoEnBaseDatosXId(idx: number) {
-    return this.http.get(
-      'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadoXId/' +
-        idx
-    );
-    // .pipe(map((articuloEncontrado) => articuloEncontrado));
+    return this.http
+      .get(
+        'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadoXId/' +
+          idx
+      )
+      .pipe(map((articuloEncontrado) => articuloEncontrado));
   }
 
   //baja logica de un articulo manufacturado
@@ -69,7 +70,7 @@ export class ManufacturadosService {
   }
 
   //guardar o actualizar un articulo Manufacturado
-  async guardarPOST(articuloManufacturado: ArticuloManufacturado) {
+  async guardarPOST(articuloManufacturado: ArticuloMFRubroDto) {
     articuloManufacturado.rubroGeneral.idRubroGeneral = Number(
       articuloManufacturado.rubroGeneral.idRubroGeneral
     );

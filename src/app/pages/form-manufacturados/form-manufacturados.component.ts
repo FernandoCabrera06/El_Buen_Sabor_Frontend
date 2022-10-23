@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArticuloManufacturado } from 'src/app/entidades/ArticuloManufacturado';
+import { ArticuloManufacturadoDetalle } from 'src/app/entidades/ArticuloManufacturadoDetalle';
+import { ArticuloMFRubroDto } from 'src/app/entidades/ArticuloMFRubroDto';
 import { PrecioArticuloManufacturado } from 'src/app/entidades/PrecioArticuloManufacturado';
 import { RubroGeneral } from 'src/app/entidades/RubroGeneral';
 import { ManufacturadosService } from 'src/app/servicios/manufacturados.service';
@@ -12,14 +14,14 @@ import { ManufacturadosService } from 'src/app/servicios/manufacturados.service'
   styleUrls: ['./form-manufacturados.component.css'],
 })
 export class FormManufacturadosComponent implements OnInit {
-  articulo: ArticuloManufacturado = {
+  articulo: ArticuloMFRubroDto = {
     idArticuloManufacturado: 0,
     tiempoEstimadoCocina: 0,
     denominacionArticuloManu: '',
     imagenArticuloManu: '',
     preciosArticulosManufacturados: [new PrecioArticuloManufacturado()],
     stock: 0,
-    insumos: ([] = []),
+    articuloManufacturadoDetalles: [new ArticuloManufacturadoDetalle()],
     rubroGeneral: new RubroGeneral(),
   };
   new = false;
@@ -39,7 +41,7 @@ export class FormManufacturadosComponent implements OnInit {
           .getArticuloManufacturadoEnBaseDatosXId(this.idArticuloManufacturado)
           .subscribe(
             (articuloEncontrado: any) =>
-              (this.articulo = articuloEncontrado as ArticuloManufacturado)
+              (this.articulo = articuloEncontrado as ArticuloMFRubroDto)
           );
       } else {
         console.log('ES NUEVO');
