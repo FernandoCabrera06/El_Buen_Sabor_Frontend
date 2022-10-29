@@ -28,6 +28,7 @@ import { FacturaComponent } from './pages/factura/factura.component';
 import { DetalleFacturaComponent } from './pages/detalleFactura/detalleFactura.component';
 import { ArticuloInsumoComponent } from './pages/articulo-insumo/articulo-insumo.component';
 import { FormArticulosInsumosComponent } from './pages/form-articulos-insumos/form-articulos-insumos.component';
+import { DetalleRecetaManufacturadoComponent } from './pages/detalle-receta-manufacturado/detalle-receta-manufacturado.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -74,6 +75,10 @@ const routes: Routes = [
   {
     path: 'insumo/:idArticuloInsumo',
     component: FormArticulosInsumosComponent,
+  },
+  {
+    path: 'detalleRecetaManufacturado/:idArticuloManufacturado',
+    component: DetalleRecetaManufacturadoComponent,
   },
 ];
 

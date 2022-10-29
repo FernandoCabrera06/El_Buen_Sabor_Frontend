@@ -30,7 +30,6 @@ export class ManufacturadosComponent implements OnInit {
         }
         this.loading = false;
       });
-      
   }
 
   delete(idArticuloManu: number) {
@@ -45,6 +44,6 @@ export class ManufacturadosComponent implements OnInit {
 
   verDetalle(idx: number) {
     console.log('ID ARTICULO MANUFACTURADO ' + idx);
-    this.router.navigate(['/detalleManufacturado', idx]);
+    this.router.navigate(['/detalleRecetaManufacturado', idx]);
   }
 }

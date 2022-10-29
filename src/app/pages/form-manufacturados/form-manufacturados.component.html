@@ -84,6 +84,7 @@
               </div>
               <div class="form-group">
                 <button
+                  style="margin-left: 120%"
                   type="button"
                   class="btn btn-success"
                   (click)="guardarPOST()"
@@ -119,7 +120,7 @@
                 type="button"
                 name="button"
               >
-                Agregar insumo
+                Agregar +
               </button>
             </div>
           </div>
@@ -130,9 +131,15 @@
                 <table width="100%" class="table table-sm table-hover">
                   <thead class="thead-dark">
                     <tr>
-                      <th style="width: 10%">N°</th>
-                      <th style="width: 20%">Insumo</th>
+                      <th style="width: 5%">N°</th>
+                      <th style="width: 15%">Insumo</th>
                       <th style="width: 10%">Cantidad</th>
+                      <th
+                        style="width: 5%; padding-right: 30px"
+                        class="text-right"
+                      >
+                        Opciones
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -144,7 +151,7 @@
                     >
                       <th
                         *ngIf="
-                          articulo.articuloManufacturadoDetalles.length > 1
+                          articulo.articuloManufacturadoDetalles.length > 0
                         "
                         scope="row"
                       >
@@ -152,7 +159,7 @@
                       </th>
                       <td
                         *ngIf="
-                          articulo.articuloManufacturadoDetalles.length > 1
+                          articulo.articuloManufacturadoDetalles.length > 0
                         "
                       >
                         {{
@@ -161,12 +168,31 @@
                       </td>
                       <td
                         *ngIf="
-                          articulo.articuloManufacturadoDetalles.length > 1
+                          articulo.articuloManufacturadoDetalles.length > 0
                         "
                       >
                         {{ artMFdetalle.cantidadArticuloManuDetalle }}&nbsp;{{
                           artMFdetalle.unidadMedidaArticuloManuDetalle
                         }}
+                      </td>
+                      <td class="text-right w120">
+                        <button
+                          type="button"
+                          [routerLink]="['/rubroGeneral', 1]"
+                          class="btn btn-outline-success"
+                          name="button"
+                        >
+                          <i class="fas fa-edit"></i></button
+                        >&nbsp;&nbsp;
+                        <button
+                          type="button"
+                          (click)="({})"
+                          class="btn btn-outline-danger"
+                          type="button"
+                          name="button"
+                        >
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
                       </td>
                     </tr>
                   </tbody>
