@@ -70,19 +70,23 @@ export class ManufacturadosService {
   }
 
   //guardar o actualizar un articulo Manufacturado
-  async guardarPOST(articuloManufacturado: ArticuloMFRubroDto) {
+  async guardarPOST(
+    articuloManufacturado: ArticuloMFRubroDto,
+    idArticuloManufacturado: number
+  ) {
     articuloManufacturado.rubroGeneral.idRubroGeneral = Number(
       articuloManufacturado.rubroGeneral.idRubroGeneral
     );
     let urlServer =
-      'http://localhost:8080/articuloManufacturado/articuloManufacturado';
+      'http://localhost:8080/articuloManufacturado/crearArticuloManufacturado';
     let method = 'POST';
     if (
       articuloManufacturado &&
       articuloManufacturado.idArticuloManufacturado > 0
     ) {
       urlServer =
-        'http://localhost:8080/articuloManufacturado/modificarArticuloManufacturado';
+        'http://localhost:8080/articuloManufacturado/modificarArticuloManufacturado/' +
+        idArticuloManufacturado;
       method = 'PUT';
     }
     await fetch(urlServer, {

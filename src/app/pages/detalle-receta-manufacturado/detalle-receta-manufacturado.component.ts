@@ -18,6 +18,7 @@ export class DetalleRecetaManufacturadoComponent implements OnInit {
     denominacionArticuloManu: '',
     imagenArticuloManu: '',
     preciosArticulosManufacturados: [new PrecioArticuloManufacturado()],
+    bajaArticuloManu: false,
     stock: 0,
     articuloManufacturadoDetalles: [new ArticuloManufacturadoDetalle()],
     rubroGeneral: new RubroGeneral(),

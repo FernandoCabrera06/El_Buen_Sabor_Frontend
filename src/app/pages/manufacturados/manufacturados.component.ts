@@ -28,6 +28,18 @@ export class ManufacturadosComponent implements OnInit {
           console.log(data[articuloDB]);
           this.articulos.push(data[articuloDB]);
         }
+        // Ordeno por Nombre y Rubro
+        this.articulos
+          .sort((unArticulo, otroArticulo) =>
+            unArticulo.denominacionArticuloManu.localeCompare(
+              otroArticulo.denominacionArticuloManu
+            )
+          )
+          .sort((unArticulo, otroArticulo) =>
+            unArticulo.rubroGeneral.denominacionRubroGeneral.localeCompare(
+              otroArticulo.rubroGeneral.denominacionRubroGeneral
+            )
+          );
         this.loading = false;
       });
   }

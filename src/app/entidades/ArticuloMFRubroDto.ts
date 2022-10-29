@@ -7,8 +7,9 @@ export class ArticuloMFRubroDto {
   tiempoEstimadoCocina: number = 0;
   denominacionArticuloManu: string = '';
   imagenArticuloManu: string = '';
-  preciosArticulosManufacturados: PrecioArticuloManufacturado[] = [];
+  bajaArticuloManu: boolean = false;
   stock: number = 0;
+  preciosArticulosManufacturados: PrecioArticuloManufacturado[] = [];
   articuloManufacturadoDetalles: ArticuloManufacturadoDetalle[] = [];
   rubroGeneral: RubroGeneral = new RubroGeneral();
 }

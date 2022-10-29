@@ -20,6 +20,7 @@ export class FormManufacturadosComponent implements OnInit {
     denominacionArticuloManu: '',
     imagenArticuloManu: '',
     preciosArticulosManufacturados: [new PrecioArticuloManufacturado()],
+    bajaArticuloManu: false,
     stock: 0,
     articuloManufacturadoDetalles: [new ArticuloManufacturadoDetalle()],
     rubroGeneral: new RubroGeneral(),
@@ -65,6 +66,7 @@ export class FormManufacturadosComponent implements OnInit {
       tiempoEstimadoCocina: 0,
       denominacionArticuloManu: '',
       imagenArticuloManu: '',
+      bajaArticuloManu: '',
       precioTotal: 0,
       stock: 0,
     });
@@ -76,7 +78,10 @@ export class FormManufacturadosComponent implements OnInit {
   }
 
   async guardarPOST() {
-    this.servicioManu.guardarPOST(this.articulo);
+    this.servicioManu.guardarPOST(
+      this.articulo,
+      this.articulo.idArticuloManufacturado
+    );
     this.resultado = 'Operación finalizada, verifique los datos';
     this.router.navigate(['admin/manufacturados']);
   }
