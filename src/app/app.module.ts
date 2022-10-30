@@ -40,6 +40,8 @@ import { FormArticulosInsumosComponent } from './pages/form-articulos-insumos/fo
 import { RubroArticuloComponent } from './pages/rubro-articulo/rubro-articulo.component';
 import { FormRubroArticuloComponent } from './pages/form-rubro-articulo/form-rubro-articulo.component';
 import { DetalleRecetaManufacturadoComponent } from './pages/detalle-receta-manufacturado/detalle-receta-manufacturado.component';
+import { FormArtMfDetalleComponent } from './pages/form-art-mf-detalle/form-art-mf-detalle.component';
+import { MfDetallesComponent } from './pages/mf-detalles/mf-detalles.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +77,8 @@ import { DetalleRecetaManufacturadoComponent } from './pages/detalle-receta-manu
     RubroArticuloComponent,
     FormRubroArticuloComponent,
     DetalleRecetaManufacturadoComponent,
+    FormArtMfDetalleComponent,
+    MfDetallesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ArticuloInsumo } from 'src/app/entidades/ArticuloInsumo';
 import { ArticuloManufacturado } from 'src/app/entidades/ArticuloManufacturado';
 import { ArticuloManufacturadoDetalle } from 'src/app/entidades/ArticuloManufacturadoDetalle';
 import { ArticuloMFRubroDto } from 'src/app/entidades/ArticuloMFRubroDto';
 import { PrecioArticuloManufacturado } from 'src/app/entidades/PrecioArticuloManufacturado';
 import { RubroGeneral } from 'src/app/entidades/RubroGeneral';
+import { ArticuloInsumoService } from 'src/app/servicios/articulo-insumo.service';
 import { ManufacturadosService } from 'src/app/servicios/manufacturados.service';
 
 @Component({
@@ -32,6 +34,7 @@ export class FormManufacturadosComponent implements OnInit {
   constructor(
     private servicioManu: ManufacturadosService,
     private router: Router,
+    private servicioInsumos: ArticuloInsumoService,
     private activeRoute: ActivatedRoute
   ) {
     this.activeRoute.params.subscribe((parametros) => {
@@ -51,10 +54,21 @@ export class FormManufacturadosComponent implements OnInit {
   }
 
   rubros: RubroGeneral[] = [];
+  insumos: ArticuloInsumo[] = [];
+  artMFDetalle: ArticuloManufacturadoDetalle =
+    new ArticuloManufacturadoDetalle();
+
   ngOnInit(): void {
     this.servicioManu.getRubrosGeneralesFromDataBase().subscribe((data) => {
       for (let rubroGenDB in data) {
         this.rubros.push(data[rubroGenDB]);
+      }
+    });
+    this.servicioInsumos.getArticulosInsumoFromDataBase().subscribe((data) => {
+      for (let insumoGenDB in data) {
+        if (data[insumoGenDB].esArticuloInsumo) {
+          this.insumos.push(data[insumoGenDB]);
+        }
       }
     });
   }

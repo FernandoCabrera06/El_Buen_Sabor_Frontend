@@ -4,6 +4,6 @@
 #tablaGeneral{
   margin-left: 5%;
 }
-#segundaColumna{
-    margin-top: -35%;
+.cantidad{
+  text-align: left;
 }

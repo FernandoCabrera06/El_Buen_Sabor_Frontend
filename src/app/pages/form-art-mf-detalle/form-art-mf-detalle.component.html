@@ -1,0 +1,76 @@
+<p>form-art-mf-detalle works!</p>
+
+<!-- ---------------------SEGUNDA COLUMNA------------------- -->
+
+<!-- ---------------------------MODAL-------------------------- -->
+<!-- <button type="button" class="btn btn-primary" (click)="openPopup()">
+        Agregar +
+      </button>
+      <form #forma="ngForm">
+        <div
+          class="modal"
+          tabindex="-1"
+          role="dialog"
+          [ngStyle]="{ display: displayStyle }"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Agregar/Editar Insumo</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group cantidad">
+                  <label for="insumo">Insumo: </label>
+                  <select
+                    name="rubro"
+                    class="form-control"
+                    [(ngModel)]="articulo.articuloManufacturadoDetalles[4]"
+                  >
+                    <option
+                      [value]="articulo.articuloManufacturadoDetalles[0]"
+                      selected
+                    >
+                      Insumo Actual:
+                      {{
+                        articulo.articuloManufacturadoDetalles[0].articuloInsumo
+                          .denominacionArticuloInsumo
+                      }}
+                    </option>
+                    <option [ngValue]="objeto" *ngFor="let objeto of insumos">
+                      {{ objeto.denominacionArticuloInsumo }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group cantidad">
+                  <label for="cantidad">Cantidad: </label>
+                  <input
+                    id="cantidad"
+                    [(ngModel)]="artMFDetalle.cantidadArticuloManuDetalle"
+                    name="modelo"
+                    class="form-control"
+                    required
+                    minlength="4"
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="cancelPopup()"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  (click)="agregarArticulosMFDetalles()"
+                >
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form> -->
+<!-- ---------------------------MODAL-------------------------- -->

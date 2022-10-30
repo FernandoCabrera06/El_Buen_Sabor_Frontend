@@ -29,6 +29,7 @@ import { DetalleFacturaComponent } from './pages/detalleFactura/detalleFactura.c
 import { ArticuloInsumoComponent } from './pages/articulo-insumo/articulo-insumo.component';
 import { FormArticulosInsumosComponent } from './pages/form-articulos-insumos/form-articulos-insumos.component';
 import { DetalleRecetaManufacturadoComponent } from './pages/detalle-receta-manufacturado/detalle-receta-manufacturado.component';
+import { FormArtMfDetalleComponent } from './pages/form-art-mf-detalle/form-art-mf-detalle.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -61,6 +62,10 @@ const routes: Routes = [
   { path: 'admin/rubrosGenerales', component: RubroGeneralComponent },
   { path: 'admin/rubrosArticulos', component: RubroArticuloComponent },
   { path: 'formPedidos/:idPedido', component: FormPedidosComponent },
+  {
+    path: 'formArtMfDetalle/:idArtMfDetalle',
+    component: FormArtMfDetalleComponent,
+  },
   {
     path: 'rubroGeneral/:idRubroGeneral',
     component: FormRubroGeneralComponent,

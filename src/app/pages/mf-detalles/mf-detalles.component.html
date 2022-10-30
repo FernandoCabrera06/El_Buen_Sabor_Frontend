@@ -1,0 +1,75 @@
+<div id="segundaColumna">
+  <h3>Insumos para la elaboración:</h3>
+  <hr />
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button type="button" class="btn btn-primary" (click)="({})">
+        Agregar +
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="row-animated-fadeIn">
+    <div class="form-group">
+      <div class="table-responsive">
+        <table width="100%" class="table table-sm table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th style="width: 5%">N°</th>
+              <th style="width: 15%">Insumo</th>
+              <th style="width: 10%">Cantidad</th>
+              <th style="width: 5%; padding-right: 30px" class="text-right">
+                Opciones
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let artMFdetalle of articulo.articuloManufacturadoDetalles;
+                let i = index
+              "
+            >
+              <th
+                *ngIf="articulo.articuloManufacturadoDetalles.length > 0"
+                scope="row"
+              >
+                {{ i + 1 }}
+              </th>
+              <td *ngIf="articulo.articuloManufacturadoDetalles.length > 0">
+                {{ artMFdetalle.articuloInsumo.denominacionArticuloInsumo }}
+              </td>
+              <td *ngIf="articulo.articuloManufacturadoDetalles.length > 0">
+                {{ artMFdetalle.cantidadArticuloManuDetalle }}&nbsp;{{
+                  artMFdetalle.unidadMedidaArticuloManuDetalle
+                }}
+              </td>
+              <td
+                class="text-right w120"
+                *ngIf="articulo.articuloManufacturadoDetalles.length > 0"
+              >
+                <button
+                  type="button"
+                  (click)="({})"
+                  class="btn btn-outline-success"
+                  name="button"
+                >
+                  <i class="fas fa-edit"></i></button
+                >&nbsp;&nbsp;
+                <button
+                  type="button"
+                  (click)="delete(artMFdetalle.idArticuloManufacturadoDetalle)"
+                  class="btn btn-outline-danger"
+                  type="button"
+                  name="button"
+                >
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
