@@ -84,6 +84,7 @@ export class FormArticulosInsumosComponent implements OnInit {
   }
 
   async guardarPOST() {
+    this.insumo.rubroArticulo.articulosInsumos = [];
     this.servicioInsumo.guardarPOST(this.insumo, this.insumo.idArticuloInsumo);
     this.resultado = 'Operación finalizada, verifique los datos';
     this.router.navigate(['admin/insumos']);

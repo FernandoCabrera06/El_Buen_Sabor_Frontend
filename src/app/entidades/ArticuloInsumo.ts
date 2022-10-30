@@ -9,7 +9,7 @@ export class ArticuloInsumo {
   stockMinimo: number = 0;
   unidadMedidaArticuloInsumo: string = '';
   esArticuloInsumo: boolean = true;
-  bajaArticuloInsumo: boolean = true;
+  bajaArticuloInsumo: boolean = false;
   preciosArticulosInsumo: PrecioArticuloInsumo[] = [];
   rubroArticulo: RubroArticulo = new RubroArticulo();
 }

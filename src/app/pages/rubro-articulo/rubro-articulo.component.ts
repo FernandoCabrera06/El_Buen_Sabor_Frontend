@@ -34,6 +34,14 @@ export class RubroArticuloComponent implements OnInit {
         }
         this.loading = false;
       });
+    this.servicioInsumo.getArticulosInsumoFromDataBase().subscribe((dataMF) => {
+      console.log(dataMF);
+      for (let articuloDBMF in dataMF) {
+        console.log(dataMF[articuloDBMF]);
+        this.articulosInsumos.push(dataMF[articuloDBMF]);
+      }
+      this.loading = false;
+    });
   }
 
   delete(idRubroArticulo: number) {

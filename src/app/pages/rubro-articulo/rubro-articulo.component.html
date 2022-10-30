@@ -39,13 +39,16 @@
                 <!-- Listado de articulos Insumos -->
                 <td>
                   <span
-                    *ngFor="
-                      let artInsumo of rubro.articulosInsumos;
-                      let j = index
-                    "
+                    *ngFor="let artInsumo of articulosInsumos; let j = index"
                   >
-                    <li id="denominacionINSUMO">
-                      {{ " - " + artInsumo }}
+                    <li
+                      id="denominacionINSUMO"
+                      *ngIf="
+                        artInsumo.rubroArticulo.denominacionRubroArticulo ==
+                        rubro.denominacionRubroArticulo
+                      "
+                    >
+                      {{ " - " + artInsumo.denominacionArticuloInsumo }}
                     </li>
                   </span>
                   <!-- Listado de articulos Insumos -->
