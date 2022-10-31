@@ -1,76 +1,66 @@
-<p>form-art-mf-detalle works!</p>
+<div id="content" style="padding-left: 60px; padding-right: 85px">
+  <h2 style="text-decoration: underline">
+    Agregar/editar insumo
+    <small>{{ artManuDetalle }}</small>
+  </h2>
 
-<!-- ---------------------SEGUNDA COLUMNA------------------- -->
+  <button
+    class="btn btn-danger"
+    [routerLink]="['/manufacturado', artManuDetalle]"
+  >
+    Volver
+  </button>
+  <span>&nbsp;</span>
+  <button class="btn btn-success" (click)="addNew(forma)">
+    Limpiar campos
+  </button>
+  <hr />
 
-<!-- ---------------------------MODAL-------------------------- -->
-<!-- <button type="button" class="btn btn-primary" (click)="openPopup()">
-        Agregar +
-      </button>
+  <div class="row animated fadeIn fast">
+    <div class="col-md-4">
       <form #forma="ngForm">
-        <div
-          class="modal"
-          tabindex="-1"
-          role="dialog"
-          [ngStyle]="{ display: displayStyle }"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Agregar/Editar Insumo</h4>
-              </div>
-              <div class="modal-body">
-                <div class="form-group cantidad">
-                  <label for="insumo">Insumo: </label>
-                  <select
-                    name="rubro"
-                    class="form-control"
-                    [(ngModel)]="articulo.articuloManufacturadoDetalles[4]"
-                  >
-                    <option
-                      [value]="articulo.articuloManufacturadoDetalles[0]"
-                      selected
-                    >
-                      Insumo Actual:
-                      {{
-                        articulo.articuloManufacturadoDetalles[0].articuloInsumo
-                          .denominacionArticuloInsumo
-                      }}
-                    </option>
-                    <option [ngValue]="objeto" *ngFor="let objeto of insumos">
-                      {{ objeto.denominacionArticuloInsumo }}
-                    </option>
-                  </select>
-                </div>
-                <div class="form-group cantidad">
-                  <label for="cantidad">Cantidad: </label>
-                  <input
-                    id="cantidad"
-                    [(ngModel)]="artMFDetalle.cantidadArticuloManuDetalle"
-                    name="modelo"
-                    class="form-control"
-                    required
-                    minlength="4"
-                  />
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  (click)="cancelPopup()"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  (click)="agregarArticulosMFDetalles()"
-                >
-                  Guardar
-                </button>
-              </div>
-            </div>
-          </div>
+        <!-- TODOS LOS CAMPOS DEL OBJETO RUBRO_ARTICULO DEL ARTICULO INSUMO -->
+        <!-- RUBRO ARTICULO -->
+
+        <div class="form-group">
+          <label for="rubro">Insumo: </label><br />
+          <select
+            name="rubro"
+            class="form-control"
+            [(ngModel)]="artManuDetalle.articuloInsumo"
+          >
+            <option [value]="artManuDetalle.articuloInsumo" selected>
+              Insumo Actual:
+              {{ artManuDetalle.articuloInsumo.denominacionArticuloInsumo }}
+            </option>
+            <option [ngValue]="objeto" *ngFor="let objeto of insumos">
+              {{ objeto.denominacionArticuloInsumo }}
+            </option>
+          </select>
         </div>
-      </form> -->
-<!-- ---------------------------MODAL-------------------------- -->
+
+        <!-- CANTIDAD PRECIOS DEL INSUMO -->
+        <div class="form-group">
+          <label for="cantidad">Cantidad de insumo por precio</label>
+          <input
+            id="cantidad"
+            [(ngModel)]="artManuDetalle.cantidadArticuloManuDetalle"
+            name="cantidad"
+            class="form-control"
+            required
+            minlength="4"
+          />
+        </div>
+
+        <!-- BOTON GUARDAR -->
+
+        <br />
+        <div class="form-group" id="botonGuardar">
+          <button type="button" class="btn btn-success" (click)="guardarPOST()">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

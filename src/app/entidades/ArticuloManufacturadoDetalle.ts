@@ -1,4 +1,5 @@
 import { ArticuloInsumo } from './ArticuloInsumo';
+import { ArticuloManufacturado } from './ArticuloManufacturado';
 
 export class ArticuloManufacturadoDetalle {
   idArticuloManufacturadoDetalle: number = 0;
