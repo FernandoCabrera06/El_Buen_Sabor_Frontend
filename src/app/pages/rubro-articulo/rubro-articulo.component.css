@@ -1,0 +1,12 @@
+#content {
+    background-color: #FFF !important;
+}
+
+#denominacionINSUMO{
+    display: flex;
+    width: auto;
+}
+
+#grilla{
+    margin-left: 18%;
+}

@@ -1,49 +1,73 @@
 <div>
-    <h3>Ingresos por periodo</h3>
-    <hr />
+  <h3>Ingresos por periodo</h3>
+  <hr />
 
-    <div>
-        <div class="col-md-12">
-            <form (ngSubmit)="ingresos()" #forma="ngForm">
-                <div class="form-group">
-                    <label for="fechaDesde">Fecha desde</label>
-                    <input id="fechaDesde" [(ngModel)]="reporte.fechaDesde" name="fechaDesde" class="form-control" required minlength="4" placeholder="yyyy-MM-dd" style="width : 200px" />
-                </div>
-                <div class="form-group">
-                    <label for="fechaHasta">Fecha hasta</label>
-                    <input id="fechaHasta" [(ngModel)]="reporte.fechaHasta" name="fechaHasta" class="form-control" required minlength="4" placeholder="yyyy-MM-dd" style="width : 200px" />
-                </div>
+  <div>
+    <div class="col-md-12">
+      <form (ngSubmit)="ingresos()" #forma="ngForm">
+        <div class="form-group">
+          <label for="fechaDesde">Fecha desde</label>
+          <input
+            type="date"
+            id="fechaDesde"
+            [(ngModel)]="reporte.fechaDesde"
+            name="fechaDesde"
+            class="form-control"
+            required
+            minlength="4"
+            placeholder="yyyy-MM-dd"
+            style="width: 200px"
+          />
+        </div>
+        <div class="form-group">
+          <label for="fechaHasta">Fecha hasta</label>
+          <input
+            type="date"
+            id="fechaHasta"
+            [(ngModel)]="reporte.fechaHasta"
+            name="fechaHasta"
+            class="form-control"
+            required
+            minlength="4"
+            placeholder="yyyy-MM-dd"
+            style="width: 200px"
+          />
+        </div>
 
-                <div class="form-group">
-                    <button type="button" class="btn btn-success" (click)="ingresos()">
+        <div class="form-group">
+          <button type="button" class="btn btn-success" (click)="ingresos()">
             Consultar
           </button>
-                    <span style="
+          <span
+            style="
               text-align: right;
               width: 500;
               color: rgb(51, 255, 0);
               font-weight: bold;
-            ">&nbsp;&nbsp;&nbsp;</span
+            "
+            >&nbsp;&nbsp;&nbsp;</span
           >
         </div>
       </form>
     </div>
     <div class="container-ingresos" *ngIf="ingresosPorPeriodo > 0">
-      <h3>
-
-      </h3>
+      <h3></h3>
       <button (click)="exportToExcel()">Exportar a Excel</button>
       <table id="season-tble">
         <tr>
-          <td> <h3>Ingresos (total ventas) desde el {{ reporte.fechaDesde }} al
-            {{ reporte.fechaHasta }}</h3></td>
+          <td>
+            <h3>
+              Ingresos (total ventas) desde el {{ reporte.fechaDesde }} al
+              {{ reporte.fechaHasta }}
+            </h3>
+          </td>
         </tr>
         <tr>
-          <td><h3>$ {{ ingresosPorPeriodo }}</h3></td>
+          <td>
+            <h3>$ {{ ingresosPorPeriodo }}</h3>
+          </td>
         </tr>
-
       </table>
-
     </div>
   </div>
 </div>

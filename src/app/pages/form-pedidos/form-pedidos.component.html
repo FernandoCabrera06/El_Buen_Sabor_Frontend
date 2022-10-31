@@ -1,54 +1,102 @@
 <div style="padding-left: 35px; padding-right: 85px">
-    <h3>
-        Registro de Usuario <small></small>
-    </h3>
+  <h3>Modificar Estado de Pedido <small></small></h3>
 
-    <button class="btn btn-danger" [routerLink]="['/pedidos']">
-Volver
-</button>
-    <span>&nbsp;</span>
+  <button class="btn btn-danger" [routerLink]="['/pedidos']">Volver</button>
+  <span>&nbsp;</span>
 
-    <hr />
+  <hr />
 
-    <div class="row animated fadeIn fast">
-        <div class="col-md-12">
-            <form>
-                <div class="form-group">
-                    <label for="idPedido">N° Pedido</label>
-                    <input id="idPedido" [(ngModel)]="pedido.idPedido" name="idPedido" class="form-control" required minlength="4" style="width : 300px" [value]="pedido.idPedido" />
-                </div>
-                <div class="form-group">
-                    <label for="nombreUsuario">Nombre Usuario</label>
-                    <input id="nombreUsuario" [(ngModel)]="pedido.nombreUsuario" name="nombreUsuario" class="form-control" required minlength="4" style="width : 300px" [value]="pedido.nombreUsuario" />
-                </div>
-                <div class="form-group">
-                    <label for="horaEstimadaFinPedido">Hora entrega</label>
-                    <input id="horaEstimadaFinPedido" [(ngModel)]="pedido.horaEstimadaFinPedido" name="horaEstimadaFinPedido" class="form-control" required minlength="4" style="width : 300px" [value]="pedido.horaEstimadaFinPedido" />
-                </div>
-                <div class="form-group">
-                    <label for="totalPedido">Total Pedido</label>
-                    <input id="totalPedido" [(ngModel)]="pedido.totalPedido" name="totalPedido" class="form-control" required minlength="4" style="width : 300px" [value]="pedido.totalPedido" />
-                </div>
+  <div class="row animated fadeIn fast">
+    <div class="col-md-12">
+      <form>
+        <div class="form-group">
+          <label for="idPedido">N° Pedido</label>
+          <input
+            id="idPedido"
+            [(ngModel)]="pedido.idPedido"
+            name="idPedido"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            [value]="pedido.idPedido"
+            readonly
+          />
+        </div>
+        <div class="form-group">
+          <label for="nombreUsuario">Nombre Usuario</label>
+          <input
+            id="nombreUsuario"
+            [(ngModel)]="pedido.nombreUsuario"
+            name="nombreUsuario"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            [value]="pedido.nombreUsuario"
+            readonly
+          />
+        </div>
+        <div class="form-group">
+          <label for="horaEstimadaFinPedido">Hora entrega</label>
+          <input
+            id="horaEstimadaFinPedido"
+            [(ngModel)]="pedido.horaEstimadaFinPedido"
+            name="horaEstimadaFinPedido"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            [value]="pedido.horaEstimadaFinPedido"
+            readonly
+          />
+        </div>
+        <div class="form-group">
+          <label for="totalPedido">Total Pedido</label>
+          <input
+            id="totalPedido"
+            [(ngModel)]="pedido.totalPedido"
+            name="totalPedido"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            [value]="pedido.totalPedido"
+            readonly
+          />
+        </div>
 
-                <div class="form-group">
-                    <label for="estadoPedido">Estado</label>
-                    <input id="estadoPedido" [(ngModel)]="pedido.estadoPedido" name="estadoPedido" class="form-control" required minlength="4" style="width : 300px" [value]="pedido.estadoPedido" />
-                </div>
-                <div class="form-group">
+        <div class="form-group">
+          <label for="estadoPedido">Estado</label>
+          <p>
+            <select name="miselect" [(ngModel)]="seleccionado">
+              <option [value]="item" *ngFor="let item of lista">
+                {{ item }}
+              </option>
+            </select>
+          </p>
+        </div>
+        <div class="form-group"></div>
 
-
-                </div>
-
-
-
-                <div class="form-group ">
-                    <button type="button " class="btn btn-success " (click)="guardarPOST() ">
-        Guardar
-      </button>
-                    <span style=" text-align: right; width: 500; color: blue; font-weight: bold; ">&nbsp;&nbsp;&nbsp; </span
-      >
+        <div class="form-group">
+          <button
+            type="button "
+            class="btn btn-success"
+            (click)="guardarPOST()"
+          >
+            Guardar
+          </button>
+          <span
+            style="
+              text-align: right;
+              width: 500;
+              color: blue;
+              font-weight: bold;
+            "
+            >&nbsp;&nbsp;&nbsp;
+          </span>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
-</div>
+  </div>
 </div>

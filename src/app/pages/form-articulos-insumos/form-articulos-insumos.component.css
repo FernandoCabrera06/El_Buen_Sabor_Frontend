@@ -1,0 +1,16 @@
+#content {
+    background-color: #FFF !important;
+}
+#tabla{
+   width: 100%;
+}
+.filaTabla{
+    display: flex;
+    justify-content: space-around;
+}
+#botonGuardar{
+    margin-left: 22%;
+}
+#radioButton{
+    margin-bottom: 30px;
+}

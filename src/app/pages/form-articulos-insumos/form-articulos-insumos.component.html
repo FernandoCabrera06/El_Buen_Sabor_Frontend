@@ -1,0 +1,208 @@
+<div id="content" style="padding-left: 60px; padding-right: 85px">
+  <h2 style="text-decoration: underline">
+    {{ insumo.denominacionArticuloInsumo }}
+  </h2>
+
+  <button class="btn btn-danger" [routerLink]="['/admin/insumos']">
+    Volver
+  </button>
+  <span>&nbsp;</span>
+  <button class="btn btn-success" (click)="addNew(forma)">
+    Limpiar campos
+  </button>
+  <hr />
+
+  <div class="row animated fadeIn fast">
+    <div class="col-md-12">
+      <form #forma="ngForm">
+        <!-- DENOMINACION -->
+        <Table class="col-md-6" id="tabla">
+          <tr class="filaTabla">
+            <td class="col-md-6">
+              <div class="form-group">
+                <label for="nombre">Denominacion</label>
+                <input
+                  id="nombre"
+                  [(ngModel)]="insumo.denominacionArticuloInsumo"
+                  name="nombre"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+
+              <!-- ES INSUMO?  SI/NO -->
+              <div class="form-group" id="radioButton">
+                <label>Es insumo?</label><br />
+                SI
+                <input
+                  name="esInsumo"
+                  ng-control="options"
+                  type="radio"
+                  [value]="true"
+                  [(ngModel)]="insumo.esArticuloInsumo"
+                />&nbsp;&nbsp; NO
+                <input
+                  name="esInsumo"
+                  ng-control="options"
+                  type="radio"
+                  [value]="false"
+                  [(ngModel)]="insumo.esArticuloInsumo"
+                /><br />
+              </div>
+
+              <!-- STOCK ACTUAL -->
+              <div class="form-group">
+                <label for="stockActual">Stock actual</label>
+                <input
+                  type="number"
+                  id="stockActual"
+                  [(ngModel)]="insumo.stockActual"
+                  name="stockActual"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+
+              <!-- STOCK MINIMO -->
+              <div class="form-group">
+                <label for="stockMinimo">Stock mínimo</label>
+                <input
+                  type="number"
+                  id="stockMinimo"
+                  [(ngModel)]="insumo.stockMinimo"
+                  name="stockMinimo"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+
+              <!-- UNIDAD DE MEDIDA -->
+              <div class="form-group">
+                <label for="unidadMedida">Unidad de medida</label>
+                <input
+                  id="unidadMedida"
+                  [(ngModel)]="insumo.unidadMedidaArticuloInsumo"
+                  name="unidadMedida"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+            </td>
+            <td class="col-md-6">
+              <!-- TODOS LOS CAMPOS DEL OBJETO PRECIOS DEL ARTICULO INSUMO -->
+              <!-- PRECIOS DE COSTO -->
+              <div class="form-group">
+                <label for="precioCosto">Precio de costo</label>
+                <input
+                  id="precioCosto"
+                  [(ngModel)]="
+                    insumo.preciosArticulosInsumo[
+                      insumo.preciosArticulosInsumo.length - 1
+                    ].precioCostoArticuloInsumo
+                  "
+                  name="precioCosto"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+
+              <!-- PRECIOS DE VENTA -->
+              <div class="form-group">
+                <label for="precioVenta">Precio de venta</label>
+                <input
+                  id="precioVenta"
+                  [(ngModel)]="
+                    insumo.preciosArticulosInsumo[
+                      insumo.preciosArticulosInsumo.length - 1
+                    ].precioVentaArticuloInsumo
+                  "
+                  name="precioVenta"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+
+              <!-- CANTIDAD PRECIOS DEL INSUMO -->
+              <div class="form-group">
+                <label for="cantidad">Cantidad de insumo por precio</label>
+                <input
+                  id="cantidad"
+                  [(ngModel)]="
+                    insumo.preciosArticulosInsumo[
+                      insumo.preciosArticulosInsumo.length - 1
+                    ].cantidadPrecioArtInsumo
+                  "
+                  name="cantidad"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+
+              <!-- FECHA DE COMPRA -->
+              <div class="form-group">
+                <label for="fecha">Fecha de compra</label>
+                <input
+                  type="date"
+                  id="fecha"
+                  [(ngModel)]="
+                    insumo.preciosArticulosInsumo[
+                      insumo.preciosArticulosInsumo.length - 1
+                    ].fechaPrecioArtInsumo
+                  "
+                  name="fecha"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+
+              <!-- TODOS LOS CAMPOS DEL OBJETO RUBRO_ARTICULO DEL ARTICULO INSUMO -->
+              <!-- RUBRO ARTICULO -->
+
+              <div class="form-group">
+                <label for="rubro">Rubro de artículo insumo</label><br />
+                <select
+                  name="rubro"
+                  class="form-control"
+                  [(ngModel)]="insumo.rubroArticulo"
+                >
+                  <option [value]="insumo.rubroArticulo" selected>
+                    Rubro Actual:
+                    {{ insumo.rubroArticulo.denominacionRubroArticulo }}
+                  </option>
+                  <option [ngValue]="objeto" *ngFor="let objeto of rubros">
+                    {{ objeto.denominacionRubroArticulo }}
+                  </option>
+                </select>
+              </div>
+
+              <!-- BOTON GUARDAR -->
+            </td>
+          </tr>
+        </Table>
+        <br />
+        <div class="form-group" id="botonGuardar">
+          <button type="button" class="btn btn-success" (click)="guardarPOST()">
+            Guardar
+          </button>
+          <span
+            style="
+              text-align: right;
+              width: 500;
+              color: blue;
+              font-weight: bold;
+            "
+            >&nbsp;&nbsp;&nbsp; {{ resultado }}</span
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

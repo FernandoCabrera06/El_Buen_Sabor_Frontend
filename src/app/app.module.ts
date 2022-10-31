@@ -31,10 +31,17 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { FormUsuariosComponent } from './pages/form-usuarios/form-usuarios.component';
 import { RubroGeneralComponent } from './pages/rubro-general/rubro-general.component';
-import {FormPedidosComponent} from './pages/form-pedidos/form-pedidos.component';
+import { FormPedidosComponent } from './pages/form-pedidos/form-pedidos.component';
 import { FormRubroGeneralComponent } from './pages/form-rubro-general/form-rubro-general.component';
-import {FacturaComponent} from './pages/factura/factura.component';
-import {DetalleFacturaComponent} from './pages/detalleFactura/detalleFactura.component';
+import { FacturaComponent } from './pages/factura/factura.component';
+import { DetalleFacturaComponent } from './pages/detalleFactura/detalleFactura.component';
+import { ArticuloInsumoComponent } from './pages/articulo-insumo/articulo-insumo.component';
+import { FormArticulosInsumosComponent } from './pages/form-articulos-insumos/form-articulos-insumos.component';
+import { RubroArticuloComponent } from './pages/rubro-articulo/rubro-articulo.component';
+import { FormRubroArticuloComponent } from './pages/form-rubro-articulo/form-rubro-articulo.component';
+import { DetalleRecetaManufacturadoComponent } from './pages/detalle-receta-manufacturado/detalle-receta-manufacturado.component';
+import { FormArtMfDetalleComponent } from './pages/form-art-mf-detalle/form-art-mf-detalle.component';
+import { MfDetallesComponent } from './pages/mf-detalles/mf-detalles.component';
 
 @NgModule({
   declarations: [
@@ -64,8 +71,14 @@ import {DetalleFacturaComponent} from './pages/detalleFactura/detalleFactura.com
     FormPedidosComponent,
     FormRubroGeneralComponent,
     FacturaComponent,
-    DetalleFacturaComponent
-
+    DetalleFacturaComponent,
+    ArticuloInsumoComponent,
+    FormArticulosInsumosComponent,
+    RubroArticuloComponent,
+    FormRubroArticuloComponent,
+    DetalleRecetaManufacturadoComponent,
+    FormArtMfDetalleComponent,
+    MfDetallesComponent,
   ],
   imports: [
     BrowserModule,

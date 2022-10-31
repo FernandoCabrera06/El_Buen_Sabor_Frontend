@@ -1,0 +1,66 @@
+<div id="content" style="padding-left: 60px; padding-right: 85px">
+  <h2 style="text-decoration: underline">
+    Agregar/editar insumo
+    <small>{{ artManuDetalle }}</small>
+  </h2>
+
+  <button
+    class="btn btn-danger"
+    [routerLink]="['/manufacturado', artManuDetalle]"
+  >
+    Volver
+  </button>
+  <span>&nbsp;</span>
+  <button class="btn btn-success" (click)="addNew(forma)">
+    Limpiar campos
+  </button>
+  <hr />
+
+  <div class="row animated fadeIn fast">
+    <div class="col-md-4">
+      <form #forma="ngForm">
+        <!-- TODOS LOS CAMPOS DEL OBJETO RUBRO_ARTICULO DEL ARTICULO INSUMO -->
+        <!-- RUBRO ARTICULO -->
+
+        <div class="form-group">
+          <label for="rubro">Insumo: </label><br />
+          <select
+            name="rubro"
+            class="form-control"
+            [(ngModel)]="artManuDetalle.articuloInsumo"
+          >
+            <option [value]="artManuDetalle.articuloInsumo" selected>
+              Insumo Actual:
+              {{ artManuDetalle.articuloInsumo.denominacionArticuloInsumo }}
+            </option>
+            <option [ngValue]="objeto" *ngFor="let objeto of insumos">
+              {{ objeto.denominacionArticuloInsumo }}
+            </option>
+          </select>
+        </div>
+
+        <!-- CANTIDAD PRECIOS DEL INSUMO -->
+        <div class="form-group">
+          <label for="cantidad">Cantidad de insumo por precio</label>
+          <input
+            id="cantidad"
+            [(ngModel)]="artManuDetalle.cantidadArticuloManuDetalle"
+            name="cantidad"
+            class="form-control"
+            required
+            minlength="4"
+          />
+        </div>
+
+        <!-- BOTON GUARDAR -->
+
+        <br />
+        <div class="form-group" id="botonGuardar">
+          <button type="button" class="btn btn-success" (click)="guardarPOST()">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

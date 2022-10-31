@@ -19,3 +19,9 @@
     background-color: #dc3545 !important;
     border-color: #dc3545;
 }
+
+#tituloVacio{
+    margin-left: 45px;
+    color: red;
+}
+

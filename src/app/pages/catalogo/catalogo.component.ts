@@ -10,6 +10,8 @@ import { detalleProductoManufactuardoServicio } from 'src/app/servicios/detalleP
 import { Carrito } from 'src/app/entidades/dto/CarritoDto';
 import Swal from 'sweetalert2';
 import { delay } from 'rxjs';
+import { RubroGeneral } from 'src/app/entidades/RubroGeneral';
+import { PrecioArticuloManufacturado } from 'src/app/entidades/PrecioArticuloManufacturado';
 
 @Component({
   selector: 'app-catalogo',
@@ -22,10 +24,10 @@ export class CatalogoComponent implements OnInit {
     tiempoEstimadoCocina: 0,
     denominacionArticuloManu: '',
     imagenArticuloManu: '',
-    precioTotal: 0,
+    preciosArticulosManufacturados: [new PrecioArticuloManufacturado()],
     stock: 0,
     insumos: [],
-    idRubroGeneral: 0,
+    rubroGeneral: new RubroGeneral(),
   };
 
   idRubroGeneral: number = 0;
@@ -117,8 +119,14 @@ export class CatalogoComponent implements OnInit {
       nuevo.id = this.articulos[i].idArticuloManufacturado;
       nuevo.nombreProducto = this.articulos[i].denominacionArticuloManu;
       nuevo.cantidad = 1;
-      nuevo.precioProducto = this.articulos[i].precioTotal;
-      nuevo.subTotal = this.articulos[i].precioTotal;
+      nuevo.precioProducto =
+        this.articulos[i].preciosArticulosManufacturados[
+          this.articulos[i].preciosArticulosManufacturados.length - 1
+        ].precioVentaArticuloManufacturado;
+      nuevo.subTotal =
+        this.articulos[i].preciosArticulosManufacturados[
+          this.articulos[i].preciosArticulosManufacturados.length - 1
+        ].precioVentaArticuloManufacturado;
       nuevo.horasCocina = this.articulos[i].tiempoEstimadoCocina;
       this.carritos.push(nuevo);
       localStorage.setItem('carro', JSON.stringify(this.carritos));

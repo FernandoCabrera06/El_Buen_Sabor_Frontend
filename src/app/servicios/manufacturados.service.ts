@@ -4,6 +4,7 @@ import { ArticuloManufacturado } from '../entidades/ArticuloManufacturado';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ArticuloMFRubroDto } from '../entidades/ArticuloMFRubroDto';
+import { RubroGeneral } from '../entidades/RubroGeneral';
 
 @Injectable({
   providedIn: 'root',
@@ -13,18 +14,16 @@ export class ManufacturadosService {
   public articuloEncontrado: any;
 
   constructor(public http: HttpClient) {
-    console.log('Servicio Cargado!!!');
+    //console.log('Servicio Cargado!!!');
   }
 
   public getArticulosManufacturados(): any[] {
     return this.articulosData;
-    console.log(this.articulosData);
   }
 
   public getArticuloManufacturadoXId(idx: number): any {
     for (let articulo of this.articulosData) {
       if (articulo.idArticuloManufacturado == idx) {
-        //console.log('ID QUE PEDI: ', idx);
         return articulo;
       }
     }
@@ -39,22 +38,20 @@ export class ManufacturadosService {
     );
   }
   //lee todos los articulos Manufacturados CON RUBROS
-  getArticulosMFRubrosFromDataBase(): Observable<
-  ArticuloMFRubroDto[]
-> {
-  return this.http.get<ArticuloMFRubroDto[]>(
-    'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadosRubros'
-  );
-}
+  getArticulosMFRubrosFromDataBase(): Observable<ArticuloMFRubroDto[]> {
+    return this.http.get<ArticuloMFRubroDto[]>(
+      'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadosRubros'
+    );
+  }
 
   //busca un articulo Manufacturado por el id
   getArticuloManufacturadoEnBaseDatosXId(idx: number) {
-    console.log('ID QUE PEDI: ', idx);
-    return this.http.get(
-      'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadoXId/' +
-        idx
-    );
-    // .pipe(map((articuloEncontrado) => articuloEncontrado));
+    return this.http
+      .get(
+        'http://localhost:8080/articuloManufacturado/listarArticuloManufacturadoXId/' +
+          idx
+      )
+      .pipe(map((articuloEncontrado) => articuloEncontrado));
   }
 
   //baja logica de un articulo manufacturado
@@ -62,7 +59,6 @@ export class ManufacturadosService {
     let urlServer =
       'http://localhost:8080/articuloManufacturado/borrarArticuloManufacturado/' +
       Number(idArticulo);
-    console.log(urlServer);
     let result = await fetch(urlServer, {
       method: 'DELETE',
       headers: {
@@ -74,19 +70,23 @@ export class ManufacturadosService {
   }
 
   //guardar o actualizar un articulo Manufacturado
-  async guardarPOST(articuloManufacturado: ArticuloManufacturado) {
-    articuloManufacturado.idRubroGeneral = Number(
-      articuloManufacturado.idRubroGeneral
+  async guardarPOST(
+    articuloManufacturado: ArticuloMFRubroDto,
+    idArticuloManufacturado: number
+  ) {
+    articuloManufacturado.rubroGeneral.idRubroGeneral = Number(
+      articuloManufacturado.rubroGeneral.idRubroGeneral
     );
     let urlServer =
-      'http://localhost:8080/articuloManufacturado/articuloManufacturado';
+      'http://localhost:8080/articuloManufacturado/crearArticuloManufacturado';
     let method = 'POST';
     if (
-      articuloManufacturado && 
+      articuloManufacturado &&
       articuloManufacturado.idArticuloManufacturado > 0
     ) {
       urlServer =
-        'http://localhost:8080/articuloManufacturado/modificarArticuloManufacturado';
+        'http://localhost:8080/articuloManufacturado/modificarArticuloManufacturado/' +
+        idArticuloManufacturado;
       method = 'PUT';
     }
     await fetch(urlServer, {
@@ -107,6 +107,11 @@ export class ManufacturadosService {
       )
       .pipe(map((articuloEncontrado) => articuloEncontrado));
   }
-}
 
+  getRubrosGeneralesFromDataBase(): Observable<RubroGeneral[]> {
+    return this.http.get<RubroGeneral[]>(
+      'http://localhost:8080/rubroGeneral/listarRubrosGenerales'
+    );
+  }
+}
 //listarArticuloManufacturadoXId  revisar esto en el endpoint!

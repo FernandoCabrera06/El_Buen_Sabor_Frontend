@@ -1,0 +1,50 @@
+<div id="content">
+  <div class="content">
+    <h3>Rubro artículo</h3>
+
+    <button class="btn btn-danger" [routerLink]="['/admin/rubrosArticulos']">
+      Volver
+    </button>
+    <span>&nbsp;</span>
+    <button class="btn btn-success" (click)="addNew(forma)">
+      Limpiar campos
+    </button>
+    <hr class="col-md-4" />
+
+    <div class="row animated fadeIn fast">
+      <div class="col-md-3">
+        <form #forma="ngForm">
+          <div class="form-group">
+            <label for="nombre">Denominacion del rubro artículo</label>
+            <input
+              id="descripcion"
+              [(ngModel)]="rubroArticulo.denominacionRubroArticulo"
+              name="descripcion"
+              class="form-control"
+              required
+              minlength="4"
+            />
+          </div>
+          <div class="form-group">
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="guardarPOST()"
+            >
+              Guardar
+            </button>
+            <span
+              style="
+                text-align: right;
+                width: 500;
+                color: blue;
+                font-weight: bold;
+              "
+              >&nbsp;&nbsp;&nbsp; {{ resultado }}</span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

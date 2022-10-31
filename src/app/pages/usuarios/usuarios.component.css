@@ -1,14 +1,8 @@
-* {
+#content {
     background-color: #FFF !important;
 }
-.btn-primary {
-    color: #fff;
-    background-color: #0d6efd!important;
-    border-color: #0d6efd;
-}
 
-.table .thead-dark th {
-    color: #fff;
-    background-color: #343a40!important;
-    border-color: #454d55;
+.fadeIn{
+    display: flex;
+    justify-content: center;
 }

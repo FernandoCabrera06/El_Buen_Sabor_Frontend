@@ -1,3 +1,48 @@
-<div>
-  <p>detalle-receta-manufacturado works!</p>
+<div class="content">
+  <div class="row">
+    <div class="btn-volver">
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="volverGrillaManufacturados()"
+      >
+        Volver
+      </button>
+    </div>
+    <div class="contenido">
+      <table>
+        <tr>
+          <td>
+            <H1>{{ articulo.denominacionArticuloManu }}</H1>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="../../../assets/images/{{ articulo.imagenArticuloManu }}"
+              alt=""
+            />
+          </td>
+          <td>
+            <ul
+              *ngFor="
+                let artMFdetalle of articulo.articuloManufacturadoDetalles;
+                let i = index
+              "
+            >
+              <h3 *ngIf="i == 0">Insumos para la elaboración:</h3>
+
+              <li>
+                {{ artMFdetalle.articuloInsumo.denominacionArticuloInsumo }}:
+                {{ artMFdetalle.cantidadArticuloManuDetalle }}
+                {{ artMFdetalle.unidadMedidaArticuloManuDetalle }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+      <br />
+    </div>
+  </div>
 </div>

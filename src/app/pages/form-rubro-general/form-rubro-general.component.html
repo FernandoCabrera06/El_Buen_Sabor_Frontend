@@ -1,20 +1,18 @@
-<div>
+<div id="content">
+  <div class="content">
+    <h3>Rubro general</h3>
 
-<div style="padding-left: 85px; padding-right: 85px">
-    <h3>
-      Rubro general <small>{{ rubroGeneral.idRubroGeneral }}</small>
-    </h3>
-  
-    <button class="btn btn-outline-danger" [routerLink]="['/admin/rubrosGenerales']">
+    <button class="btn btn-danger" [routerLink]="['/admin/rubrosGenerales']">
       Volver
     </button>
-    <button class="btn btn-outline-success" (click)="addNew(forma)">
+    <span>&nbsp;</span>
+    <button class="btn btn-success" (click)="addNew(forma)">
       Limpiar campos
     </button>
-    <hr />
-  
+    <hr class="col-md-4" />
+
     <div class="row animated fadeIn fast">
-      <div class="col-md-12">
+      <div class="col-md-3">
         <form #forma="ngForm">
           <div class="form-group">
             <label for="nombre">Denominacion del rubro general</label>
@@ -28,19 +26,11 @@
             />
           </div>
           <div class="form-group">
-            <label for="nombre">Articulos Manufacturados</label>
-            <input
-              id="descripcion"
-              [(ngModel)]="rubroGeneral.articuloManufacturados"
-              name="descripcion"
-              class="form-control"
-              required
-              minlength="4"
-            />
-          </div>
-  
-          <div class="form-group">
-            <button type="button" class="btn btn-success" (click)="guardarPOST()">
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="guardarPOST()"
+            >
               Guardar
             </button>
             <span

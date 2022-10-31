@@ -1,7 +1,7 @@
-<div style="padding-left: 35px; padding-right: 85px">
-  <h3>
-    Articulo Manufacturado <small>{{ articulo.idArticuloManufacturado }}</small>
-  </h3>
+<div id="content" style="padding-left: 35px; padding-right: 85px">
+  <h2 style="text-decoration: underline">
+    {{ articulo.denominacionArticuloManu }}
+  </h2>
 
   <button class="btn btn-danger" [routerLink]="['/admin/manufacturados']">
     Volver
@@ -11,96 +11,106 @@
     Limpiar campos
   </button>
   <hr />
+  <table id="tablaGeneral" class="col-md-10">
+    <tr>
+      <td class="col-md-5">
+        <div class="row animated fadeIn fast">
+          <div class="col-md-9">
+            <form #forma="ngForm">
+              <div class="form-group">
+                <label for="nombre">Denominacion</label>
+                <input
+                  id="nombre"
+                  [(ngModel)]="articulo.denominacionArticuloManu"
+                  name="nombre"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+              <div class="form-group">
+                <label for="precio">Tiempo estimado de cocina</label>
+                <input
+                  id="precio"
+                  type="number"
+                  [(ngModel)]="articulo.tiempoEstimadoCocina"
+                  name="precio"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+              <div class="form-group">
+                <label for="precioVenta">Precio Venta</label>
+                <input
+                  id="precioVenta"
+                  [(ngModel)]="
+                    articulo.preciosArticulosManufacturados[
+                      articulo.preciosArticulosManufacturados.length - 1
+                    ].precioVentaArticuloManufacturado
+                  "
+                  name="precioVenta"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+              <div class="form-group">
+                <label for="rubro">Imagen</label>
+                <input
+                  id="rubro"
+                  [(ngModel)]="articulo.imagenArticuloManu"
+                  name="modelo"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
 
-  <div class="row animated fadeIn fast">
-    <div class="col-md-12">
-      <form #forma="ngForm">
-        <div class="form-group">
-          <label for="nombre">Denominacion</label>
-          <input
-            id="nombre"
-            [(ngModel)]="articulo.denominacionArticuloManu"
-            name="nombre"
-            class="form-control"
-            required
-            minlength="4"
-          />
-        </div>
-        <div class="form-group">
-          <label for="precio">Tiempo estimado de cocina</label>
-          <input
-            id="precio"
-            type="number"
-            [(ngModel)]="articulo.tiempoEstimadoCocina"
-            name="precio"
-            class="form-control"
-            required
-            minlength="4"
-          />
-        </div>
-        <div class="form-group">
-          <label for="rubro">Precio total</label>
-          <input
-            id="rubro"
-            [(ngModel)]="articulo.precioTotal"
-            name="rubro"
-            class="form-control"
-            required
-            minlength="4"
-          />
-        </div>
-        <div class="form-group">
-          <label for="rubro">Stock actual</label>
-          <input
-            id="rubro"
-            [(ngModel)]="articulo.stock"
-            name="modelo"
-            class="form-control"
-            required
-            minlength="4"
-          />
-        </div>
+              <div class="form-group">
+                <label for="rubro">Rubro de artículo Manufacturado</label><br />
+                <select
+                  name="rubro"
+                  class="form-control"
+                  [(ngModel)]="articulo.rubroGeneral"
+                >
+                  <option [value]="articulo.rubroGeneral" selected>
+                    Rubro Actual:
+                    {{ articulo.rubroGeneral.denominacionRubroGeneral }}
+                  </option>
+                  <option [ngValue]="objeto" *ngFor="let objeto of rubros">
+                    {{ objeto.denominacionRubroGeneral }}
+                  </option>
+                </select>
+              </div>
 
-        <div class="form-group">
-          <label for="rubro">Imagen</label>
-          <input
-            id="rubro"
-            [(ngModel)]="articulo.imagenArticuloManu"
-            name="modelo"
-            class="form-control"
-            required
-            minlength="4"
-          />
+              <div class="form-group">
+                <button
+                  style="margin-left: 120%"
+                  type="button"
+                  class="btn btn-success"
+                  (click)="guardarPOST()"
+                >
+                  Guardar
+                </button>
+                <span
+                  style="
+                    text-align: right;
+                    width: 500;
+                    color: blue;
+                    font-weight: bold;
+                  "
+                  >&nbsp;&nbsp;&nbsp; {{ resultado }}</span
+                >
+              </div>
+            </form>
+          </div>
         </div>
-
-        <div class="form-group">
-          <label for="rubro">Rubro general</label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected="1">Hamburguesas</option>
-            <option value="2">Pizzas</option>
-            <option value="3">Empanadas</option>
-            <option value="4">Sandwiches</option>
-            <option value="5">Panchos</option>
-            <option value="6">Pastas</option>
-            <option value="7">Frituras</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <button type="button" class="btn btn-success" (click)="guardarPOST()">
-            Guardar
-          </button>
-          <span
-            style="
-              text-align: right;
-              width: 500;
-              color: blue;
-              font-weight: bold;
-            "
-            >&nbsp;&nbsp;&nbsp; {{ resultado }}</span
-          >
-        </div>
-      </form>
-    </div>
-  </div>
+        <br />
+      </td>
+      <td class="col-5">
+        <app-mf-detalles></app-mf-detalles>
+      </td>
+    </tr>
+  </table>
 </div>

@@ -1,11 +1,5 @@
-* {
+#content {
     background-color: #FFF !important;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #0d6efd!important;
-    border-color: #0d6efd;
 }
 
 .table .thead-dark th {

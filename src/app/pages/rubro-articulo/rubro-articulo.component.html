@@ -1,0 +1,82 @@
+<div id="content">
+  <h1 style="padding-left: 85px">Gestión de Rubros Articulos para insumos</h1>
+  <hr />
+  <div id="grilla">
+    <div class="row">
+      <div class="col-md-10 text-right">
+        <button
+          type="button"
+          [routerLink]="['/rubroArticulo', '0']"
+          class="btn btn-primary"
+          type="button"
+          name="button"
+        >
+          Nuevo rubro articulo
+        </button>
+      </div>
+    </div>
+    <br />
+
+    <div class="row animated fadeIn">
+      <div class="col-md-10">
+        <div class="table-responsive">
+          <table width="100%" class="table table-sm table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th style="width: 10%; padding-left: 30px">N°</th>
+                <th style="width: 10%">Denominación</th>
+                <th style="width: 10%">Artículos Insumos</th>
+                <th style="width: 10%; padding-right: 80px" class="text-right">
+                  Opciones
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rubro of rubros; let i = index">
+                <th scope="row" style="padding-left: 30px">{{ i + 1 }}</th>
+                <td>{{ rubro.denominacionRubroArticulo }}</td>
+
+                <!-- Listado de articulos Insumos -->
+                <td>
+                  <span
+                    *ngFor="let artInsumo of articulosInsumos; let j = index"
+                  >
+                    <li
+                      id="denominacionINSUMO"
+                      *ngIf="
+                        artInsumo.rubroArticulo.denominacionRubroArticulo ==
+                        rubro.denominacionRubroArticulo
+                      "
+                    >
+                      {{ " - " + artInsumo.denominacionArticuloInsumo }}
+                    </li>
+                  </span>
+                  <!-- Listado de articulos Insumos -->
+                </td>
+                <td class="text-right w120">
+                  <button
+                    type="button"
+                    [routerLink]="['/rubroArticulo', rubro.idRubroArticulo]"
+                    class="btn btn-outline-success"
+                    name="button"
+                  >
+                    <i class="fas fa-edit"></i> Editar</button
+                  >&nbsp;&nbsp;
+                  <button
+                    type="button"
+                    (click)="delete(rubro.idRubroArticulo)"
+                    class="btn btn-outline-danger"
+                    type="button"
+                    name="button"
+                  >
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,66 +1,95 @@
 <div>
-    <h3>Pedidos por Usuarios</h3>
-    <hr />
+  <h3>Pedidos por Usuarios</h3>
+  <hr />
 
-    <div>
-        <div class="col-md-12">
-            <form (ngSubmit)="pedidosPorUsuario()" #forma="ngForm">
-                <div class="form-group">
-                    <label for="fechaDesde">Fecha desde</label>
-                    <input id="fechaDesde" [(ngModel)]="reporte.fechaDesde" name="fechaDesde" class="form-control" required minlength="4" placeholder="yyyy-MM-dd" style="width : 200px" />
-                </div>
-                <div class="form-group">
-                    <label for="fechaHasta">Fecha hasta</label>
-                    <input id="fechaHasta" [(ngModel)]="reporte.fechaHasta" name="fechaHasta" class="form-control" required minlength="4" placeholder="yyyy-MM-dd" style="width : 200px" />
-                </div>
+  <div>
+    <div class="col-md-12">
+      <form (ngSubmit)="pedidosPorUsuario()" #forma="ngForm">
+        <div class="form-group">
+          <label for="fechaDesde">Fecha desde</label>
+          <input
+            type="date"
+            id="fechaDesde"
+            [(ngModel)]="reporte.fechaDesde"
+            name="fechaDesde"
+            class="form-control"
+            required
+            minlength="4"
+            placeholder="yyyy-MM-dd"
+            style="width: 200px"
+          />
+        </div>
+        <div class="form-group">
+          <label for="fechaHasta">Fecha hasta</label>
+          <input
+            type="date"
+            id="fechaHasta"
+            [(ngModel)]="reporte.fechaHasta"
+            name="fechaHasta"
+            class="form-control"
+            required
+            minlength="4"
+            placeholder="yyyy-MM-dd"
+            style="width: 200px"
+          />
+        </div>
 
-                <div class="form-group">
-                    <button type="button" class="btn btn-success" (click)="pedidosPorUsuario()">
+        <div class="form-group">
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="pedidosPorUsuario()"
+          >
             Consultar
           </button>
-                    <span style="
+          <span
+            style="
               text-align: right;
               width: 500;
               color: rgb(51, 255, 0);
               font-weight: bold;
-            ">&nbsp;&nbsp;&nbsp;</span
+            "
+            >&nbsp;&nbsp;&nbsp;</span
           >
         </div>
       </form>
     </div>
     <div class="container-ingresos" *ngIf="pedidos.length > 0">
-      <h3>Desde fecha: {{ reporte.fechaDesde }}  Hasta fecha: {{ reporte.fechaHasta }}</h3>
+      <h3>
+        Desde fecha: {{ reporte.fechaDesde }} Hasta fecha:
+        {{ reporte.fechaHasta }}
+      </h3>
       <button (click)="exportToExcel()">Exportar a Excel</button>
       <div class="row animated fadeIn" style="margin: 2em">
         <div class="col-md-12">
-            <div class="table-responsive">
-                <table width="100%" class="table table-sm table-hover" id="season-tble">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th style="width: 10%">Usuario</th>
-                            <th style="width: 10%">Nombre</th>
-                            <th style="width: 10%">Apellido</th>
-                            <th style="width: 10%">Cantidad Pedidos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr  *ngFor="let pedido of pedidos">
-                            <td>{{ pedido.nombreUsuario }}
-                              {{ pedido.apellidoUsuario }}</td>
-                            <td>{{ pedido.nombreUsuario }}</td>
-                            <td>{{ pedido.apellidoUsuario }}</td>
-                            <td>{{ pedido.cantidadPedidos }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+          <div class="table-responsive">
+            <table
+              width="100%"
+              class="table table-sm table-hover"
+              id="season-tble"
+            >
+              <thead class="thead-dark">
+                <tr>
+                  <th style="width: 10%">Usuario</th>
+                  <th style="width: 10%">Nombre</th>
+                  <th style="width: 10%">Apellido</th>
+                  <th style="width: 10%">Cantidad Pedidos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pedido of pedidos">
+                  <td>
+                    {{ pedido.nombreUsuario }} {{ pedido.apellidoUsuario }}
+                  </td>
+                  <td>{{ pedido.nombreUsuario }}</td>
+                  <td>{{ pedido.apellidoUsuario }}</td>
+                  <td>{{ pedido.cantidadPedidos }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-    </div>
-
-
-
-
-
+      </div>
     </div>
   </div>
 </div>

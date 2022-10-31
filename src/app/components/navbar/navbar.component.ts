@@ -17,7 +17,6 @@ export class NavbarComponent implements OnInit {
     this.getCurrentUser();
     if (localStorage.getItem('carro')?.split('}').length)
       this.cantidadArticulos = localStorage.getItem('carro')?.split('}').length;
-    console.log('ES esto: ', this.cantidadArticulos);
     if (this.cantidadArticulos) this.numItems = this.cantidadArticulos - 1;
   }
   onLogout() {

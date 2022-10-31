@@ -28,42 +28,134 @@
     <button type="button" class="btn btn-outline-danger" (click)="volverCatalogoBebida()">Vovler al Catálogo</button>
 </div> -->
 
-
-
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <div>
-    <div class="row-catalogo" *ngIf="articulo.idArticuloManufacturado > 0 && articulo.idArticuloManufacturado <= 9 ">
-        <div class="row">
-            <div class="col-2">
-                <img src="../../../assets/images/detalleProducto/{{articulo.imagenArticuloManu}}" width="50%" id="ProductImg">
-            </div>
-            <div class="col-2">
-                <h1 title="{{articulo.denominacionArticuloManu}}">{{articulo.denominacionArticuloManu}}</h1>
-                <h4> $ {{articulo.precioTotal}}</h4>
-                <input id="cantidad" type="number" value="1" min="1" max="100" [(ngModel)]="cantidadBebida" name="cantidad" style="margin-right:10px ;" />
-                <button type="button" class="btn btn-outline-success" (click)="agregar()" [disabled]="rol != 'Cliente' && rol != 'Admin'">Agregar al carrito</button>
-                <br><br>
-                <button type="button" class="btn btn-outline-danger" (click)="volverCatalogoProducto()">Volver</button>
-            </div>
-        </div>
+  <div
+    class="row-catalogo"
+    *ngIf="
+      articulo.idArticuloManufacturado > 0 &&
+      articulo.idArticuloManufacturado <= 9
+    "
+  >
+    <div class="row">
+      <div class="col-2">
+        <img
+          src="../../../assets/images/detalleProducto/{{
+            articulo.imagenArticuloManu
+          }}"
+          width="100%"
+          id="ProductImg"
+        />
+      </div>
+      <div class="col-2">
+        <h1 title="{{ articulo.denominacionArticuloManu }}">
+          {{ articulo.denominacionArticuloManu }}
+        </h1>
+        <h4>
+          $
+          {{
+            articulo.preciosArticulosManufacturados[
+              articulo.preciosArticulosManufacturados.length - 1
+            ]?.precioVentaArticuloManufacturado
+          }}
+        </h4>
+        <td *ngFor="let insumos of articulo.insumos; let i = index">
+          <tr>
+            -
+            {{
+              insumos
+            }}
+            &nbsp;
+          </tr>
+        </td>
+        <br />
+        <input
+          id="cantidad"
+          type="number"
+          value="1"
+          min="1"
+          max="100"
+          [(ngModel)]="cantidadProducto"
+          name="cantidad"
+          style="margin-right: 10px"
+        />
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="agregar()"
+          [disabled]="rol != 'Cliente' && rol != 'Admin'"
+        >
+          Agregar al carrito
+        </button>
+        <br /><br />
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="volverCatalogoProducto()"
+        >
+          Volver
+        </button>
+      </div>
     </div>
+  </div>
 
-    <div class="row-catalogo" *ngIf="bebida.idBebida>9 || bebida.nombreBebida == 'Coca Cola 2.5 L'">
-        <div class="row">
-            <div class="col-2">
-                <img src="../../../assets/images/{{bebida.imagenBebida}}" width="100%" id="ProductImg">
-            </div>
-            <div class="col-2">
-                <h1 title="{{bebida.nombreBebida}}" {{bebida.nombreBebida}}></h1>
-                <h4> $ {{articulo.precioTotal}}</h4>
-                <td *ngFor="let insumos of articulo.insumos; let i=index">
-                    <tr>{{insumos}} - </tr>
-                </td><br>
-                <input id="cantidad" type="number" value="1" min="1" max="100" [(ngModel)]="cantidadProducto" name="cantidad" />
-                <button type="button" class="btn btn-outline-success" (click)="agregarBebida()" [disabled]="rol != 'Cliente' && rol != 'Admin'">Agregar al carrito</button>
-                <br><br>
-                <button type="button" class="btn btn-outline-danger" (click)="volverCatalogoProducto()">Volver</button>
-            </div>
-        </div>
+  <div
+    class="row-catalogo"
+    *ngIf="bebida.idBebida > 9 || bebida.nombreBebida == 'Coca Cola 2.5 L'"
+  >
+    <div class="row">
+      <div class="col-2">
+        <img
+          src="../../../assets/images/{{ bebida.imagenBebida }}"
+          width="100%"
+          id="ProductImg"
+        />
+      </div>
+      <div class="col-2">
+        <h1 title="{{ bebida.nombreBebida }}" {{bebida.nombreBebida}}></h1>
+        <h4>
+          $
+          {{
+            articulo.preciosArticulosManufacturados[
+              articulo.preciosArticulosManufacturados.length - 1
+            ]?.precioVentaArticuloManufacturado
+          }}
+        </h4>
+        <td *ngFor="let insumos of articulo.insumos; let i = index">
+          <tr>
+            {{
+              insumos
+            }}
+            -
+          </tr>
+        </td>
+        <br />
+        <input
+          id="cantidad"
+          type="number"
+          value="1"
+          min="1"
+          max="100"
+          [(ngModel)]="cantidadBebida"
+          name="cantidad"
+        />
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="agregarBebida()"
+          [disabled]="rol != 'Cliente' && rol != 'Admin'"
+        >
+          Agregar al carrito
+        </button>
+        <br /><br />
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="volverCatalogoProducto()"
+        >
+          Volver
+        </button>
+      </div>
     </div>
+  </div>
 </div>

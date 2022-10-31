@@ -25,12 +25,8 @@
                             <td>{{ pedido.fechaPedido }}</td>
                             <td>{{ pedido.horaEstimadaFinPedido }}</td>
                             <td>$ {{ pedido.totalPedido }}</td>
-                            <td *ngIf="pedido.estadoPedido === 'En Preparación'" id="preparacion">
-                                {{ pedido.estadoPedido }}
-                            </td>
-                            <td *ngIf="pedido.estadoPedido === 'Pagado'" id="pagado">
-                                {{ pedido.estadoPedido }}
-                            </td>
+                            <td>{{ pedido.estadoPedido }}</td>
+
                             <td>
                                 <button type="button" (click)="verFactura(pedido.idPedido)" class="btn btn-outline-danger" type="button" name="button" *ngIf="rol === 'Cliente'"><i ></i> Ver Factura</button>
                             </td>
