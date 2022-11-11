@@ -36,7 +36,7 @@ export class UsuarioServicio {
   }
 
   //busca un usuario por el id
-  getUsuarioEnBaseDatosXId(idx: string) {
+  getUsuarioEnBaseDatosXId(idx: number) {
     return this.http
       .get('http://localhost:8080/usuario/listarUsuarioXId/' + idx)
       .pipe(map((usuarioEncontrado) => usuarioEncontrado));
