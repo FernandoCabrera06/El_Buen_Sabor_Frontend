@@ -55,4 +55,15 @@ export class FacturaComponent  implements OnInit{
       });
 
   }
+  delete(idFactura: number) {
+
+    var opcion = confirm(
+      'Esta seguro que desea eliminar la factura?'
+    );
+    if (opcion == true) {
+      this.servFactura.deleteFacturaFetch(idFactura);
+      location.reload();
+    }
+
+  }
 }
