@@ -52,14 +52,41 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     const dato = localStorage.getItem('carro');
     if (dato) this.carritos = JSON.parse(dato);
-    this.totalCompra = this.carritos.reduce((a, b, c) => (a += b.subTotal), 0);
-    this.totalHoraCocina=this.carritos.reduce(
-      (a, b) => a + b.horasCocina,
+    this.totalCompra = this.carritos.reduce(
+      (a, b, c) => (a += b.subTotal * b.cantidad),
       0
     );
+    console.log('ESTO SON LOS CARRITOS ', this.carritos);
+    this.totalHoraCocina = this.carritos.reduce((a, b) => a + b.horasCocina, 0);
   }
   eliminar(i: number) {
+    this.carritos.map((item) => {
+      if (item.id == i) {
+        this.carritos.filter((carrito) => carrito.id != i);
+        item.cantidad -= 1;
+      }
+    });
     this.carritos.splice(i, 1);
+    localStorage.setItem('carro', JSON.stringify(this.carritos));
+    window.location.reload();
+  }
+
+  sumarProducto(idCarrito: number) {
+    this.carritos.map((item) => {
+      if (item.id == idCarrito) {
+        item.cantidad += 1;
+      }
+    });
+    localStorage.setItem('carro', JSON.stringify(this.carritos));
+    window.location.reload();
+  }
+
+  restarProducto(idCarrito: number) {
+    this.carritos.map((item) => {
+      if (item.id == idCarrito) {
+        item.cantidad -= 1;
+      }
+    });
     localStorage.setItem('carro', JSON.stringify(this.carritos));
     window.location.reload();
   }
@@ -71,7 +98,7 @@ export class CarritoComponent implements OnInit {
     this.pedido.totalPedido = this.totalCompra;
     const dato = localStorage.getItem('usuario');
     if (dato) this.pedido.nombreUsuario = dato;
-    this.pedido.estadoPedido=1;
+    this.pedido.estadoPedido = 1;
     this.servPedido.guardarPOST(this.pedido);
     this.ser.descontarStock();
     this.ser.resetCarrito();

@@ -85,6 +85,10 @@ const routes: Routes = [
     path: 'detalleRecetaManufacturado/:idArticuloManufacturado',
     component: DetalleRecetaManufacturadoComponent,
   },
+  {
+    path: 'admin/detalleFactura/:idFactura',
+    component: DetalleFacturaComponent,
+  },
 ];
 
 @NgModule({
