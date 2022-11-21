@@ -54,16 +54,16 @@ export class FacturaServicio {
 
 
     //baja logica de una factura
-     async deleteFacturaFetch(idFactura: string){
-      let urlServer = 'http://localhost:808/factura/borrarFactura/'+idFactura;
+    async deleteFacturaFetch(idFactura: number) {
+      let urlServer = 'http://localhost:8080/factura/borrarFactura/' + idFactura;
       console.log(urlServer);
       let result = await fetch(urlServer, {
-          method: 'PUT',
-          headers: {
-              'Content-type': 'application/json',
-              'Access-Control-Allow-Origin':'*'
-          },
-          mode: 'cors'
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        mode: 'cors',
       });
     }
 
