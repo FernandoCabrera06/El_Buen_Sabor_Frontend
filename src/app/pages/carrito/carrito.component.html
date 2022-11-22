@@ -53,7 +53,35 @@
           <strong>Precio: </strong>${{ articulo.precioProducto }}
         </li>
         <li class="list-group-item">
-          <strong>Cantidad: </strong> {{ articulo.cantidad }}
+          <strong>Cantidad: </strong>
+          <button
+            *ngIf="articulo.cantidad <= 1"
+            disabled
+            type="button"
+            id="btn-restar"
+            class="btn btn-danger btn-sm"
+            (click)="restarProducto(articulo.id)"
+          >
+            -
+          </button>
+          <button
+            *ngIf="articulo.cantidad > 1"
+            type="button"
+            id="btn-restar"
+            class="btn btn-danger btn-sm"
+            (click)="restarProducto(articulo.id)"
+          >
+            -
+          </button>
+          {{ articulo.cantidad }}
+
+          <button
+            type="button"
+            class="btn btn-primary btn-sm"
+            (click)="sumarProducto(articulo.id)"
+          >
+            +
+          </button>
         </li>
         <li class="list-group-item">
           <strong>Subtotal: </strong>${{ articulo.subTotal }}

@@ -29,6 +29,16 @@
               <td class="text-right w120">
                 <button
                   type="button"
+                  (click)="verDetalle(factura.idFactura)"
+                  class="btn btn-outline-primary"
+                  type="button"
+                  name="button"
+                >
+                  <i class="fas fa-edit"></i> Ver
+                </button>
+                &nbsp;
+                <button
+                  type="button"
                   (click)="delete(factura.idFactura)"
                   class="btn btn-outline-danger"
                   type="button"
