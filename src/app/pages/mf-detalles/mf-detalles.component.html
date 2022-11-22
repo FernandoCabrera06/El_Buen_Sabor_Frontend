@@ -9,6 +9,7 @@
         data-toggle="modal"
         data-target="#exampleModal"
         data-whatever="@getbootstrap"
+        (click)="limpiarCampos()"
       >
         Agregar +
       </button>
@@ -63,12 +64,14 @@
                 class="text-right w120"
                 *ngIf="articulo.articuloManufacturadoDetalles.length > 0"
               >
+                <!-- --------BOTÓN EDITAR--------- -->
                 <button
                   type="button"
                   class="btn btn-outline-success"
                   data-toggle="modal"
                   data-target="#exampleModal"
                   data-whatever="@getbootstrap"
+                  (click)="editarAMFD(artMFdetalle)"
                 >
                   <!-- <button
                   type="button"
@@ -154,13 +157,43 @@
               />
               <!-- <textarea class="form-control" id="message-text"></textarea> -->
             </div>
+            <!-- ----------------SELECT DE UNIDAD DE MEDIDA------------------- -->
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label"
+                >Unidad de medida:</label
+              >
+              <select
+                name="unidad"
+                id="recipient-name"
+                class="form-control"
+                [(ngModel)]="artManuDetalle.unidadMedidaArticuloManuDetalle"
+              >
+                <option
+                  [value]="artManuDetalle.unidadMedidaArticuloManuDetalle"
+                  selected
+                >
+                  Unidad Actual:
+                  {{ artManuDetalle.unidadMedidaArticuloManuDetalle }}
+                </option>
+                <option>Gramos</option>
+                <option>Cm³</option>
+                <option>Unidades</option>
+              </select>
+            </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">
             Cancelar
           </button>
-          <button type="button" class="btn btn-success">Guardar</button>
+          <button
+            type="button"
+            class="btn btn-success"
+            data-dismiss="modal"
+            (click)="add(artManuDetalle)"
+          >
+            Guardar
+          </button>
         </div>
       </div>
     </div>

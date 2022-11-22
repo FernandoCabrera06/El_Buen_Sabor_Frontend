@@ -20,7 +20,7 @@ export class DetalleRecetaManufacturadoComponent implements OnInit {
     preciosArticulosManufacturados: [new PrecioArticuloManufacturado()],
     bajaArticuloManu: false,
     stock: 0,
-    articuloManufacturadoDetalles: [new ArticuloManufacturadoDetalle()],
+    articuloManufacturadoDetalles: [],
     rubroGeneral: new RubroGeneral(),
   };
   new = false;
