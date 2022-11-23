@@ -36,9 +36,12 @@ export class FacturaServicio {
   }
 
   //busca una factura por el id
-  getFacturaEnBaseDatosXId(idx:number){
-    return this.http.get("http://localhost:8080/factura/listarFacturaXId/" + idx);
+  getFacturaEnBaseDatosXId(idx:number):Observable<Factura>{
+    return this.http.get<Factura>("http://localhost:8080/factura/listarFacturaXId/"+idx )
+    ;
   }
+
+
 
   //ingresos por periodo
   getIngresosPorPeriodo(fechaDesde:string,fechaHasta:string){

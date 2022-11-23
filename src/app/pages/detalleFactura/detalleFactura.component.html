@@ -1,21 +1,38 @@
-<div class="container-ingresos">
-  <h3>Factura n° {{ factura.numeroFactura }}</h3>
+<div id="htmlData" class="container-ingresos">
 
-  <table id="season-tble">
     <tr>
-      <td>
-        <h3>Fecha Factura {{ factura.fechaFactura }}</h3>
-      </td>
+
+        <h3>Factura n°: B 0001-00 {{ factura.numeroFactura }}</h3>
     </tr>
     <tr>
-      <td>
-        <h3>Cliente: {{ usuario.nombres }} {{ usuario.apellidos }}</h3>
-      </td>
+        <h3> Fecha Factura: {{ factura.fechaFactura }}</h3>
+
     </tr>
-    <tr>
-      <td>
-        <h3>Total Venta: {{ factura.totalVenta }}</h3>
-      </td>
-    </tr>
-  </table>
+    <h3>Cliente: {{ usuario.nombres }} {{ usuario.apellidos }}</h3>
+    <table>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <th>Varios</th>
+            <th>$ {{ factura.totalVenta }}</th>
+            <th>1</th>
+            <th>$ {{ factura.totalVenta }}</th>
+        </tr>
+        <tr>
+            <td colspan="3">Subtotal</td>
+            <td>$ {{ factura.totalVenta }}</td>
+        </tr>
+
+        <tr>
+            <td colspan="3">Total venta</td>
+            <td>$ {{ factura.totalVenta }}</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <button class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Download PDF</button>
 </div>
