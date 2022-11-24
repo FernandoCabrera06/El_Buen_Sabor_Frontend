@@ -186,6 +186,24 @@
               <!-- BOTON GUARDAR -->
             </td>
           </tr>
+          <tr>
+            <td class="col-md-4">
+              <!-- IMAGEN -->
+              <div class="form-group">
+                <label for="rubro">Imagen</label>
+                <input
+                  type="file"
+                  id="rubro"
+                  (change)="capturarImagen($event)"
+                  [(ngModel)]="insumo.imagenArticuloInsumo"
+                  name="modelo"
+                  class="form-control"
+                  required
+                  minlength="4"
+                />
+              </div>
+            </td>
+          </tr>
         </Table>
         <br />
         <div class="form-group" id="botonGuardar">

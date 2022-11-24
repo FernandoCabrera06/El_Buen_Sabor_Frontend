@@ -61,7 +61,9 @@ export class FormArticulosInsumosComponent implements OnInit {
       }
     });
   }
-
+  capturarImagen(event): any {
+    this.insumo.imagenArticuloInsumo = event.target.files[0].name;
+  }
   addNew(formu: NgForm) {
     this.router.navigate(['/insumo', '0']);
     formu.reset({

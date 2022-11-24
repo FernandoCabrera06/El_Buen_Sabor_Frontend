@@ -60,6 +60,7 @@
                 <input
                   type="file"
                   id="rubro"
+                  (change)="capturarImagen($event)"
                   [(ngModel)]="articulo.imagenArticuloManu"
                   name="modelo"
                   class="form-control"

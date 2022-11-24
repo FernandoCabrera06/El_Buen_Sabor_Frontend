@@ -73,6 +73,9 @@ export class FormManufacturadosComponent implements OnInit {
       }
     });
   }
+  capturarImagen(event): any {
+    this.articulo.imagenArticuloManu = event.target.files[0].name;
+  }
 
   addNew(formu: NgForm) {
     this.router.navigate(['/admin', 'nuevo']);
