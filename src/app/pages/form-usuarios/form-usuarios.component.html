@@ -83,18 +83,16 @@
         <!-- -------ROL--------- -->
         <div class="form-group">
           <label for="estadoPedido">Rol</label>
-          <div>
-            <select
-              name="miselect"
-              [(ngModel)]="usuario.rol"
-              class="form-control"
-              style="width: 300px"
-            >
-              <option [ngValue]="item" *ngFor="let item of lista">
-                {{ item }}
-              </option>
-            </select>
-          </div>
+          <select
+            name="miselect"
+            [(ngModel)]="usuario.rol"
+            class="form-control"
+            style="width: 300px"
+          >
+            <option [ngValue]="item" *ngFor="let item of lista">
+              {{ item }}
+            </option>
+          </select>
         </div>
 
         <div class="form-group">

@@ -4,6 +4,7 @@ import { UsuarioServicio } from '../../servicios/usuario.servicio';
 import { NgForm } from '@angular/forms';
 import { Usuario } from '../../entidades/Usuario';
 import { RolesService } from 'src/app/servicios/roles.service';
+import { Domicilio } from 'src/app/entidades/Domicilio';
 
 @Component({
   selector: 'app-form-usuarios',
@@ -20,7 +21,7 @@ export class FormUsuariosComponent implements OnInit {
     usuario: '',
     telefono: 0,
     rol: '',
-    domicilios: [],
+    domicilios: [new Domicilio()],
     bajaUsuario: false,
   };
 
