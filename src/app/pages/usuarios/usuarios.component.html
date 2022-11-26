@@ -47,8 +47,11 @@
               <td>{{ usuario.email }}</td>
               <td>{{ usuario.telefono }}</td>
               <td>
-                {{ usuario.domicilios[0].calle }}
-                {{ usuario.domicilios[0].numeroDomicilio }}
+                {{ usuario.domicilios[usuario.domicilios.length - 1].calle }}
+                {{
+                  usuario.domicilios[usuario.domicilios.length - 1]
+                    .numeroDomicilio
+                }}
               </td>
 
               <td class="text-right w120">

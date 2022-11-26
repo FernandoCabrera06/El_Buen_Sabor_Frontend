@@ -75,10 +75,11 @@ export class FormUsuariosComponent implements OnInit {
       usuario: '',
       telefono: 0,
       rol: '',
+      domicilios: [],
+      bajaUsuario: false,
     });
   }
   async guardarPOST() {
-    this.usuario.rol = this.seleccionado;
     this.serv.guardarPOST(this.usuario);
 
     this.router.navigate(['usuarios']);

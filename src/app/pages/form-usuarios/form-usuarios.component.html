@@ -79,31 +79,24 @@
             placeholder="Ingrese un nombre de usuario"
           />
         </div>
-        <div class="form-group">
-          <!--<label for="rubro">Rol</label>
-                    <select class="form-select" aria-label="Default select example" [(ngModel)]="usuario.rol" style="width : 300px">
-                    <option selected="1">Admin</option>
-                    <option value="Cajero">Cajero</option>
-                    <option value="3">Cliente</option>
-                    <option value="4">Cocinero</option>
-                    <option value="5">Delivery</option>
-                  </select>-->
-        </div>
+
+        <!-- -------ROL--------- -->
         <div class="form-group">
           <label for="estadoPedido">Rol</label>
-          <p>
+          <div>
             <select
               name="miselect"
-              [(ngModel)]="seleccionado"
+              [(ngModel)]="usuario.rol"
               class="form-control"
               style="width: 300px"
             >
-              <option [value]="item" *ngFor="let item of lista">
+              <option [ngValue]="item" *ngFor="let item of lista">
                 {{ item }}
               </option>
             </select>
-          </p>
+          </div>
         </div>
+
         <div class="form-group">
           <label for="telefono ">Telefono</label>
           <input
@@ -124,7 +117,9 @@
           <input
             id="domicilio"
             type="text"
-            [(ngModel)]="usuario.domicilios[0].calle"
+            [(ngModel)]="
+              usuario.domicilios[usuario.domicilios.length - 1].calle
+            "
             name="calle"
             class="form-control"
             required
@@ -139,7 +134,9 @@
           <input
             id="domicilio"
             type="number"
-            [(ngModel)]="usuario.domicilios[0].numeroDomicilio"
+            [(ngModel)]="
+              usuario.domicilios[usuario.domicilios.length - 1].numeroDomicilio
+            "
             name="numeroDomicilio"
             class="form-control"
             required
@@ -154,7 +151,9 @@
           <input
             id="domicilio"
             type="text"
-            [(ngModel)]="usuario.domicilios[0].localidad"
+            [(ngModel)]="
+              usuario.domicilios[usuario.domicilios.length - 1].localidad
+            "
             name="localidad"
             class="form-control"
             required
