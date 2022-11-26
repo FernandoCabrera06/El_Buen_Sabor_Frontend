@@ -32,6 +32,11 @@ export class RolesService {
     return this.http.get<Rol[]>('http://localhost:8080/listarRoles');
   }
 
+  //lee todos los roles
+  getRolesStringFromDataBase(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:8080/listarRolesString');
+  }
+
   //busca un rol por el id
   getRolEnBaseDatosXId(idx: number) {
     return this.http.get('http://localhost:8080/listarRolXId/' + idx);

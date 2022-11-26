@@ -17,22 +17,14 @@ export class UsuarioServicio {
 
   public getUsuarios(): any[] {
     return this.usuariosData;
-    console.log(this.usuariosData);
   }
 
-  public getPlatoXId(idx: number): any {
+  public getUsuarioXId(idx: number): any {
     for (let usuario of this.usuariosData) {
       if (usuario.idUsuario == idx) {
         return usuario;
       }
     }
-  }
-
-  //lee todos los usuarios
-  getUsuariosFromDataBase(): any {
-    return this.http
-      .get('http://localhost:8080/usuario/listarUsuarios')
-      .pipe(map((usuariosData) => usuariosData));
   }
 
   //busca un usuario por el id
@@ -90,6 +82,14 @@ export class UsuarioServicio {
       'http://localhost:8080/usuario/listarUsuariosEmpleados'
     );
   }
+
+  //lee todos los usuarios
+  getUsuariosFromDataBase(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(
+      'http://localhost:8080/usuario/listarUsuarios'
+    );
+  }
+
   getUsuarioXnombreUsuarioFromDataBase(
     nombreUsuario: string | null
   ): Observable<Usuario> {

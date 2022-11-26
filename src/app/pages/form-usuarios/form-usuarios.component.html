@@ -1,40 +1,86 @@
 <div id="content" style="padding-left: 35px; padding-right: 85px">
-    <h3>Registro de Usuario <small></small></h3>
+  <h3>Registro de Usuario <small></small></h3>
 
-    <button class="btn btn-danger" [routerLink]="['/usuarios']">Volver</button>
-    <span>&nbsp;</span>
-    <button class="btn btn-success" (click)="addNew(forma)">
+  <button class="btn btn-danger" [routerLink]="['/usuarios']">Volver</button>
+  <span>&nbsp;</span>
+  <button class="btn btn-success" (click)="addNew(forma)">
     Limpiar campos
   </button>
-    <hr />
+  <hr />
 
-    <div class="row animated fadeIn fast">
-        <div class="col-md-12">
-            <form #forma="ngForm">
-                <div class="form-group">
-                    <label for="nombre">Nombres</label>
-                    <input id="nombre" [(ngModel)]="usuario.nombres" name="nombre" class="form-control" required minlength="4" style="width: 300px" placeholder="Ingrese sus nombres" />
-                </div>
-                <div class="form-group">
-                    <label for="apellido">Apellido</label>
-                    <input id="apellido" [(ngModel)]="usuario.apellidos" name="apellido" class="form-control" required minlength="4" style="width: 300px" placeholder="Ingrese su apellido" />
-                </div>
-                <div class="form-group">
-                    <label for="clave">Clave</label>
+  <div class="row animated fadeIn fast">
+    <div class="col-md-12">
+      <form #forma="ngForm">
+        <div class="form-group">
+          <label for="nombre">Nombres</label>
+          <input
+            id="nombre"
+            [(ngModel)]="usuario.nombres"
+            name="nombre"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            placeholder="Ingrese sus nombres"
+          />
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <input
+            id="apellido"
+            [(ngModel)]="usuario.apellidos"
+            name="apellido"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            placeholder="Ingrese su apellido"
+          />
+        </div>
+        <div class="form-group">
+          <label for="clave">Clave</label>
 
-                    <input id="clave" [(ngModel)]="usuario.clave" name="clave" class="form-control" required minlength="4" style="width: 300px" placeholder="Ingrese una clave" />
-                </div>
-                <div class="form-group">
-                    <label for="email">email</label>
-                    <input id="email" type="email" [(ngModel)]="usuario.email" name="email" class="form-control" required minlength="4" style="width: 300px" placeholder="ejemplo@correo.com" />
-                </div>
+          <input
+            id="clave"
+            [(ngModel)]="usuario.clave"
+            name="clave"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            placeholder="Ingrese una clave"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input
+            id="email"
+            type="email"
+            [(ngModel)]="usuario.email"
+            name="email"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            placeholder="ejemplo@correo.com"
+          />
+        </div>
 
-                <div class="form-group">
-                    <label for="usuario">Usuario</label>
-                    <input id="usuario" [(ngModel)]="usuario.usuario" name="usuario" class="form-control" required minlength="4" style="width: 300px" placeholder="Ingrese un nombre de usuario" />
-                </div>
-                <div class="form-group">
-                    <!--<label for="rubro">Rol</label>
+        <div class="form-group">
+          <label for="usuario">Usuario</label>
+          <input
+            id="usuario"
+            [(ngModel)]="usuario.usuario"
+            name="usuario"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            placeholder="Ingrese un nombre de usuario"
+          />
+        </div>
+        <div class="form-group">
+          <!--<label for="rubro">Rol</label>
                     <select class="form-select" aria-label="Default select example" [(ngModel)]="usuario.rol" style="width : 300px">
                     <option selected="1">Admin</option>
                     <option value="Cajero">Cajero</option>
@@ -42,35 +88,97 @@
                     <option value="4">Cocinero</option>
                     <option value="5">Delivery</option>
                   </select>-->
-                </div>
-                <div class="form-group">
-                    <label for="estadoPedido">Rol</label>
-                    <p>
-                        <select name="miselect" [(ngModel)]="seleccionado">
+        </div>
+        <div class="form-group">
+          <label for="estadoPedido">Rol</label>
+          <p>
+            <select name="miselect" [(ngModel)]="seleccionado">
               <option [value]="item" *ngFor="let item of lista">
                 {{ item }}
               </option>
             </select>
-                    </p>
-                </div>
-                <div class="form-group">
-                    <label for="telefono ">Telefono</label>
-                    <input id="telefono " type="number " [(ngModel)]="usuario.telefono" name="telefono " class="form-control" required minlength="4 " style="width: 300px" placeholder="Ingrese su telefono " />
-                </div>
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="telefono ">Telefono</label>
+          <input
+            id="telefono "
+            type="number "
+            [(ngModel)]="usuario.telefono"
+            name="telefono "
+            class="form-control"
+            required
+            minlength="4 "
+            style="width: 300px"
+            placeholder="Ingrese su telefono "
+          />
+        </div>
 
-                <div class="form-group">
-                    <button type="button " class="btn btn-success" (click)="guardarPOST()">
+        <label for="telefono"><strong>- Datos domicilio -</strong></label>
+        <div class="form-group">
+          <label for="calle">Calle</label>
+          <input
+            id="domicilio"
+            type="text"
+            [(ngModel)]="usuario.domicilios[0].calle"
+            name="calle"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            placeholder="Ingrese calle "
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="numeroDomicilio">N°</label>
+          <input
+            id="domicilio"
+            type="number"
+            [(ngModel)]="usuario.domicilios[0].numeroDomicilio"
+            name="numeroDomicilio"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            placeholder="Ingrese numero de domicilio "
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="localidad">Localidad</label>
+          <input
+            id="domicilio"
+            type="text"
+            [(ngModel)]="usuario.domicilios[0].localidad"
+            name="localidad"
+            class="form-control"
+            required
+            minlength="4"
+            style="width: 300px"
+            placeholder="Ingrese localidad "
+          />
+        </div>
+
+        <div class="form-group">
+          <button
+            type="button "
+            class="btn btn-success"
+            (click)="guardarPOST()"
+          >
             Guardar
           </button>
-                    <span style="
+          <span
+            style="
               text-align: right;
               width: 500;
               color: blue;
               font-weight: bold;
-            ">&nbsp;&nbsp;&nbsp;
+            "
+            >&nbsp;&nbsp;&nbsp;
           </span>
-                </div>
-            </form>
         </div>
+      </form>
     </div>
+  </div>
 </div>

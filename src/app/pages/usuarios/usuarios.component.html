@@ -30,6 +30,7 @@
               <th style="width: 10%">Rol</th>
               <th style="width: 10%">Email</th>
               <th style="width: 10%">Telefono</th>
+              <th style="width: 10%">Domicilio</th>
 
               <th style="width: 10%; padding-right: 130px" class="text-right">
                 Opciones
@@ -45,6 +46,11 @@
               <td>{{ usuario.rol }}</td>
               <td>{{ usuario.email }}</td>
               <td>{{ usuario.telefono }}</td>
+              <td>
+                {{ usuario.domicilios[0].calle }}
+                {{ usuario.domicilios[0].numeroDomicilio }}
+              </td>
+
               <td class="text-right w120">
                 &nbsp;&nbsp;
                 <button

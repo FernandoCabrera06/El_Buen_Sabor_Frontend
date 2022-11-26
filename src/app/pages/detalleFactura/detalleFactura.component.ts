@@ -36,8 +36,10 @@ export class DetalleFacturaComponent implements OnInit {
     usuario: '',
     telefono: 0,
     rol: '',
+    domicilios: [],
     bajaUsuario: false,
   };
+
   rol: string | null = '';
   usuarioRol: string | null = '';
   loading = true;

@@ -32,6 +32,7 @@ export class FacturaComponent implements OnInit {
     usuario: '',
     telefono: 0,
     rol: '',
+    domicilios: [],
     bajaUsuario: false,
   };
   rol: string | null = '';
