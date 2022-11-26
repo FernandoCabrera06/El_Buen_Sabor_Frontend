@@ -41,9 +41,19 @@
                       <strong class="billing_name"
                         >{{ usuario.nombres }},{{ usuario.apellidos }}</strong
                       ><br />
-                      <span class="billing_address">{{
-                        usuario.domicilios[usuario.domicilios.length]
-                      }}</span
+                      <span class="billing_address"
+                        >{{
+                          usuario.domicilios[usuario.domicilios.length - 1]
+                            .calle
+                        }}
+                        {{
+                          usuario.domicilios[usuario.domicilios.length - 1]
+                            .numeroDomicilio
+                        }},
+                        {{
+                          usuario.domicilios[usuario.domicilios.length - 1]
+                            .localidad
+                        }}</span
                       ><br />
                       Tel: {{ usuario.telefono }}<br />
                       Email: {{ usuario.email }}
