@@ -58,7 +58,9 @@
               <div class="form-group">
                 <label for="rubro">Imagen</label>
                 <input
+                  type="file"
                   id="rubro"
+                  (change)="capturarImagen($event)"
                   [(ngModel)]="articulo.imagenArticuloManu"
                   name="modelo"
                   class="form-control"

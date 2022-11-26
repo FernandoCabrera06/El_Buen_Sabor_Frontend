@@ -1,0 +1,29 @@
+#content {
+    background-color: #FFF !important;
+}
+body{
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace !important;
+    letter-spacing: -0.3px;
+}
+.invoice-wrapper{ width: 1300px; margin: auto; }
+.nav-sidebar .nav-header:not(:first-of-type){ padding: 1.7rem 0rem .5rem; }
+.logo{ font-size: 60px; }
+.sidebar-collapse .brand-link .brand-image{ margin-top: -33px; }
+.content-wrapper{ margin: auto !important; }
+.billing-company-image { width: 50px; }
+.billing_name { text-transform: uppercase; }
+.billing_address { text-transform: capitalize; }
+.table{ width: 100%; border-collapse: collapse; }
+th{ text-align: left; padding: 10px; }
+td{ padding: 10px; vertical-align: top; }
+.row{ display: block; clear: both; }
+.text-right{ text-align: right; }
+.table-hover thead tr{ background: #eee; }
+.table-hover tbody tr:nth-child(even){ background: #fbf9f9; }
+address{ font-style: normal; }
+
+.btn-download{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}

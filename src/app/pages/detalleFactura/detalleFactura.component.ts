@@ -7,10 +7,11 @@ import { Factura } from 'src/app/entidades/Factura';
 import { Usuario } from 'src/app/entidades/Usuario';
 import { UsuarioServicio } from '../../servicios/usuario.servicio';
 import { Injectable } from '@angular/core';
-//import pdfMake from 'pdfMake/build/pdfmake';
-//import pdfFonts from 'pdfmake/build/vfs_fonts';
-//pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import pdfMake from 'pdfmake/build/pdfMake';
+import pdfFonts from 'pdfmake/build/vfs_fonts'
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-detalleFactura',
   templateUrl: './detalleFactura.component.html',
@@ -43,7 +44,7 @@ export class DetalleFacturaComponent implements OnInit {
   rol: string | null = '';
   usuarioRol: string | null = '';
   loading = true;
-  idPedido = 0;
+  idFactura = 0;
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
@@ -53,16 +54,15 @@ export class DetalleFacturaComponent implements OnInit {
     this.rol = localStorage.getItem('rol');
     this.usuarioRol = localStorage.getItem('usuario');
     this.activeRoute.params.subscribe((parametros) => {
-      this.idPedido = parametros['idPedido'];
+      this.factura.idFactura = parametros['idFactura'];
     });
   }
   ngOnInit(): void {
-    this.servFactura
-      .getFacturaPorIdPedidoFromDataBase(this.idPedido)
-      .subscribe(
+    this.servFactura.getFacturaEnBaseDatosXId(this.factura.idFactura).subscribe(
         (facturaEncontrada: any) =>
           (this.factura = facturaEncontrada as Factura)
       );
+
 
     this.servUsuario
       .getUsuarioXnombreUsuarioFromDataBase(this.usuarioRol)
@@ -71,15 +71,36 @@ export class DetalleFacturaComponent implements OnInit {
           (this.usuario = usuarioEncontrado as Usuario)
       );
   }
-  /*createPdf(){
-     const pdfDefinition:any= {
+  downloadPDF() {
+    /*const pdfDefinition:any={
       content:[
         {
-
+          text:'Hola Mundo'
         }
       ]
-     }
-     const pdf = pdfMake.createPdf(pdfDefinition);
-     pdf.download();
-  }*/
+    }
+    const pdf = pdfMake.createPdf(pdfDefinition);
+    pdf.open();*/
+    const DATA:any = document.getElementById('htmlData');
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('image/PNG');
+
+      // Add image Canvas to PDF
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}_factura_El_Buen_Sabor.pdf`);
+    });
+  }
 }

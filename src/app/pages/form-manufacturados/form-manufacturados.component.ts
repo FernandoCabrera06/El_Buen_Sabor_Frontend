@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { end } from '@popperjs/core';
 import { ArticuloInsumo } from 'src/app/entidades/ArticuloInsumo';
 import { ArticuloManufacturado } from 'src/app/entidades/ArticuloManufacturado';
 import { ArticuloManufacturadoDetalle } from 'src/app/entidades/ArticuloManufacturadoDetalle';
@@ -24,7 +25,7 @@ export class FormManufacturadosComponent implements OnInit {
     preciosArticulosManufacturados: [new PrecioArticuloManufacturado()],
     bajaArticuloManu: false,
     stock: 0,
-    articuloManufacturadoDetalles: [new ArticuloManufacturadoDetalle()],
+    articuloManufacturadoDetalles: [],
     rubroGeneral: new RubroGeneral(),
   };
   new = false;
@@ -71,6 +72,9 @@ export class FormManufacturadosComponent implements OnInit {
         }
       }
     });
+  }
+  capturarImagen(event): any {
+    this.articulo.imagenArticuloManu = event.target.files[0].name;
   }
 
   addNew(formu: NgForm) {

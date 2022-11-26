@@ -92,7 +92,12 @@
         <div class="form-group">
           <label for="estadoPedido">Rol</label>
           <p>
-            <select name="miselect" [(ngModel)]="seleccionado">
+            <select
+              name="miselect"
+              [(ngModel)]="seleccionado"
+              class="form-control"
+              style="width: 300px"
+            >
               <option [value]="item" *ngFor="let item of lista">
                 {{ item }}
               </option>
@@ -113,7 +118,6 @@
             placeholder="Ingrese su telefono "
           />
         </div>
-
         <label for="telefono"><strong>- Datos domicilio -</strong></label>
         <div class="form-group">
           <label for="calle">Calle</label>
@@ -159,7 +163,6 @@
             placeholder="Ingrese localidad "
           />
         </div>
-
         <div class="form-group">
           <button
             type="button "

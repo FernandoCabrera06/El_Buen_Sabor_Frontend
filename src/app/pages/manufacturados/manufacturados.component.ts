@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ArticuloManufacturado } from 'src/app/entidades/ArticuloManufacturado';
 import { ManufacturadosService } from 'src/app/servicios/manufacturados.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manufacturados',
@@ -45,13 +46,18 @@ export class ManufacturadosComponent implements OnInit {
   }
 
   delete(idArticuloManu: number) {
-    var opcion = confirm(
-      'Esta seguro que desea eliminar el articulo manufacturado?'
-    );
-    if (opcion == true) {
-      this.servicioManu.deleteArticuloManufacturadoFetch(idArticuloManu);
-      location.reload();
-    }
+    Swal.fire({
+      title: '¿Esta seguro que desea eliminar este articulo manufacturado?',
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminar',
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.servicioManu.deleteArticuloManufacturadoFetch(idArticuloManu);
+        location.reload();
+      }
+    });
   }
 
   verDetalle(idx: number) {

@@ -1,21 +1,106 @@
-<div class="container-ingresos">
-  <h3>Factura n° {{ factura.numeroFactura }}</h3>
-
-  <table id="season-tble">
-    <tr>
-      <td>
-        <h3>Fecha Factura {{ factura.fechaFactura }}</h3>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h3>Cliente: {{ usuario.nombres }} {{ usuario.apellidos }}</h3>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h3>Total Venta: {{ factura.totalVenta }}</h3>
-      </td>
-    </tr>
-  </table>
+<div id="content">
+  <div id="htmlData" class="container-ingresos">
+    <div class="row invoice-wrapper">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table">
+              <tr>
+                <td>
+                  <br />
+                  <h4>
+                    <span class="">El Buen Sabor</span>
+                  </h4>
+                </td>
+                <td class="text-right">
+                  <br />
+                  <strong>{{ factura.fechaFactura }}</strong>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="row invoice-info">
+          <div class="col-lg-12">
+            <table class="table">
+              <tr>
+                <td>
+                  <div class="">
+                    De
+                    <address>
+                      <strong>El Buen Sabor</strong><br />
+                      Alsina 68, Ciudad, Mendoza<br />
+                      Email: elbuensabor@gmail.com
+                    </address>
+                  </div>
+                </td>
+                <td>
+                  <div class="">
+                    Para
+                    <address>
+                      <strong class="billing_name"
+                        >{{ usuario.nombres }},{{ usuario.apellidos }}</strong
+                      ><br />
+                      <span class="billing_address">Domicilio</span><br />
+                      Tel: {{ usuario.telefono }}<br />
+                      Email: {{ usuario.email }}
+                    </address>
+                  </div>
+                </td>
+                <td>
+                  <div class="text-right">
+                    <b>Factura N° {{ factura.numeroFactura }}</b>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <br /><br />
+        <div class="row">
+          <div class="col-md-12 table-responsive">
+            <table class="table table-condensed table-hover">
+              <thead>
+                <tr>
+                  <th>Cantidad</th>
+                  <th>Descripción</th>
+                  <th>Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Varios</td>
+                  <td class="text-right">&#36; {{ factura.totalVenta }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="text-right">Sub Total</td>
+                  <td class="text-right">
+                    <strong>&#36; {{ factura.totalVenta }}</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="text-right">Total</td>
+                  <td class="text-right">
+                    <strong>&#36; {{ factura.totalVenta }}</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.col -->
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+  <br /><br />
+  <div class="btn-download">
+    <button
+      class="btn col col-lg-4 btn-danger btn-block ml-4"
+      (click)="downloadPDF()"
+    >
+      Download PDF
+    </button>
+  </div>
 </div>

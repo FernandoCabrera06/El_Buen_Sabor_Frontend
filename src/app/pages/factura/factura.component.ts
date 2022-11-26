@@ -65,7 +65,7 @@ export class FacturaComponent implements OnInit {
   }
 
   verDetalle(idx: number) {
-    console.log('ID FACTURA ' + idx);
+
     this.router.navigate(['/admin/detalleFactura', idx]);
   }
 }

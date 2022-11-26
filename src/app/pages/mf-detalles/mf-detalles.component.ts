@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { reload } from '@firebase/auth';
+import { ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { window } from 'rxjs';
 import { ArticuloInsumo } from 'src/app/entidades/ArticuloInsumo';
 import { ArticuloManufacturadoDetalle } from 'src/app/entidades/ArticuloManufacturadoDetalle';
 import { ArticuloMFRubroDto } from 'src/app/entidades/ArticuloMFRubroDto';
@@ -7,6 +10,7 @@ import { PrecioArticuloManufacturado } from 'src/app/entidades/PrecioArticuloMan
 import { RubroGeneral } from 'src/app/entidades/RubroGeneral';
 import { ArticuloInsumoService } from 'src/app/servicios/articulo-insumo.service';
 import { ManufacturadosService } from 'src/app/servicios/manufacturados.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-mf-detalles',
@@ -22,7 +26,7 @@ export class MfDetallesComponent implements OnInit {
     preciosArticulosManufacturados: [new PrecioArticuloManufacturado()],
     bajaArticuloManu: false,
     stock: 0,
-    articuloManufacturadoDetalles: [new ArticuloManufacturadoDetalle()],
+    articuloManufacturadoDetalles: [],
     rubroGeneral: new RubroGeneral(),
   };
   idArticuloManufacturado!: number;
@@ -68,40 +72,90 @@ export class MfDetallesComponent implements OnInit {
   }
 
   delete(idArticuloManufacturadoDetalle: number) {
-    var opcion = confirm(
-      'Esta seguro que desea eliminar este insumo del producto?'
-    );
-    if (opcion == true) {
-      for (let artMFdetalle of this.articulo.articuloManufacturadoDetalles) {
-        this.articulo.articuloManufacturadoDetalles =
-          this.articulo.articuloManufacturadoDetalles.filter(
-            (artMFdetalle) =>
-              artMFdetalle.idArticuloManufacturadoDetalle !=
-              idArticuloManufacturadoDetalle
-          );
+    Swal.fire({
+      title: '¿Esta seguro que desea eliminar este insumo del producto?',
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminar',
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        for (let artMFdetalle of this.articulo.articuloManufacturadoDetalles) {
+          this.articulo.articuloManufacturadoDetalles =
+            this.articulo.articuloManufacturadoDetalles.filter(
+              (artMFdetalle) =>
+                artMFdetalle.idArticuloManufacturadoDetalle !=
+                idArticuloManufacturadoDetalle
+            );
+        }
+        this.servicioManu.guardarPOST(
+          this.articulo,
+          this.articulo.idArticuloManufacturado
+        );
       }
-      this.servicioManu.guardarPOST(
-        this.articulo,
-        this.articulo.idArticuloManufacturado
-      );
-    }
+    });
   }
 
-  add(idArticuloManufacturadoDetalle: number) {
-    var opcion = confirm(
-      'Esta seguro que desea AGREGAR este insumo del producto?: ' +
-        idArticuloManufacturadoDetalle
-    );
-    if (opcion == true) {
-    }
+  add(articuloManufacturadoDetalle: ArticuloManufacturadoDetalle) {
+    // var opcion = confirm(
+    //   'Esta seguro que desea AGREGAR este insumo del producto?: ' +
+    //     articuloManufacturadoDetalle.idArticuloManufacturadoDetalle
+    // );
+    // if (opcion == true) {
+    Swal.fire({
+      title: '¿Desea Agregar/editar este insumo del producto?',
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Si, guardar',
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        let encontroInsumo = false;
+        this.articulo.articuloManufacturadoDetalles.forEach((detalle) => {
+          if (
+            detalle.articuloInsumo.idArticuloInsumo ==
+            articuloManufacturadoDetalle.articuloInsumo.idArticuloInsumo
+          ) {
+            detalle.articuloInsumo = this.artManuDetalle.articuloInsumo;
+            detalle.cantidadArticuloManuDetalle =
+              this.artManuDetalle.cantidadArticuloManuDetalle;
+            detalle.idArticuloManufacturadoDetalle =
+              this.artManuDetalle.idArticuloManufacturadoDetalle;
+            detalle.unidadMedidaArticuloManuDetalle =
+              this.artManuDetalle.unidadMedidaArticuloManuDetalle;
+            encontroInsumo = true;
+          }
+        });
+        if (
+          !encontroInsumo ||
+          this.articulo.articuloManufacturadoDetalles.length < 1
+        ) {
+          this.articulo.articuloManufacturadoDetalles.push(
+            articuloManufacturadoDetalle
+          );
+        }
+        this.servicioManu.guardarPOST(
+          this.articulo,
+          this.articulo.idArticuloManufacturado
+        );
+        location.reload();
+      }
+    });
   }
 
-  edit(idArticuloManufacturadoDetalle: number) {
-    var opcion = confirm(
-      'Esta seguro que desea EDITAR este insumo del producto?: ' +
-        idArticuloManufacturadoDetalle
-    );
-    if (opcion == true) {
-    }
+  editarAMFD(artMFdetalle: ArticuloManufacturadoDetalle) {
+    this.artManuDetalle.articuloInsumo = artMFdetalle.articuloInsumo;
+    this.artManuDetalle.cantidadArticuloManuDetalle =
+      artMFdetalle.cantidadArticuloManuDetalle;
+    this.artManuDetalle.idArticuloManufacturadoDetalle =
+      artMFdetalle.idArticuloManufacturadoDetalle;
+    this.artManuDetalle.unidadMedidaArticuloManuDetalle =
+      artMFdetalle.unidadMedidaArticuloManuDetalle;
+  }
+  limpiarCampos() {
+    this.artManuDetalle.articuloInsumo = new ArticuloInsumo();
+    this.artManuDetalle.cantidadArticuloManuDetalle = 0;
+    this.artManuDetalle.idArticuloManufacturadoDetalle = 0;
+    this.artManuDetalle.unidadMedidaArticuloManuDetalle = '';
   }
 }
