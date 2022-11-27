@@ -69,7 +69,11 @@
         <div class="form-group">
           <label for="estadoPedido">Estado</label>
           <p>
-            <select name="miselect" [(ngModel)]="seleccionado">
+            <select
+              name="miselect"
+              class="form-control"
+              [(ngModel)]="seleccionado"
+            >
               <option [value]="item" *ngFor="let item of lista">
                 {{ item }}
               </option>
