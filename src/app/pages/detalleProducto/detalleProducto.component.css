@@ -1,3 +1,10 @@
+#content {
+    background-color: #FFF !important;
+}
+
+.content{
+    margin-left: 10%;
+}
 img {
     width: 450px;
     height: 400px;
@@ -14,10 +21,6 @@ img {
 
 .col-2{
     margin-right: 150px;
-}
-
-* {
-    background-color: #FFF !important;
 }
 
 h1{

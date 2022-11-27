@@ -52,10 +52,7 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     const dato = localStorage.getItem('carro');
     if (dato) this.carritos = JSON.parse(dato);
-    this.totalCompra = this.carritos.reduce(
-      (a, b, c) => (a += b.subTotal * b.cantidad),
-      0
-    );
+    this.totalCompra = this.carritos.reduce((a, b, c) => (a += b.subTotal), 0);
     console.log('ESTO SON LOS CARRITOS ', this.carritos);
     this.totalHoraCocina = this.carritos.reduce((a, b) => a + b.horasCocina, 0);
   }
@@ -75,6 +72,7 @@ export class CarritoComponent implements OnInit {
     this.carritos.map((item) => {
       if (item.id == idCarrito) {
         item.cantidad += 1;
+        item.subTotal += item.precioProducto;
       }
     });
     localStorage.setItem('carro', JSON.stringify(this.carritos));
@@ -85,6 +83,7 @@ export class CarritoComponent implements OnInit {
     this.carritos.map((item) => {
       if (item.id == idCarrito) {
         item.cantidad -= 1;
+        item.subTotal -= item.precioProducto;
       }
     });
     localStorage.setItem('carro', JSON.stringify(this.carritos));
