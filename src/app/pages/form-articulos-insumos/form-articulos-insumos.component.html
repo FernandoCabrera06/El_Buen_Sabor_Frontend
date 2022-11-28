@@ -80,7 +80,29 @@
               </div>
 
               <!-- UNIDAD DE MEDIDA -->
+              <!-- ----------------SELECT DE UNIDAD DE MEDIDA------------------- -->
               <div class="form-group">
+                <label for="recipient-name" class="col-form-label"
+                  >Unidad de medida:</label
+                >
+                <select
+                  name="unidad"
+                  id="recipient-name"
+                  class="form-control"
+                  [(ngModel)]="insumo.unidadMedidaArticuloInsumo"
+                >
+                  <option [value]="insumo.unidadMedidaArticuloInsumo" selected>
+                    Unidad Actual:
+                    {{ insumo.unidadMedidaArticuloInsumo }}
+                  </option>
+                  <option>Kilos</option>
+                  <option>Gramos</option>
+                  <option>Litros</option>
+                  <option>Cm³</option>
+                  <option>Unidades</option>
+                </select>
+              </div>
+              <!-- <div class="form-group">
                 <label for="unidadMedida">Unidad de medida</label>
                 <input
                   id="unidadMedida"
@@ -91,6 +113,7 @@
                   minlength="4"
                 />
               </div>
+              -->
             </td>
             <td class="col-md-6">
               <!-- TODOS LOS CAMPOS DEL OBJETO PRECIOS DEL ARTICULO INSUMO -->
