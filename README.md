@@ -62,9 +62,7 @@ ng serve
 
 
 ## Colaboradores 🧑‍💻
-&nbsp; &nbsp; <a href="https://github.com/FernandoCabrera06" target="_blank"><img width="15%" src="https://github.com/FernandoCabrera06/El_Buen_Sabor_Frontend/blob/main/src/assets/images/Fernando%20Cabrera.png"></a>&nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; &nbsp; &nbsp; <a href="https://github.com/Cortinezjuan" target="_blank"><img width="15%" src="https://github.com/FernandoCabrera06/El_Buen_Sabor_Frontend/blob/main/src/assets/images/Juan%20Cortinez.jpg"></a>&nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; &nbsp; &nbsp; <a href="https://github.com/LuciaScripponi" target="_blank"><img width="15%" src="https://github.com/FernandoCabrera06/El_Buen_Sabor_Frontend/blob/main/src/assets/images/Cintia%20Lucia%20Scripponi.png"></a>
 
-
-Cabrera Fernando Damían  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Cortinez Juan Jose &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Scripponi Cintia Lucía
+| <a href="https://github.com/FernandoCabrera06" target="_blank"><img width="60%" src="https://github.com/FernandoCabrera06/El_Buen_Sabor_Frontend/blob/main/src/assets/images/Fernando%20Cabrera.png"></a> | <a href="https://github.com/Cortinezjuan" target="_blank"><img width="60%" src="https://github.com/FernandoCabrera06/El_Buen_Sabor_Frontend/blob/main/src/assets/images/Juan%20Cortinez.jpg"></a> | <a href="https://github.com/LuciaScripponi" target="_blank"><img width="60%" src="https://github.com/FernandoCabrera06/El_Buen_Sabor_Frontend/blob/main/src/assets/images/Cintia%20Lucia%20Scripponi.png"></a> |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|&nbsp;&nbsp;&nbsp;&nbsp;Cabrera Fernando Damían|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cortinez Juan Jose|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scripponi Cintia Lucía| 
