@@ -30,8 +30,6 @@ export class FormRolesComponent implements OnInit {
         servicioRol
           .getRolEnBaseDatosXId(this.idRol)
           .subscribe((rolEncontrado: any) => (this.rol = rolEncontrado as Rol));
-      } else {
-        console.log('ES NUEVO');
       }
     });
   }

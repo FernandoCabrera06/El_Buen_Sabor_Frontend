@@ -53,7 +53,6 @@ export class CarritoComponent implements OnInit {
     const dato = localStorage.getItem('carro');
     if (dato) this.carritos = JSON.parse(dato);
     this.totalCompra = this.carritos.reduce((a, b, c) => (a += b.subTotal), 0);
-    console.log('ESTO SON LOS CARRITOS ', this.carritos);
     this.totalHoraCocina = this.carritos.reduce((a, b) => a + b.horasCocina, 0);
   }
   eliminar(i: number) {

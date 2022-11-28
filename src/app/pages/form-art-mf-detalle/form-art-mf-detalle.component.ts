@@ -38,8 +38,6 @@ export class FormArtMfDetalleComponent implements OnInit {
               (this.artManuDetalle =
                 artManuDetalleEncontrado as ArticuloManufacturadoDetalle)
           );
-      } else {
-        console.log('ES NUEVO');
       }
     });
   }

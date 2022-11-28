@@ -24,9 +24,7 @@ export class ManufacturadosComponent implements OnInit {
     this.servicioManu
       .getArticulosManufacturadosFromDataBase()
       .subscribe((data) => {
-        console.log(data);
         for (let articuloDB in data) {
-          console.log(data[articuloDB]);
           this.articulos.push(data[articuloDB]);
         }
         // Ordeno por Nombre y Rubro
@@ -61,7 +59,6 @@ export class ManufacturadosComponent implements OnInit {
   }
 
   verDetalle(idx: number) {
-    console.log('ID ARTICULO MANUFACTURADO ' + idx);
     this.router.navigate(['/detalleRecetaManufacturado', idx]);
   }
 }

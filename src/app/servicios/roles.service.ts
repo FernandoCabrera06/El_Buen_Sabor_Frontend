@@ -10,13 +10,10 @@ export class RolesService {
   public rolesData: Rol[] = [];
   public rolEncontrado: any;
 
-  constructor(public http: HttpClient) {
-    console.log('Servicio Cargado!!!');
-  }
+  constructor(public http: HttpClient) {}
 
   public getRoles(): any[] {
     return this.rolesData;
-    console.log(this.rolesData);
   }
 
   public getRolXId(idx: number): any {
@@ -46,7 +43,6 @@ export class RolesService {
   //baja logica de un rol
   async deleteRolFetch(idRol: number) {
     let urlServer = 'http://localhost:8080/borrarRol/' + idRol;
-    console.log(urlServer);
     let result = await fetch(urlServer, {
       method: 'DELETE',
       headers: {

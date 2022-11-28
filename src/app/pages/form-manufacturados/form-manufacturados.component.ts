@@ -48,8 +48,6 @@ export class FormManufacturadosComponent implements OnInit {
             (articuloEncontrado: any) =>
               (this.articulo = articuloEncontrado as ArticuloMFRubroDto)
           );
-      } else {
-        console.log('ES NUEVO');
       }
     });
   }

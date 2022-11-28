@@ -21,9 +21,7 @@ export class RolesComponent implements OnInit {
 
   ngOnInit(): void {
     this.servicioRol.getRolesFromDataBase().subscribe((data) => {
-      console.log(data);
       for (let rolDB in data) {
-        console.log(data[rolDB]);
         this.roles.push(data[rolDB]);
       }
       this.loading = false;

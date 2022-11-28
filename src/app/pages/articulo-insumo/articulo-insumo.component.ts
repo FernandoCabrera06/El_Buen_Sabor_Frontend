@@ -21,9 +21,7 @@ export class ArticuloInsumoComponent implements OnInit {
 
   ngOnInit(): void {
     this.servicioInsumo.getArticulosInsumoFromDataBase().subscribe((data) => {
-      //console.log(data);
       for (let articuloDB in data) {
-        //console.log(data[articuloDB]);
         this.insumos.push(data[articuloDB]);
       }
       this.loading = false;

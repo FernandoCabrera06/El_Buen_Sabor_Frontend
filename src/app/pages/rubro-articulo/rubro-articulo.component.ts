@@ -27,17 +27,13 @@ export class RubroArticuloComponent implements OnInit {
     this.servicioRubroArticulo
       .getRubrosArticuloFromDataBase()
       .subscribe((data) => {
-        console.log(data);
         for (let rubroDB in data) {
-          console.log(data[rubroDB]);
           this.rubros.push(data[rubroDB]);
         }
         this.loading = false;
       });
     this.servicioInsumo.getArticulosInsumoFromDataBase().subscribe((dataMF) => {
-      console.log(dataMF);
       for (let articuloDBMF in dataMF) {
-        console.log(dataMF[articuloDBMF]);
         this.articulosInsumos.push(dataMF[articuloDBMF]);
       }
       this.loading = false;

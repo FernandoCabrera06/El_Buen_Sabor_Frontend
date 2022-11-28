@@ -42,7 +42,6 @@ export class RubroArticuloService {
   async deleteRubroArticuloFetch(idx: number) {
     let urlServer =
       'http://localhost:8080/rubroArticulo/borrarRubroArticulo/' + idx;
-    console.log(urlServer);
     let result = await fetch(urlServer, {
       method: 'DELETE',
       headers: {

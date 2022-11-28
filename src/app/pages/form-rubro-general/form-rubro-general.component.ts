@@ -33,8 +33,6 @@ export class FormRubroGeneralComponent implements OnInit {
             (rubroEncontrado: any) =>
               (this.rubroGeneral = rubroEncontrado as RubroGeneral)
           );
-      } else {
-        console.log('ES NUEVO');
       }
     });
   }

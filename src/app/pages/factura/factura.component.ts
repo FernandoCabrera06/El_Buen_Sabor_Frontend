@@ -48,9 +48,7 @@ export class FacturaComponent implements OnInit {
   }
   ngOnInit(): void {
     this.servFactura.getFacturasFromDataBase().subscribe((data) => {
-      console.log(data);
       for (let facturaDb in data) {
-        console.log(data[facturaDb]);
         this.facturas.push(data[facturaDb]);
       }
       this.loading = false;
@@ -65,7 +63,6 @@ export class FacturaComponent implements OnInit {
   }
 
   verDetalle(idx: number) {
-
     this.router.navigate(['/admin/detalleFactura', idx]);
   }
 }

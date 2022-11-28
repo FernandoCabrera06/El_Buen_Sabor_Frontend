@@ -28,18 +28,14 @@ export class RubroGeneralComponent implements OnInit {
     this.servicioRubroGeneral
       .getRubrosGeneralesFromDataBase()
       .subscribe((data) => {
-        console.log(data);
         for (let rubroDB in data) {
-          console.log(data[rubroDB]);
           this.rubros.push(data[rubroDB]);
         }
         this.loading = false;
       });
 
     this.servicioManu.getArticulosMFRubrosFromDataBase().subscribe((dataMF) => {
-      console.log(dataMF);
       for (let articuloDBMF in dataMF) {
-        console.log(dataMF[articuloDBMF]);
         this.articulos.push(dataMF[articuloDBMF]);
       }
       this.loading = false;

@@ -88,7 +88,6 @@ export class LoginComponent implements OnInit {
   redireccionGoogle() {
     this.serv.isAuth().subscribe((user: any) => {
       if (user) {
-        console.log('El user es : ', user);
         localStorage.setItem('usuario', user.email);
         localStorage.setItem('rol', 'cliente');
       }

@@ -33,8 +33,6 @@ export class FormRubroArticuloComponent implements OnInit {
             (rubroEncontrado: any) =>
               (this.rubroArticulo = rubroEncontrado as RubroArticulo)
           );
-      } else {
-        console.log('ES NUEVO');
       }
     });
   }

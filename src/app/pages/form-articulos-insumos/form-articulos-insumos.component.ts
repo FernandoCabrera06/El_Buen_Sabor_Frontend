@@ -46,8 +46,6 @@ export class FormArticulosInsumosComponent implements OnInit {
             (insumoEncontrado: any) =>
               (this.insumo = insumoEncontrado as ArticuloInsumo)
           );
-      } else {
-        console.log('ES NUEVO');
       }
     });
   }

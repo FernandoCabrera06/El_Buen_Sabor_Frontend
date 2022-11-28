@@ -11,9 +11,7 @@ export class UsuarioServicio {
   public usuariosData: Usuario[] = [];
   public usuarioEncontrado: any;
 
-  constructor(public http: HttpClient) {
-    // console.log("Servicio Cargado!!!");
-  }
+  constructor(public http: HttpClient) {}
 
   public getUsuarios(): any[] {
     return this.usuariosData;
@@ -49,7 +47,7 @@ export class UsuarioServicio {
   //baja logica de un usuario
   async deleteUsuarioFetch(idUsuario: number) {
     let urlServer = 'http://localhost:8080/usuario/borrarUsuario/' + idUsuario;
-    console.log(urlServer);
+
     let result = await fetch(urlServer, {
       method: 'DELETE',
       headers: {

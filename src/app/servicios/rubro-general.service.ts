@@ -10,13 +10,10 @@ export class RubroGeneralService {
   public rubrosData: RubroGeneral[] = [];
   public rubroEncontrado: any;
 
-  constructor(public http: HttpClient) {
-    console.log('Servicio Cargado!!!');
-  }
+  constructor(public http: HttpClient) {}
 
   public getRubros(): any[] {
     return this.rubrosData;
-    console.log(this.rubrosData);
   }
 
   public getRubroXId(idx: number): any {
@@ -29,18 +26,22 @@ export class RubroGeneralService {
 
   //lee todos los rubros generales
   getRubrosGeneralesFromDataBase(): Observable<RubroGeneral[]> {
-    return this.http.get<RubroGeneral[]>('http://localhost:8080/rubroGeneral/listarRubrosGenerales');
+    return this.http.get<RubroGeneral[]>(
+      'http://localhost:8080/rubroGeneral/listarRubrosGenerales'
+    );
   }
 
   //busca un rubro general por el id
   getRubroGeneralEnBaseDatosXId(idx: number) {
-    return this.http.get('http://localhost:8080/rubroGeneral/listarRubroGeneralXId/' + idx);
+    return this.http.get(
+      'http://localhost:8080/rubroGeneral/listarRubroGeneralXId/' + idx
+    );
   }
 
   //baja logica de un rubro general
   async deleteRubroGeneralFetch(idx: number) {
-    let urlServer = 'http://localhost:8080/rubroGeneral/borrarRubroGeneral/' + idx;
-    console.log(urlServer);
+    let urlServer =
+      'http://localhost:8080/rubroGeneral/borrarRubroGeneral/' + idx;
     let result = await fetch(urlServer, {
       method: 'DELETE',
       headers: {

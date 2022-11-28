@@ -65,18 +65,14 @@ export class CatalogoComponent implements OnInit {
 
   ngOnInit(): void {
     this.serv.getArticulosManufacturadosFromDataBase().subscribe((data) => {
-      console.log(data);
       for (let articuloDB in data) {
-        console.log(data[articuloDB]);
         this.articulos.push(data[articuloDB]);
       }
       this.loading = false;
     });
 
     this.serv.getBebidasFromDataBase().subscribe((dato) => {
-      console.log(dato);
       for (let bebidaDb in dato) {
-        console.log(dato[bebidaDb]);
         this.bebidas.push(dato[bebidaDb]);
       }
       this.loading = false;

@@ -13,9 +13,7 @@ export class ManufacturadosService {
   public articulosData: ArticuloManufacturado[] = [];
   public articuloEncontrado: any;
 
-  constructor(public http: HttpClient) {
-    //console.log('Servicio Cargado!!!');
-  }
+  constructor(public http: HttpClient) {}
 
   public getArticulosManufacturados(): any[] {
     return this.articulosData;

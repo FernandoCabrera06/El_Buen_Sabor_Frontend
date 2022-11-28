@@ -41,9 +41,7 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.servicioUsuario.getUsuarioEmpleadosFromDataBase().subscribe((data) => {
-      console.log(data);
       for (let usarioDB in data) {
-        console.log(data[usarioDB]);
         this.usuarios.push(data[usarioDB]);
       }
       this.loading = false;
